@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function stuFactory(no, name, school) {
+            var o = {};
+            o.no = no;
+            o.name = name;
+            o.school = school;
+
+            o.say = function() {
+                console.log(this.no, this.name, this.school);
+            };
+
+            o.study = function() {
+                console.log(this.name + "is studying...");
+            };
+
+            return o;
+        }
+
+        var s1 = stuFactory(1, "小明", "清华");
+        var s2 = stuFactory(2, "小丽", "北大");
+        var s3 = stuFactory(3, "小阳", "清华");
+
+        s2.say();
+        s1.say();
+
+        s3.study();
+
+        console.log(typeof s1, typeof s2, typeof s3);
+
+        console.log(s1 instanceof stuFactory);
+    </script>
+</body>
+</html>

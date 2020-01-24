@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <h2 id="h2">{{msg}}</h2>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                msg: "hello"
+            },
+            methods: {
+                show() {
+                    return "show";
+                }
+            },
+            beforeCreate() {   // vue实例还未完全创建,data属性和methods尚未初始化到实例上
+                console.log("beforeCreate...");
+                console.log(this.msg);
+                // console.log(this.show());
+            },
+            created() {  // vue实例上的data和methods完全初始化
+                console.log("created...");
+                console.log(this.msg);
+                console.log(this.show());
+            },
+            beforeMount() {  // 模板在内存中已经编译完成，但是尚未渲染到页面中
+                console.log("beforeMount...");
+                console.log(document.getElementById("h2").innerHTML);  // {{msg}}
+            },
+            mounted() {     // 页面被完全的渲染
+                console.log("mounted...");
+                console.log(document.getElementById("h2").innerHTML); 
+            },
+            beforeUpdate() {   // 数据发生更新（页面）之前
+                console.log("beforeUpdate...");
+                console.log(this.msg);   // 数据已经改了
+                console.log(document.getElementById("h2").innerHTML);  // 旧数据
+            },
+            updated() {  // 数据驱动页面更新之后
+                console.log("updated...");
+                console.log(this.msg);   // 数据已经改了
+                console.log(document.getElementById("h2").innerHTML);  // 新数据
+            },
+            beforeDestroy() {  // vue销毁之前，一般可以做一些清理类的工作
+                console.log("beforeDestroy...");
+                // vue实例仍然可用
+                console.log(this.msg);
+                console.log(this);
+            },
+            destroyed() {   // 虽然对象仍然存在，但已不具备vue对象的各种功能了，一般不会编写代码
+                console.log("destroyed...");
+                console.log(this.msg);
+                console.log(this.show());
+                console.log(this);
+            }
+        });
+
+        // 手动销毁vue实例 
+        // app.$destroy();
+    </script>
+</body>
+</html>

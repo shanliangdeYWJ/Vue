@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        /*
+            字符集：
+                任意一个：[]
+                范围：    [0-9]  [a-z] [A-Z]
+                取反：    [^0-9]   非数字
+            
+            元字符：
+                \d          数字   [0-9]
+                \w          字母和数字  [0-9a-zA-Z]
+                \s          空格、缩进、换行(空白字符)
+
+                \D         非数字   [^0-9]
+                \W         非字母和数字  [^0-9a-zA-Z]
+                \S          非空白字符
+
+            量词：
+                ？   零或者一个          \d?
+                +    至少一个    
+                *    零或者多个          大于等于0
+
+                {m,n}  大于等于m,小于等于n  
+                {m,}    大于等于m
+                {m}     m次
+
+
+                $  结束
+                ^  开始
+
+
+        */
+
+        // var p=/[123]/g;
+
+        // var p=/[0-9]/g;//数字
+        // var p=/[a-zA-Z]/;//字母
+        // var p=/[^0-9]/g;//非数字
+        // var p=/\w/g;
+
+        // var p=/\d{6}/;//密码为6位数字
+
+
+        var p=/^\d\d{5}$/;
+
+        // var str='1k234k23345k345784k5&*………………&123';
+        // var s=str.replace(p,'');;
+
+        var pwd='34567a';
+        if(p.test(pwd)){
+            alert('正确');
+        }else{
+            alert('失败');
+        }
+        // console.log(s);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

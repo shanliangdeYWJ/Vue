@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .cc{
+            font-size: 34px;
+            color: green;
+            border: 1px solid #ddd;
+            width: 100px;
+            height: 80px;
+        }
+
+        /* #box{
+            color: red;
+        } */
+    </style>
+</head>
+<body>
+    
+    <div id="box" >hello</div>
+    <script>
+        /*
+            1. 设置或获取元素的样式
+            2. 设置或获取元素的属性
+            3. 设置元素的事件
+            4. 对元素进行结构操作（删除或添加子元素）
+        */
+
+        // 1. 设置元素的样式  (行内， class)
+        var o = document.getElementById("box");
+        // 行内样式
+        // o.style.color = "red";
+        // o.style.fontSize = "30px";
+        // class样式
+        // o.className = "cc";
+
+        // o.className = "";
+
+
+        // 2. 获取元素的样式  (行内， class)
+        var color = o.style.color;   // 只能取到行内样式，<style>内的样式取不到
+
+        // 如果想要取出<style>块中或者外部样式表文件中的元素样式， 需要window的功能
+        var ss = window.getComputedStyle(o);
+        
+    </script>
+</body>
+</html>

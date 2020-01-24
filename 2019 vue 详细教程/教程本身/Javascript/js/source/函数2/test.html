@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function sum(num1, num2) {
+            console.log(this);
+            return (num1 + num2);
+        }
+        function callSum1(num1, num2) {
+            // console.log(this);
+
+            return sum.apply(o, arguments); // 传入 arguments 对象
+        }
+        function callSum2(num1, num2) {
+            console.log(this);
+            // return sum.apply(this, [num1, num2]); // 传入数组
+            return sum.call(this, num1, num2);
+        }
+
+        var o = {
+            msg: "hello"
+        };
+        // alert(callSum1(10, 10)); //20
+        // alert(callSum2(10, 10));
+        console.log(callSum1(10, 10));
+
+        console.log(callSum2(10, 50));
+    </script>
+</body>
+
+</html>

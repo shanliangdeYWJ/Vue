@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" id="username">
+
+    <input type="checkbox" id="like"> 
+     <br>
+
+     <select name="" id="city">
+         <option value="a">AAA</option>
+         <option value="b">BBB</option>
+         <option value="c">CCC</option>
+     </select>
+
+    <script>
+        // document.getElementById("username").oninput = function() {
+        //     console.log(this.value);
+        // };
+
+        document.getElementById("username").onchange = function() {
+            console.log(this.value);
+        };
+
+        document.getElementById("like").onchange = function() {
+            // console.log("test");
+            console.log(this.checked);
+        };
+
+        document.getElementById("city").onchange = function() {
+            console.log(this.value);
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        boolean isNaN(p)
+          用来判断p不是一个数值
+            即如果p不是一个数值，就返回true
+            如果p是一个数值，就返回false
+        */
+
+        var p = prompt("请输入一个数值");
+
+        var b = isNaN(p);
+
+        console.log(b);
+
+        if(b) {
+            console.log("不是一个数");
+        }else {
+            console.log("是一个数");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        5.输出一道单选题的题干，输入答案，输出本次选择是否正确。
+  例：
+	以下哪个不是合法的变量名?
+	A. $a		B. _123
+	C. Abc		D. *b
+	请选择
+    */
+    var score = 0;
+
+    var answer1 = prompt("以下哪个不是合法的变量名?\nA. $a		B. _123      C. Abc		D. *b\n请选择");
+
+    var result1;
+    if(answer1 === 'D' || answer1 === 'd') {
+        result1 = "回答正确";
+        score += 5;
+    }else {
+        result1 = "回答错误";
+    }
+
+    alert(result1);
+
+    var answer2 = prompt("以下哪个不是合法的变量名?\nA. $a		B. 123      C. Abc		D. b\n请选择");
+    var result2;
+    if(answer2 === 'B' || answer2 === 'b') {
+        result2 = "回答正确";
+        score += 5;
+    }else {
+        result2 = "回答错误";
+    }
+
+    alert(result2);
+
+    alert("您的得分是" + score);
+    </script>
+</body>
+</html>

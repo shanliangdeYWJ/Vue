@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>父传递儿子数值.html</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div id="app">
+    username: <input type="text" v-model="username">
+    <my-header info="headerData" :user="username"></my-header>
+  </div>
+
+  <template id="header">
+    <header>
+      <!-- 必须写在 header 内部 -->
+      <h3>{{ info }}</h3>
+      <h3 v-if="user">{{ user }}</h3>
+      <!-- 避免直接操作 props 里面的参数 因为父组件重新渲染 props的值会被覆写
+          你可以使用计算属性来对这个 props 里面的数据进行计算操作 然后放到组件上
+      -->
+      <!-- username: <input type="text" v-model="user"> -->
+      <p>正确方式更改父组件的参数{{ myUser }}</p>
+    </header>
+  </template>
+
+</body>
+<script>
+  var myHeader = {
+    template: '#header',
+    props: {
+      // 必须是字符串类型
+      info: String, 
+      // 必须是字符串类型 或 数字类型
+      likes: [Number, String],
+      // 布尔值 如果没有定义默认值为 true
+      isPublished: { 
+        type: Boolean,
+        default: true
+      },
+      // String ，必须传递
+      user: {
+        user: String,
+        required: true // 必须传递
+      },
+      commentIds: Array,
+      author: Object,
+      callback: Function,
+      contactsPromise: Promise // or any other constructor
+    }, // 接收父级的info
+    computed: {
+      myUser() { return this.user + '111'; }
+    }
+  };
+  var app = new Vue({
+    el: '#app',
+    // 主组件 采用键值对 对象书写方式
+    data: {
+      username: "你好",
+      headerData: ['AAA', 'BBB', 'CCC'],
+    },
+    components: { myHeader }
+  });
+</script>
+
+</html>

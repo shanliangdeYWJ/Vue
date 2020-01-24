@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            padding: 6px 20px;
+            position: absolute;
+            left: 200px;
+            top: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box">
+        <img src="" alt="" id="pic0">
+        <img src="" alt="" id="pic1">
+        <img src="数字时钟字体/卡通3/second1.png" alt="" id="pic2">
+        <img src="" alt="" id="pic3">
+        <img src="" alt="" id="pic4">
+        <img src="数字时钟字体/卡通3/second1.png" alt="" id="pic5">
+        <img src="" alt="" id="pic6">
+        <img src="" alt="" id="pic7">
+    </div>
+
+    <script>
+        function clock() {
+            var now = new Date();
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+            if (hour < 10) {
+                hour = "0" + hour;
+            }
+            if (minute < 10) {
+                minute = "0" + minute;
+            }
+            if (second < 10) {
+                second = "0" + second;
+            }
+
+            var time = hour + ":" + minute + ":" + second;
+            console.log(time);
+
+            // var eid = "pic0";
+            // document.getElementById(eid).src = "数字时钟字体/点阵/" + time.charAt(0) + ".png";
+
+            for (var i = 0; i < time.length; i++) {
+                if (i !== 2 && i !== 5) {
+                    var picName = "数字时钟字体/卡通3/" + time.charAt(i) + ".png";
+                    // console.log(picName);
+                    document.getElementById("pic" + i).src = picName;
+                }
+            }
+        }
+        clock();
+        setInterval(clock, 1000);
+    </script>
+</body>
+
+</html>

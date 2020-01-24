@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        电脑：  
+            属性：
+                 品牌
+                 价格
+                 型号
+            行为：
+                开机
+                关机
+                运行
+        */
+
+        // 使用构造函数和原型组合模式是ES5中最好的创建对象的方式
+        function Computer(brand, price, type) {
+            this.brand = brand;
+            this.price = price;
+            this.tyep = type;
+        }
+
+        Computer.prototype.name = "笔记本";
+
+        Computer.prototype.start = function() {
+            console.log(this.brand + " 开机");
+        };
+
+        Computer.prototype.shutdown = function() {
+            console.log(this.brand + " 关机");
+        };
+
+        Computer.prototype.run = function() {
+            console.log(this.brand + " 运行");
+        };
+
+
+        var c1 = new Computer("联想", 6000, "Z234");
+        var c2 = new Computer("华硕", 5000, "H789");
+
+        c1.start();
+        c1.run();
+        c1.shutdown();
+
+        c2.start();
+        c2.run();
+        c2.shutdown();
+
+
+        // instanceof 判断对象是否是某一种类型（构造函数）
+        console.log(c1 instanceof Computer);
+
+        // Object.hasOwnProperty()
+        // in
+
+        console.log("brand" in c1);  // true   对象自有的
+        console.log("name" in c1);  // true    原型上的
+
+        console.log("pppp" in c1);  // false   对象和原型上都没有的
+
+
+        console.log(c1.hasOwnProperty("name"));  // false  "name"是原型上的属性，而不是c1的自有属性
+
+        console.log(c1.hasOwnProperty("pppp"));  // false "ppp"是不存在的属性
+        // c1.hasOwnProperty()当返回值为false，无法得知这个属性是原型上的还是不存在
+
+        // 检测某个属性是不是某个对象原型上的属性
+        function hasPrototypeProperty(o, p) {
+            //  (p in o) && !o.hasOwnProperty(p)要想得到true条件是 (p in o) 必须为true 且o.hasOwnProperty(p) 必须为false
+           return  (p in o) && !o.hasOwnProperty(p);
+        }
+
+        console.log(hasPrototypeProperty(c1, "brand"));
+    </script>
+</body>
+</html>

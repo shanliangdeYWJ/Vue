@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        布尔运算符（逻辑运算符）
+        运算结果是一个布尔值：  true  false
+        !  非  (取反)  单目运算，只放在变量前，表示取反
+        && 与  (且)
+        || 或  (或)
+        */
+
+        console.log(true);
+        console.log(!true);
+        console.log(!!true);
+
+        var a = 10 > 9;   // a true
+        var b = !a;   // false
+        console.log(a, b);
+
+        // 与关系  &&  两个操作数参与&&运算数，只要有一个操作数为false,结果就为false
+        var c = 10 == 10;
+        var d = 10 === '10';
+        console.log(c && d);  // true && false = false
+
+        // 或关系  || 两个操作数参与||运算数，只要有一个操作数为true,结果就为true
+        console.log(c || d); // true || false = true
+
+        // 
+        var e = 10;
+        var f = 11;
+        var g = e++ > f;  // false
+        var h = f >= e;   // true
+        console.log(g || h); // true
+
+
+        // var i = f++ > 10 && e++ > 10; // true
+        // // 11 > 10 && 11 > 10
+        // console.log(i, f, e);   // true, 12, 12
+
+        var i = f++ < 10 && e++ > 10; //
+        // 11 < 10    短路与，在运算时遇到了false， 后面的操作数不需再运算了，整个结果就决定了。
+        console.log(i, f, e);   // false 12  11
+
+        /*
+        算术运算符的优先级高于关系运算符， 关系运算符的优先级高于逻辑运算符
+        */
+    </script>
+</body>
+
+</html>

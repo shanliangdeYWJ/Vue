@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* body{
+            color: red;
+        } */
+
+        span {
+            color: red;
+            display: inline-block;
+            width: 21px;
+            text-align: center;
+        }
+
+        .green {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <script>
+        // 打印线段
+        var n = 50;
+        for (var i = 1; i <= n; i++) {
+            if (i === 1 || i === n) {
+                document.write("<span class='green'>*</span>");
+            } else {
+                document.write("<span>*</span>");
+            }
+        }
+    </script>
+</body>
+
+</html>

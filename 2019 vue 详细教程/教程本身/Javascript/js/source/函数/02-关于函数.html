@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 计算两个数相加和结果
+        
+        // 声明一个函数
+        function add() {
+            var a = 10;
+            var b = 20;
+            var c = a + b;
+            console.log(a + b);
+        }
+
+        // add();
+
+        // 希望add函数能够计算任意两个数的和
+        // 对于add函数来说，a和b是何值不重要，重要的是完成计算功能
+        // 我们希望函数外部（调用方）告知此函数需要运算的数据是什么
+        // 通过为函数传递参数的方法   函数名后面的()就果可以传递参数的位置
+        // 形参  （形式参数）  声明函数时传的参数即形参  ,用,隔开多个参数
+        // 实参   （实际参数）  调用函数时传的参数即实参
+        // 大多数情况下，形参和实参是一一对应的，数量相等
+        // 在调用函数时，会将实参按顺序依次赋值给形参
+        function add2(a, b) {
+            var c= a + b;
+            console.log(c);
+        }
+
+        add2(10, 20);
+        add2(100, 210);
+        add2(10.6, 90);
+        
+        // 数据从哪来不重要，可以用户输入 
+        var m = +prompt("第一个数");
+        var n = +prompt("第二个数");
+        add2(m, n);
+       
+    </script>
+</body>
+</html>

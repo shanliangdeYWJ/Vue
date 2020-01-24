@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    
+    <div id="app">
+        <img :src="picUrl" alt="" @mouseover="changeHandler" @mouseout="backHandler">
+    </div>
+
+    <script src="lib/vue.js"></script>
+
+    <script>
+        // el属性定义了vue实例所管理的边界
+        var app = new Vue({
+            el: '#app',
+            data: {
+              picUrl: "images/2.jpg"
+            },
+            methods: {
+                changeHandler() {
+                    this.picUrl = "images/3.jpg"
+                },
+                backHandler() {
+                    this.picUrl = "images/2.jpg"
+                }
+            }
+        });
+    </script>
+</body>
+</html>

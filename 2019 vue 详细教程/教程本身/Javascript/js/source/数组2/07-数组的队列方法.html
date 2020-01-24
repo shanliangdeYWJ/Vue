@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 封装两个函数，描述一个数组元素的入栈和出栈的过程
+
+
+        //    function inStack() {
+        //        var arr = [];
+        //        arr.push("A");
+        //        arr.push("B");
+        //        arr.push("C");
+        //        return arr;
+        //    }
+
+        //    function outStack() {
+        //        var arr = inStack();
+        //        console.log(arr);
+        //        for(var i = 0, length = arr.length; i < length; i++) {
+        //            var e = arr.pop();
+        //            console.log("第" + (i + 1) + "次弹出的元素是" + e);
+        //        }
+        //    }
+
+        //    outStack();
+
+        
+        // function inQueue() {
+        //     var arr = [];
+        //     arr.push("A");
+        //     arr.push("B");
+        //     arr.push("C");
+        //     return arr;
+        // }
+
+        // function outQueue() {
+        //     var arr = inQueue();
+        //     console.log(arr);
+        //     for (var i = 0, length = arr.length; i < length; i++) {
+        //         var e = arr.shift();
+        //         console.log("第" + (i + 1) + "次弹出的元素是" + e);
+        //     }
+        // }
+
+        // outQueue();
+
+
+         function inQueue() {
+            var arr = [];
+            arr.unshift("A");
+            arr.unshift("B");
+            arr.unshift("C");
+            return arr;
+        }
+
+        function outQueue() {
+            var arr = inQueue();
+            console.log(arr);
+            for (var i = 0, length = arr.length; i < length; i++) {
+                var e = arr.pop();
+                console.log("第" + (i + 1) + "次弹出的元素是" + e);
+            }
+        }
+
+        outQueue();
+
+
+
+    </script>
+</body>
+
+</html>

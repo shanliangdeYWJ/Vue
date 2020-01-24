@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form action="">
+        <input type="text" name="username"> <br>
+        <input type="password" name="password"> <br>
+        <input type="button" name="loginBtn" value="login">
+    </form>
+    <script>
+        //  根据name名来获取元素  (表单元素)
+        // document.getElementsByName("name") 
+        var un = document.getElementsByName("username")[0];
+        var pwd = document.getElementsByName("password")[0];
+        
+        document.getElementsByName("loginBtn")[0].onclick = function () {
+            console.log(un.value, pwd.value);
+        };
+    </script>
+</body>
+
+</html>

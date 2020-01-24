@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        num1: <input type="text" v-model.number="num1"> <br>
+        num2: <input type="text" v-model.number="num2"> <br>
+        <input type="button" value="calc" @click="calc">
+
+        <input type="text" v-model.trim="username"> 
+        <input type="button" value="show" @click="show">
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                num1: '',
+                num2: '',
+                username: ''
+            },
+            methods: {
+                calc() {
+                    console.log(this.num1 + this.num2);
+                },
+                show() {
+                    console.log(this.username);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

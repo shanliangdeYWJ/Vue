@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        3.输入月份，判断所属季节。12、1、2属于冬季，3、4、5属于春季，6、7、8属于夏季，9、10、11属于秋季。
+        */
+
+        var month = prompt("请输入月份");
+
+        var season;
+
+        switch (month) {
+            case "12":
+            case "1":
+            case "2":
+                season = "冬季";
+                break;
+            case "3":
+            case "4":
+            case "5":
+                season = "春季";
+                break;
+            case "6":
+            case "7":
+            case "8":
+                season = "夏季";
+                break;
+            case "9":
+            case "10":
+            case "11":
+                season = "秋季";
+                break;
+            default: 
+                season = "不是合法的月份";
+                break;
+        }
+
+        alert(season);
+        // if(month === "12" || month === "1" || month === "2") {
+        //     season = "冬季";
+        // }else if(month === "3" || month === "4" || month === "5") {
+        //     season = "春季";
+        // }else if(month === "6" || month === "7" || month === "8") {
+        //     season = "夏季";
+        // }else if(month === "9" || month === "10" || month === "11") {
+        //     season = "秋季";
+        // }else {
+        //     season = "不是合法的月份";
+        // }
+
+        // alert(season);
+    </script>
+</body>
+
+</html>

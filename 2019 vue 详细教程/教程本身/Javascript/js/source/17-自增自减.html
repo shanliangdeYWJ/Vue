@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        以自增为例：
+        ++a    前置自增
+        a++    自置自增
+
+        前置与后置对于a的变化是一样的
+
+        但是当其作为一个表达式时，表达式的值要看是前置还是后置了
+        */
+
+        var x = 10;
+        // x++;   // x = x + 1
+
+        //先算出x++这个表达式的值，再赋值给y
+        // x++这个表达式的值并不是x的值
+        // 如果是后置++, 则先用其原值作为表达式的值，再对x进行自加
+        // ++x (前置), 先对x自加，再用其值作为表达式的值
+        var y = x++; // var y = x; x++;
+        console.log(x, y); // 11 10
+        var z = ++y; // y++; var z = y;
+        console.log(y, z);  // 11 11
+        
+        var m = z++ + x++;  // 11 + 11=22
+        console.log(x, y, z, m);  // 12 11 12 22
+
+        var n = m++ + ++m;  // 22(但m=23) + 24(m=24)
+        console.log(n, m);//46 24
+    </script>
+</body>
+</html>

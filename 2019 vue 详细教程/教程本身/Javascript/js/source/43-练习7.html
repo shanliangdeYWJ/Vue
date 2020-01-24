@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        7.输入一个年份，判断是否为闰年(闰年的判断标准：能被4整除且不能被100整除，或者能被400整除)。
+        */
+
+        var year = +prompt("请输入一个四位的年份");
+
+        var result;
+        if(year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
+            result = year + "是闰年";
+        }else{
+            result = year + "不是闰年";
+        }
+
+        alert(result);
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        .tabs {
+            width: 600px;
+            height: 300px;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+        }
+
+        .titles{
+            height: 60px;
+            line-height: 60px;
+            list-style: none;
+            font-size: 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .titles li {
+            font-size: 16px;
+            display: inline-block;
+            /* float: left; */
+            width: 150px;
+            text-align: center;
+        }   
+
+        .titles li.active{
+            background: #999;
+            color: #fff;
+        }
+
+        .contents div{
+            display: none;
+        }
+
+        .contents div.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tabs">
+        <ul class="titles">
+            <li class="active">AAA</li>
+            <li>BBB</li>
+            <li>CCC</li>
+            <li>DDD</li>
+        </ul>
+
+        <div class="contents">
+            <div class="active">111111111111111111111</div>
+            <div>222222222222222222222</div>
+            <div>333333333333333333333</div>
+            <div>444444444444444444444</div>
+        </div>
+    </div>
+
+    <script>
+        var titles = document.getElementsByClassName("titles")[0].getElementsByTagName("li");
+        var divs = document.getElementsByClassName("contents")[0].getElementsByTagName("div");
+
+        for(var i = 0; i < titles.length; i++) {
+            titles[i].dataset.index = i;
+            titles[i].onmouseover  = function() {
+                var index = +this.dataset.index;
+                for(var m = 0; m < titles.length; m++) {
+                    titles[m].className = "";
+                }
+                this.className = "active";
+
+                // 将所有div上面的active去掉
+                for(var j = 0; j < divs.length; j++) {
+                    divs[j].className = "";
+                }
+                divs[index].className = "active";
+            };
+        }
+    </script>
+</body>
+</html>

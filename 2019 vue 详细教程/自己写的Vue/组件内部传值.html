@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>组件内部传值.html</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="app">
+    <my-header></my-header>
+  </div>
+  <template id="header">
+    <header>
+      <!-- 必须写在 header 内部 -->
+      善良的YWJ TIS IS HEADER
+      <!-- prevent 阻止默认行为 -->
+      <a href="" v-for="link in links" @click.prevent="popMsg(link)">{{ link }}</a>
+      <ul>
+        <li v-for="v in list">{{ v.bname }}:{{ v.author }}</li>
+      </ul>
+    </header>
+  </template>
+</body>
+<script>
+  var myHeader = {
+    template: '#header',
+    // 子组件的 data 书写方式 区别于 主组件
+    data(){
+      return { 
+        links:['AAA', 'BBB', 'CCC'],
+        list:[{bname:'javascript', author:'yaoyao'},{bname: 'java', author:'yaoyao'}]
+       }
+    },
+    methods:{
+      popMsg(info){
+        window.alert(info)
+      }
+    }
+  };
+  var app = new Vue({
+    el:'#app',
+    // 主组件 采用键值对 对象书写方式
+    data: { msg:'hi' },
+    components: { myHeader }
+  });
+</script>
+</html>

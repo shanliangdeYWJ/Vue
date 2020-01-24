@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        5. 随机产生5个[1, 30]之间的整数，要求这5个数字不能重复，输出这5个数。
+        */
+        var arr = [];
+        for (var i = 0; i < 5; i++) {
+            /*
+            Math.random() * 30     (0, 30)的小数
+            Math.random() * 30  + 1    (1, 31)的小数
+            Math.floor(Math.random() * 30 + 1);    [1, 30]    
+            */
+         
+            while (true) {
+                var r = Math.floor(Math.random() * 10 + 1);
+                var flag = false;   // 假设本次产生的随机数在arr中不存在
+                // 放入之前先检查是否重复
+                // 先遍历arr来检查
+                for (var j = 0; j < arr.length; j++) {
+                    if (r === arr[j]) {   // 碰到存在的，就跳出当前循环，不再比对，而进入下一次重新重新获取随机数的逻辑
+                        flag = true;   // 本次产生的随机数在arr中存在
+                        break;
+                    }
+                }
+                // 根据flag的值决定arr中是否加入本次的随机数
+                if(!flag) {
+                    arr[i] = r;
+                    break;
+                }
+            }
+
+        }
+
+        console.log(arr);
+
+    </script>
+</body>
+
+</html>

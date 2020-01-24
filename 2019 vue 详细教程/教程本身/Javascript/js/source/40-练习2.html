@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        2.联合国世界卫生组织对年龄的划分标准， 
+        44岁以下为青年；
+        45岁至59岁为中年人。
+        60岁至89岁为老年人；
+        90岁以上为长寿老年人。输入李明
+今年的年龄，输出他的年龄阶段
+        */
+
+        var age = +prompt("请输入李明的年龄");
+        
+        var msg;
+        // if(age <= 44) {
+        //     msg = "青年";
+        // }else if(age <= 59) {
+        //     msg = "中年";
+        // }else if(age <= 89) {
+        //     msg = "老年";
+        // }else {
+        //     msg = "长寿老年人";
+        // }
+
+        if(age >= 90) {
+            msg = "长寿老年人";
+        }else if(age >= 60) {
+            msg = "老年";
+        }else if(age >= 45) {
+            msg = "中年";
+        }else{
+            msg = "青年";
+        }
+
+        alert(msg);
+    </script>
+</body>
+
+</html>

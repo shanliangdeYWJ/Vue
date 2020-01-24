@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+  
+    <ul class="container">
+        <li>音乐</li>
+        <li>绘画</li>
+        <li>游戏</li>
+        <li>旅游</li>
+    </ul>
+
+    <script>
+        /*
+         element.insertBefore(newChild, refChild)  
+         如果newChild是已存在元素，相当于交换位置
+        */
+        var ul = document.querySelector(".container");
+        
+        var li1 = ul.querySelectorAll("li")[1];
+        var li2 = ul.querySelectorAll("li")[2];
+
+       
+        ul.insertBefore(li2, li1);
+       
+    </script>
+</body>
+
+</html>

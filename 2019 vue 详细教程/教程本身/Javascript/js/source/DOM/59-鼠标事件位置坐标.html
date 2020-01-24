@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            /* position: absolute;
+            left: 0;
+            top: 0; */
+            width: 200px;
+            height: 200px;
+            background: green;
+        }
+
+        .t{
+            height: 800px;
+            background: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="t"></div>
+
+    <div class="box">
+
+    </div>
+
+    
+    <script>
+         var box = document.querySelector(".box");
+
+         box.addEventListener("click", function(e) {
+            console.log(e.clientX, e.clientY);
+            console.log(e.pageX, e.pageY);
+         });
+    </script>
+</body>
+
+</html>

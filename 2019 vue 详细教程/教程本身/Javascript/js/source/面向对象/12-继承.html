@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 父类型  （基类型） 超类型
+        function Employee (no, name, salary) {
+            // 此处的this,在使用call方法调用时就取决于它的第一个参数指定的对象
+            this.no = no;
+            this.name = name;
+            this.salary = salary;
+        }
+
+        Employee.prototype.work = function() {
+            console.log(this.name + " is working...");
+        };
+
+        
+        // 子类型 （派生类型）
+        function DevEmployee (no, name, salary, dept) {
+            // this.no = no;
+            // this.name = name;
+            // this.salary = salary;
+            // 此处调用父类型的构造方法，当前的this指的是DevEmployee的对象
+            // 借用父类型的构造函数（初始化自己的属性）
+            Employee.call(this, no, name, salary);
+            this.dept = dept;
+        }
+
+        // 使用原型模式复用父类型的功能
+        DevEmployee.prototype = new Employee();
+
+        DevEmployee.prototype.say = function() {
+            console.log(this.name + " is talking...");
+        };
+
+        var d = new DevEmployee("111", "AAA", 90000);
+        d.work();
+
+        d.say();
+
+        console.log(d.name);
+
+        // d.hasOwnProperty("name");
+        console.log(d);
+
+        new Employee();
+    </script>
+</body>
+</html>

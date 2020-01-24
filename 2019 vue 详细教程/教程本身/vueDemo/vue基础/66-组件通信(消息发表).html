@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <h2>消息发布功能</h2>
+        <post-msg @message="msgHandler"></post-msg>
+        <post-list :list="list"></post-list>
+    </div>
+
+    <template id="postMsg">
+        <div>
+            <form action="">
+                author: <input type="text" v-model="post.author" ref="author"> <br>
+                content: <input type="text" v-model="post.content" ref="content"> <br>
+                <input type="button" @click="sendMsg" value="post message">
+            </form>
+        </div>
+    </template>
+
+    <template id="postList">
+        <div>
+            <p v-for="l in list">
+                <span>{{l.author}}</span>:
+                <span>{{l.content}}</span>
+            </p>
+        </div>
+    </template>
+
+    <script src="lib/vue.js"></script>
+    <script>
+
+        var postMsg = {
+            template: "#postMsg",
+            data() {
+                return {
+                    post: {}
+                }
+            },
+            methods: {
+                sendMsg() {
+                    console.log(this.post);
+                    this.$emit("message", this.post);
+                    this.post = {};
+                    this.$refs.author.focus();
+                }
+            }
+        };
+
+        var postList = {
+            template: "#postList",
+            props: ["list"]
+        };
+
+        var app = new Vue({
+            el: "#app",
+            data: {
+                list: []
+            },
+            components: {
+                postMsg,
+                postList
+            },
+            methods: {
+                msgHandler(data) {
+                    // console.log(data);
+                    // 复制对象
+                    var tmp = {}; // new Object()
+                    for(k in data) {
+                        tmp[k] = data[k];
+                    }
+
+                    this.list.push(tmp);
+                }   
+            }
+        });
+    </script>
+</body>
+
+</html>

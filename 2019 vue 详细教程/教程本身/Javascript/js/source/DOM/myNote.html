@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: #ddd;
+        }
+
+        .container {
+            width: 800px;
+            min-height: 500px;
+            position: relative;
+            background: #fff;
+            margin: 40px auto;
+            text-align: center;
+            padding-top: 30px;
+        }
+
+        .container h1 {
+            margin: 20px;
+        }
+
+        .container .newThing {
+            width: 500px;
+            height: 120px;
+            margin: 0px auto;
+            outline: none;
+            padding: 4px;
+            display: none;
+        }
+
+        .container .addThing {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-image: url(images/add.png);
+            background-size: 40px 40px;
+            cursor: pointer;
+        }
+
+        .container p {
+            width: 100%;
+            text-align: center;
+            display: none;
+        }
+
+        .container .saveThing,
+        .container .cancel {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-size: 30px 30px;
+            cursor: pointer;
+            margin: 10px 30px;
+        }
+
+        .container .saveThing {
+            background-image: url(images/save.png);
+        }
+
+        .container .cancel {
+            width: 22px;
+            height: 25px;
+            background-size: 22px 25px;
+            background-image: url(images/cancel.png);
+        }
+
+        .container .things {
+            width: 600px;
+            list-style: none;
+            line-height: 40px;
+            color: #666;
+            margin: 30px auto;
+        }
+
+        .container .things li {
+            border-bottom: 1px solid #eee;
+        }
+
+        .container .things li:hover {
+            background: #eee;
+        }
+
+        .container .things .content {
+            display: inline-block;
+            width: 350px;
+            text-align: left;
+        }
+
+        .container .things .createTime {
+            color: #888;
+            font-size: 12px;
+        }
+
+        .container .things .remove {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            background-image: url(images/delete.png);
+            background-size: 18px 18px;
+            margin-left: 30px;
+            opacity: 0;
+        }
+
+        .container .things li:hover .remove {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>My Note</h1>
+        <textarea class="newThing" placeholder="请简短描述您要记录的内容"></textarea>
+        <span class="addThing" title="添加"></span>
+        <p>
+            <span class="saveThing" title="保存"></span>
+            <span class="cancel" title="放弃"></span>
+        </p>
+        <ul class="things">
+        </ul>
+    </div>
+
+    <script>
+
+        var addThing = document.getElementsByClassName("addThing")[0];
+        var newThing = document.getElementsByClassName("newThing")[0];
+        var saveThing = document.getElementsByClassName("saveThing")[0];
+        var cancel = document.getElementsByClassName("cancel")[0];
+        var p = document.getElementsByTagName("p")[0];
+        var things = document.getElementsByClassName("things")[0];
+        var removes = document.getElementsByClassName("remove");
+
+        addThing.onclick = addThingUi;
+        saveThing.onclick = doSaveThing;
+        cancel.onclick = closeThingUi;
+
+
+        function addThingUi() {
+            addThing.style.display = "none";
+            newThing.style.display = "block";
+            p.style.display = "block";
+        }
+
+        function closeThingUi() {
+            addThing.style.display = "inline-block";
+            newThing.style.display = "none";
+            p.style.display = "none";
+        }
+
+        function doSaveThing() {
+            var li = createLi(newThing.value, new Date().toLocaleString());
+
+            things.insertBefore(li, things.children[0]);
+
+            closeThingUi();
+
+            // 将数据存储到localstorage中
+            // 先将localStorage的内容取出来，添加新内容之后再重新写入localStorage中
+            var ts = window.localStorage.getItem("things");
+            // var arr;
+            if (ts === null) {  // 首次调用 doSaveThing方法, 此时localStorage还未进行存储
+                arr = [];
+            } else {
+                arr = JSON.parse(ts);
+            }
+
+            var t = {
+                thing: newThing.value,
+                createTime: new Date().toLocaleString()
+            };
+
+            arr.unshift(t);
+
+            window.localStorage.setItem("things", JSON.stringify(arr));
+
+        }
+
+        for (var i = 0; i < removes.length; i++) {
+            removes[i].onclick = function () {
+                this.parentElement.remove();
+            };
+        }
+
+        function createLi(thing, createTime) {
+            var li = document.createElement("li");
+            var span1 = document.createElement("span");
+            span1.innerHTML = thing;
+            span1.className = "content";
+            var span2 = document.createElement("span");
+            span2.className = "createTime";
+            span2.innerHTML = createTime;
+            var span3 = document.createElement("span");
+            span3.className = "remove";
+            span3.title = "删除";
+
+            span3.onclick = function () {
+                this.parentElement.remove();
+            };
+
+            li.append(span1, span2, span3);
+            return li;
+        }
+
+        // 从localStorage中取出数据展示到页面上 
+        function init() {
+            var ts = window.localStorage.getItem("things");
+            if(ts !== null) {
+                var arr = JSON.parse(ts);
+                for(var i = 0; i < arr.length; i++) {
+                    var li = createLi(arr[i].thing, arr[i].createTime);
+                    things.append(li);
+                }
+            }
+        }
+
+        init();
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: #ddd;
+        }
+
+        .container {
+            width: 800px;
+            min-height: 500px;
+            position: relative;
+            background: #fff;
+            margin: 40px auto;
+            text-align: center;
+            padding-top: 30px;
+        }
+
+        .container h1 {
+            margin: 20px;
+        }
+
+        .container .newThing {
+            width: 500px;
+            height: 120px;
+            margin: 0px auto;
+            outline: none;
+            padding: 4px;
+            display: none;
+        }
+
+        .container .addThing {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-image: url(images/add.png);
+            background-size: 40px 40px;
+            cursor: pointer;
+        }
+
+        .container p {
+            width: 100%;
+            text-align: center;
+            display: none;
+        }
+
+        .container .saveThing,
+        .container .cancel {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-size: 30px 30px;
+            cursor: pointer;
+            margin: 10px 30px;
+        }
+
+        .container .saveThing {
+            background-image: url(images/save.png);
+        }
+
+        .container .cancel {
+            width: 22px;
+            height: 25px;
+            background-size: 22px 25px;
+            background-image: url(images/cancel.png);
+        }
+
+        .container .things {
+            width: 600px;
+            list-style: none;
+            line-height: 40px;
+            color: #666;
+            margin: 30px auto;
+            padding: 30px 0;
+        }
+
+        .container .things li {
+            position: relative;
+            display: inline-block;
+            margin: 10px;
+            width: 200px;
+            min-height: 220px;
+            border: 1px solid #bbb;
+        }
+
+        .container .things li:hover {
+            background: #eee;
+        }
+
+        .container .things .content {
+            display: inline-block;
+            width: 350px;
+            text-align: left;
+        }
+
+        .container .things .createTime {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            color: #888;
+            font-size: 12px;
+        }
+
+        .container .things .remove {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background-image: url(images/delete.png);
+            background-size: 30px 30px;
+            z-index: 9;
+            cursor: pointer;
+            display: none;
+        }
+
+        .container .things .mask{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .container .things li:hover .remove {
+            display: block;
+        }
+
+        .container .things li:hover .mask {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>My Note</h1>
+        <textarea class="newThing" placeholder="请简短描述您要记录的内容"></textarea>
+        <span class="addThing" title="添加"></span>
+        <p>
+            <span class="saveThing" title="保存"></span>
+            <span class="cancel" title="放弃"></span>
+        </p>
+        <ul class="things">
+            <li class="thing">
+                <span class="content" title="内容">Test5</span>
+                <span class="createTime" title="创建时间">2019-04-02 12:10:10</span>
+                <span class="remove" title="删除"></span>
+                <div class="mask"></div>
+            </li>
+            <li class="thing">
+                <span class="content">Test4</span>
+                <span class="createTime">2019-04-03 10:10:10</span>
+                <span class="remove" title="删除"></span>
+                <div class="mask"></div>
+            </li>
+            <li class="thing">
+                <span class="content">Test3</span>
+                <span class="createTime">2019-04-03 10:10:10</span>
+                <span class="remove" title="删除"></span>
+                <div class="mask"></div>
+            </li>
+            <li class="thing">
+                <span class="content">Test2</span>
+                <span class="createTime">2019-04-03 10:10:10</span>
+                <span class="remove" title="删除"></span>
+                <div class="mask"></div>
+            </li>
+            <li class="thing">
+                <span class="content">Test1</span>
+                <span class="createTime">2019-04-03 10:10:10</span>
+                <span class="remove" title="删除"></span>
+                <div class="mask"></div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        function addThingUi() {
+            addThing.style.display = "none";
+            newThing.style.display = "block";
+            p.style.display = "block";
+        }
+
+        function closeThingUi() {
+            addThing.style.display = "inline-block";
+            newThing.style.display = "none";
+            p.style.display = "none";
+        }
+
+        var addThing = document.getElementsByClassName("addThing")[0];
+        var newThing = document.getElementsByClassName("newThing")[0];
+        var saveThing = document.getElementsByClassName("saveThing")[0];
+        var cancel = document.getElementsByClassName("cancel")[0];
+        var p = document.getElementsByTagName("p")[0];
+
+        addThing.onclick = addThingUi;
+        saveThing.onclick = closeThingUi;
+        cancel.onclick = closeThingUi;
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        闭包是指有权访问另一个函数作用域中的变量的函数。
+        创建闭包的常见方式：
+            在一个函数内部返回另一个函数，此函数访问了主函数的相关变量。
+        */
+
+        // function fn() {
+        //     var a = "hello";
+        //     return function() {
+        //         return a + "!!!";
+        //     }
+        // }
+
+        // console.log(fn()());
+
+
+        // 编写函数，实现累加计数(调用一次，累加一次)的功能
+        // 不能将计数器制作成全局变量
+
+        // var a = 1;
+        // function fn(){
+        //     console.log(a);
+        //     a++;
+        // }
+
+        // fn();
+        // fn();
+        // fn();
+        function bn() {
+            var b = 0;
+            return function an() {
+                var a = 1;
+                return function () {
+                    console.log(a);
+                    console.log(b);
+                    a++;
+                }
+            }
+        }
+
+        var fn = an();
+        fn();
+        fn();
+        fn();
+        fn();
+
+        an()();
+        an()();
+        an()();
+
+
+
+
+
+    </script>
+</body>
+
+</html>

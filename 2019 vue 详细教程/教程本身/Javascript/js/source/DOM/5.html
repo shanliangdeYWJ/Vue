@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">点击</button>
+    <a href="http://www.baidu.com" id="link">百度</a>
+    <script>
+    // 2.点击按钮修改超链接的地址和热点文字
+
+
+    //添加点击事件
+    var oBtn=document.getElementById('btn');
+    var lk=document.getElementById('link');
+    oBtn.onclick=function(){
+        //修改超链接内容
+        lk.innerHTML='淘宝';
+        //修改href    修改属性
+        lk.href='http://www.taobao.com';
+    };
+    </script>
+</body>
+</html>

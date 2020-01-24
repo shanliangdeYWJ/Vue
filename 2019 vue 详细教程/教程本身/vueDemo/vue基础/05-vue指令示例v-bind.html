@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <img v-bind:src="picUrl" alt="">
+        <a v-bind:href="linkUrl">{{linkText}}</a>
+        <h2 v-bind:title="title">{{picUrl}}</h2>
+    </div>
+
+    <script src="lib/vue.js"></script>
+
+    <script>
+        // el属性定义了vue实例所管理的边界
+        var app = new Vue({
+            el: '#app',
+            data: {
+               picUrl: "images/1.jpg",
+               linkUrl: "http://www.baidu.com",
+               linkText: "baidu",
+               title: "hello!!!"
+            }
+        });
+    </script>
+</body>
+</html>

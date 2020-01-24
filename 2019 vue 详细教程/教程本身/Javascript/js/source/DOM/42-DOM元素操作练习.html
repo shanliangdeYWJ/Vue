@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        table {
+            margin: 10px;
+            width: 580px;
+            line-height: 28px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        #users span {
+            margin: 6px 20px;
+        }
+
+        .mask {
+            position: absolute;
+            left: -120%;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            /* display: none; */
+            transition: all .4s;
+        }
+
+        .popWindow {
+            position: absolute;
+            /* left: 50%; */
+            left: -200%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 360px;
+            height: 260px;
+            /* background: green; */
+            color: #eee;
+            border: 2px solid #eee;
+            text-align: center;
+            line-height: 30px;
+            /* display: none; */
+            transition: all .4s;
+        }
+
+        .popWindow .close {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .popWindow .close:hover {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        编号：<input type="text" id="no">
+        姓名：<input type="text" id="username">
+        年龄：<input type="text" id="userage">
+        <button id="addBtn">添加</button>
+    </div>
+
+    <div class="mask"></div>
+
+    <div class="popWindow">
+        <span class="close">&times;</span>
+        <h3>修改信息</h3>
+        编号： <input type="text"> <br>
+        姓名： <input type="text"> <br>
+        年龄： <input type="text"> <br>
+        <button id="okBtn">确认修改</button>
+        <button id="cancelBtn">放弃修改</button>
+    </div>
+
+    <script>
+        function init() {
+            var oTable = document.createElement("table");
+            oTable.id = "users";
+            var oThead = document.createElement("thead");
+            var oTitleTr = document.createElement("tr");
+            var oThNo = document.createElement("th");
+            oThNo.innerHTML = "编号";
+            oThNo.width = "100px";
+            var oThName = document.createElement("th");
+            oThName.innerHTML = "姓名";
+            oThName.width = "150px";
+            var oThAge = document.createElement("th");
+            oThAge.innerHTML = "年龄";
+            oThAge.width = "100px";
+            var oThOpp = document.createElement("th");
+            oThOpp.innerHTML = "操作";
+
+            oTitleTr.append(oThNo, oThName, oThAge, oThOpp);
+            oThead.append(oTitleTr);
+
+            var oTbody = document.createElement("tbody");
+
+            oTable.append(oThead, oTbody);
+            document.body.append(oTable);
+        }
+
+        function createDataTr() {
+            var oTr = document.createElement("tr");
+            for (var i = 0; i < 4; i++) {
+                var oTd = document.createElement("td");
+                if (i < 3) {   // 前三列
+                    oTd.innerHTML = inputs[i].value;
+                    inputs[i].value = "";
+                } else {      // 最后一列
+                    lastColCreate(oTd);
+                }
+                oTr.append(oTd);
+            }
+            tbody.append(oTr);
+            inputs[0].focus();
+        }
+
+        function lastColCreate(oTd) {
+            var oSpanUpdate = document.createElement("span");
+            oSpanUpdate.innerHTML = "修改";
+            oSpanUpdate.onclick = function () {
+                // mask.style.display = "block";
+                // popWindow.style.display = "block";
+                mask.style.left = "0px";
+                popWindow.style.left = "50%";
+                // 查找当前被点击的”修改“所在的tr
+                tds = this.parentElement.parentElement.getElementsByTagName("td");
+                for (var i = 0; i < tds.length - 1; i++) {
+                    popInputs[i].value = tds[i].innerHTML;
+                }
+            };
+
+            var oSpanDelete = document.createElement("span");
+            oSpanDelete.innerHTML = "删除";
+            oSpanDelete.onclick = function () {
+                // 确认
+                var r = window.confirm("确认要删除这行数据吗?");
+                if (r) {
+                    this.parentElement.parentElement.remove();
+                }
+            };
+            oTd.append(oSpanUpdate, oSpanDelete);
+        }
+
+        // 关闭遮罩和弹出框
+        function closeWindow() {
+            mask.style.left = "-120%";
+            popWindow.style.left = "-200%";
+        }
+
+
+        init();  // 调用一次初始化表格
+
+        // 找到三个输入框
+        var inputs = document.querySelector(".content").querySelectorAll("input");
+        // 找到tbody
+        var tbody = document.getElementById("users").getElementsByTagName("tbody")[0];
+        // console.log(tbody);
+        // 找到mask和popWindow
+        var mask = document.getElementsByClassName("mask")[0];
+        var popWindow = document.getElementsByClassName("popWindow")[0];
+        var popInputs = popWindow.getElementsByTagName("input");
+        // 用来存储被点击的“修改”所在的行的单元格td
+        var tds = null;
+
+        document.getElementById("addBtn").onclick = function () {
+            createDataTr();
+        };
+
+        document.getElementById("cancelBtn").onclick = closeWindow;
+        document.getElementsByClassName("close")[0].onclick = closeWindow;
+
+        document.getElementById("okBtn").onclick = function () {
+            console.log(tds);
+            if (tds !== null) {
+                for (var i = 0; i < tds.length - 1; i++) {
+                    tds[i].innerHTML = popInputs[i].value;
+                }
+            }
+            closeWindow();
+        };
+
+
+    </script>
+</body>
+
+</html>

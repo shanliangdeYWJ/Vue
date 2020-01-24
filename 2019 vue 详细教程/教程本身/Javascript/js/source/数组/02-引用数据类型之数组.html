@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        数组： array
+        一组数据(能够存储多个数据)
+
+            数组是有长度的，它的长度指的是放在此数组中的数据（元素）的个数
+            js中数组的长度不是固定，是随着元素的增长而自动扩展的
+
+            数组通过索引（下标）来设置功获取数组元素的值
+            索引是从0开始计数
+            第一个元素的索引是0
+            最后一个元素的索引是数组的长度-1
+
+            数组的长度用其属性length表示  arr.length
+        */
+
+        // var a = 10;
+        // a = 20;
+
+        // 用var声明 一个数组
+        // 在堆内存上开辟空间(开辟的空间用于存储数组,因为new的时候调用的是数组的构造函数，将空间地址赋值给arr变量
+        var arr = new Array();  // 空数组，即长度为0的数组
+        console.log(arr);   // 得到是数组的表示形式以及其长度（数组中数据的个数）
+
+
+        // 向数组中添加元素   数组变量名[index]   index（数组索引的值从0开始计数)
+        arr[0] = 10;
+        arr[1] = 20;
+        arr[2] = 30;
+        // 如果跳过某些索引，则此位置被留空，但依然是元素的一部分，计入总长度
+        arr[4] = 50;
+
+        console.log(arr);
+
+        console.log(arr[0]);
+
+        console.log(arr.length);
+
+        console.log(arr[arr.length-1]);  // arr中最后一个元素的值
+
+        // 可以再次改变元素的值
+        arr[1] = 90;
+        console.log(arr);
+    </script>
+</body>
+</html>

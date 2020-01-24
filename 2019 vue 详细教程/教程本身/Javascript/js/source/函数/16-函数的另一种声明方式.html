@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        fn();
+        // 函数声明
+        function fn() {
+            console.log("fn");
+        }
+        fn();
+
+        // 把整个函数看成一个变量，用函数表达式的方式
+        // 函数表达式(命名函数表达式)
+        // a();   // error  a是undefined
+        var a = function() {
+            console.log("hello");
+        };
+        a();  // 只能在声明后调用
+
+        var b = a;
+        b();
+
+        // 立即执行函数
+        (function () {
+            console.log("pp");
+        })();
+
+        (function (username) {
+            console.log("hello, ", username);
+        })("小明");
+
+        var r = (function (a, b) {
+            return a + b;
+        })(5, 7);
+        console.log(r);
+
+
+        console.log(typeof fn);
+        console.log(typeof b);
+
+        var arr = [];
+        console.log(typeof arr);
+
+
+        /*
+        数据类型
+            1. 基本数据类型
+                number, string, boolean, undefined, null
+            2. 引用数据类型
+                array, object, function, Math , Date
+        */
+    </script>
+</body>
+</html>

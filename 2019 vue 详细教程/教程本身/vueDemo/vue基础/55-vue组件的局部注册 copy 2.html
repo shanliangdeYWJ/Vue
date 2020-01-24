@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <h2>{{msg}}</h2>
+        <hello-world ref="h"></hello-world>
+    </div>
+
+    <template id="box">
+        <div>
+            <h2>hello!!!{{uname}}</h2>
+            <h6 @click="changeHandler">!!!!!</h6>
+            <h3>{{prefix}}</h3>
+            <hr>
+        </div>
+    </template>
+    
+    <script src="lib/vue.js"></script>
+    <script>
+   
+
+        var helloWorld = {
+            template: "#box",
+            data() {
+                return {
+                    uname: "李明"
+                }
+            },
+            methods: {
+                changeHandler() {
+                    this.uname = "liming";
+                }
+            },
+            computed: {
+                prefix() {
+                    return "~~~~" + this.uname;
+                }
+            }
+        };
+
+        var app = new Vue({
+            el: "#app",
+            data: {
+                msg: "hi"
+            },
+            components: {
+                // "hello-world": helloWorld
+                // helloWorld    // helloWorld: helloWorld
+                helloWorld
+            },
+            created() {   // components属性未初始化
+                console.log(this.$refs.h);
+            },
+            mounted() {
+                console.log(this);
+                console.log(this.$refs.h);
+            }
+        });
+
+        
+    </script>
+</body>
+</html>

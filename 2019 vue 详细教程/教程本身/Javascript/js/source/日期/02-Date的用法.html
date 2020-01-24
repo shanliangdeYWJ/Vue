@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            position: absolute;
+            width: 400px;
+            height: 40px;
+            /* border: 1px solid #ddd; */
+            left: 300px;
+            top: 200px;
+            color: yellowgreen;
+            font-size: 30px;
+            text-shadow: 2px 2px 5px #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box"></div>
+
+    <script>
+        function showTime() {
+            var now = new Date();
+
+            // console.log(typeof now);
+            // 获取年份
+            var year = now.getFullYear();
+            var month = now.getMonth() + 1;
+            var date = now.getDate();
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+
+            var time = year + "年" + month + "月" + date + "日  " + hour + ":" + minute + ":" + second;
+            // 从页面中找元素
+            var o = document.getElementById("box");
+            console.log(o);
+            // 向元素内部添加内容
+            o.innerHTML = time;
+        }
+
+        showTime();
+
+        setInterval(showTime, 1000);
+    </script>
+</body>
+
+</html>

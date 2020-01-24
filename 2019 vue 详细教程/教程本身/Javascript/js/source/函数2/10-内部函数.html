@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+            一个函数声明内部又声明了另一个函数，这个内部的函数就称为内部函数（私有函数）
+        */
+        var s = "pp";
+        function fn() {
+            console.log("hello");
+            // var s = "hi";
+
+            function innerFn() {  // 是fn的私有函数
+                console.log("innerFn");
+                var a = "world";
+                console.log(a);
+                console.log(s);   // hi pp
+            }
+
+            innerFn();   // 正常访问
+            // innerFn();
+        }
+
+        fn();
+
+        // innerFn();  // 无法访问fn的私有函数
+    </script>
+</body>
+
+</html>

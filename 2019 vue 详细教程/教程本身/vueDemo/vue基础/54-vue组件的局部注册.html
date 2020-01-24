@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <hello-world></hello-world>
+    </div>
+    
+    <script src="lib/vue.js"></script>
+    <script>
+        //  ES6的模板字符串
+    //    var n = "aaa";
+    //    var s = `klfjsdf${n}
+    //    fgdf
+    //    gdf`;
+
+        var helloWorld = {
+            template:
+             `<div>
+                <h2>hello</h2>
+                <h3>world</h3>
+             </div>`
+        };
+
+        var app = new Vue({
+            el: "#app",
+            components: {
+                // "hello-world": helloWorld
+                // helloWorld    // helloWorld: helloWorld
+                helloWorld
+            }
+        });
+    </script>
+</body>
+</html>

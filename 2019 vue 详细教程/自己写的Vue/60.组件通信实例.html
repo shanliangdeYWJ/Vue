@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <title>Vue </title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .cates {
+      list-style: none;
+    }
+
+    .cates li {
+      display: inline-block;
+      width: 120px;
+      background: #bbb;
+      color: #fff;
+      line-height: 30px;
+      margin-top: 10px;
+      margin-right: 2px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <ul class="cates">
+      <li v-for="cate in categorys" @click="getList(cate.id)">
+        {{ cate.catalog }}
+      </li>
+    </ul>
+    <book-list :list="books"></book-list>
+  </div>
+
+  <!-- list 组件 -->
+  <template id="list">
+    <div><p v-for="b in list">{{ b.title }}</p></div>
+  </template>
+</body>
+<script>
+  var bookList = {
+    template: "#list",
+    props:['list']
+  };
+  var app = new Vue({
+    el: "#app",
+    data: {
+      categorys: [],
+      books: []
+    },
+    components: {
+      bookList
+    },
+    created() {
+      axios.get("./data/categorys.json").then(({ data }) => {
+        // console.log(data.result);
+        this.categorys = data.result;
+      })
+    },
+    methods: {
+      getList(id) {
+        // console.log(id);
+        axios.get('./data/books.json').then(({ data }) => {
+          var arr = data.result.filter(e => {
+            return e.cid == id
+          });
+          console.log(arr[0].data);
+          this.books = arr[0].data;
+        });
+      }
+    }
+  });
+</script>
+
+</html>

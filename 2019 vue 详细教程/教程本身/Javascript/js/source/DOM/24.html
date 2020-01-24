@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{padding: 0;margin: 0;}
+        table{width: 480px;border: 1px solid gray;border-collapse: collapse;}
+        th,td{line-height: 35px;border: 1px solid gray;text-align: center;}
+    </style>
+</head>
+<body>
+    <script>
+        //1.创建表格
+        var tab=document.createElement('table');
+        console.log(tab);
+        //2.创建标题
+        var cap=document.createElement('caption');
+        cap.innerHTML='学生信息表';
+        tab.appendChild(cap);//将标题插入表格中
+        //3.创建表头
+        var thead=document.createElement('thead');
+        var tr1=document.createElement('tr');
+        var th1=document.createElement('th');
+        th1.innerHTML='ID';
+        var th2=document.createElement('th');
+        th2.innerHTML='姓名';
+        var th3=document.createElement('th');
+        th3.innerHTML='年龄';
+        //将列放入行内
+        tr1.appendChild(th1);
+        tr1.appendChild(th2);
+        tr1.appendChild(th3);
+        //将行插入thead中
+        thead.appendChild(tr1);
+        //将thead插入table中
+        tab.appendChild(thead);
+
+        //4.添加表格内容
+        var tbody=document.createElement('tbody');
+        var tr11=createTr('1000','李四',20);//创建行
+        var tr12=createTr('1001','Tom',21);
+        var tr13=createTr('1002','花花',22);//创建行
+        var tr14=createTr('1990','小强',20);
+
+        //将行插入tbody中
+        tbody.appendChild(tr11);
+        tbody.appendChild(tr12);
+        tbody.appendChild(tr13);
+        tbody.appendChild(tr14);
+
+
+        //将tbody添加到表格中
+        tab.appendChild(tbody);
+
+
+        document.body.appendChild(tab);
+        // console.log(document.body);
+        // document.body.innerHTML='Hello';
+
+        //创建行
+        function createTr(id,name,age){
+             //创建内容行
+            var tr=document.createElement('tr');
+            //创建列
+            // var td1=document.createElement('td');
+            // var td2=document.createElement('td');
+            // var td3=document.createElement('td');
+            // //为列添加内容
+            // td1.innerHTML=id;
+            // td2.innerHTML=name;
+            // td3.innerHTML=age;
+            var td1=createCell(id);
+            var td2=createCell(name);
+            var td3=createCell(age);
+            //将列添加到行内
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            return tr;
+        }
+
+        //创建列
+        function createCell(value){
+            var td=document.createElement('td');
+            td.innerHTML=value;//制定内容
+            return td;
+        }
+    </script>
+
+    <!-- <table>
+        <caption>学生信息表</caption>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>年龄</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>AAA</td>
+                <td>AAA</td>
+                <td>AAA</td>
+            </tr>
+            <tr>
+                <td>AAA</td>
+                <td>AAA</td>
+                <td>AAA</td>
+            </tr>
+            <tr>
+                <td>AAA</td>
+                <td>AAA</td>
+                <td>AAA</td>
+            </tr>
+            <tr>
+                <td>AAA</td>
+                <td>AAA</td>
+                <td>AAA</td>
+            </tr>       
+        </tbody>
+    </table> -->
+</body>
+</html>

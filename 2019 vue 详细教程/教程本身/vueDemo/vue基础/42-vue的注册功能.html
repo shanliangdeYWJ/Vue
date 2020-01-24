@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+        }
+
+        .blank {
+            height: 1000px;
+            background: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <form action="" @submit.prevent="regHandler">
+            username: <input type="text" v-model="user.username"> <br>
+            password: <input type="password" v-model="user.userpwd"> <br>
+            sex: <input type="radio" v-model="user.usersex" value="男"> 男
+            <input type="radio" v-model="user.usersex" value="女"> 女 <br>
+            likes:
+            <p>
+                <input type="checkbox" v-model="user.like" value="music"> 音乐
+            </p>
+            <p>
+                <input type="checkbox" v-model="user.like" value="reading"> 阅读
+            </p>
+            <p>
+                <input type="checkbox" v-model="user.like" value="sport"> 运动
+            </p>
+            <p>
+                <input type="checkbox" v-model="user.like" value="travel"> 旅游
+            </p>
+            from:
+            <select v-model="user.city">
+                <option value="zhengzhou">郑州</option>
+                <option value="beijing">北京</option>
+                <option value="shanghai">上海</option>
+            </select>
+            <br>
+            desc:
+            <textarea cols="30" rows="10" v-model="user.userdesc"></textarea>
+            <br>
+            <input type="submit" value="注册">
+            <input type="reset" value="重置">
+        </form>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                user: {
+                    username: '',
+                    userpwd: '',
+                    usersex: '',
+                    like: [],
+                    city: '',
+                    userdesc: ''
+                }
+            },
+            methods: {
+                regHandler() {
+                    console.log(this.user);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

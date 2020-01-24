@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .outer{
+            width: 200px;
+            height: 200px;
+            background: #ddd;
+        }
+
+        .inner{
+            width: 100px;
+            height: 100px;
+            background: blue;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+       <div class="outer" @click="outerClickHandler">
+           <!-- .stop阻止事件冒泡 -->
+            <div class="inner" @click.stop="innerClickHandler">
+                {{msg}}
+            </div>
+       </div>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+               msg: "hello"
+            },
+            methods: {
+                innerClickHandler() {
+                    var that = this;
+                    window.setTimeout(function() {
+                        that.msg = "inner";
+                    }, 1000);
+                },
+                outerClickHandler() {
+                    var that = this;
+                    window.setTimeout(function() {
+                        that.msg = "outer";
+                    }, 2000);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

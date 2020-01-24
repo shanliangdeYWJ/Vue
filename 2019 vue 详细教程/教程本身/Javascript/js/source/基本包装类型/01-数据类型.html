@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        基本数据类型：
+            boolean, number, string, undefined, null
+
+
+            undefined这种类型只有一个值就是undefined
+            null这种类型只有一个值就是null
+                一般情况下，当一个变量在声明时是为了未来存储对象的，就需要将其初值为null
+                但是用typeof null时得到的结果是"object"
+        */
+
+        var a;
+
+        console.log(a);   // undefined
+
+        console.log(typeof a);   // "undefined"
+
+        function fn(b) {
+            if(b === undefined || b === null) {
+                b = "hello";
+            }
+
+
+            // if(typeof b === "undefined") {
+            //     b = "hello";
+            // }
+            return b;
+        }
+
+        console.log(fn());
+
+        console.log(fn(null));
+
+
+        var o = null;
+
+        var i = {};
+
+        var a = 0;
+
+        var s = "";
+
+        var p = [];
+
+        var obj = {
+            name: "aaa",
+            age: 23
+        };
+
+        // ...
+        obj = null; // 只是告诉垃圾收集器obj对象不需要，可以回收其空间，为了优化程序，节约内存
+
+
+    </script>
+</body>
+</html>

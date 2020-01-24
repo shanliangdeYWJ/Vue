@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // js并不要求形参的数量和实参匹配
+
+        function add(m, n) {
+            // return m + n;
+            if(m === undefined) {
+                m = 0;   // 参与计算的默认值
+            }
+            if(n === undefined) {
+                n = 0;
+            }
+
+            return m + n;
+        }
+
+        var r = add(4, 8);
+        console.log(r);
+
+        // 实参个数大于形参
+        var r1 = add(8, 9, 6);  // 多余的实参会被忽略，多写的等于没有写
+        console.log(r1);
+
+        // 实参个数小于形参
+        var r2 = add(5); // n是undefined
+        console.log(r2);  // NaN  not a number
+
+        var r3 = add();
+        console.log(r3);
+    </script>
+</body>
+</html>

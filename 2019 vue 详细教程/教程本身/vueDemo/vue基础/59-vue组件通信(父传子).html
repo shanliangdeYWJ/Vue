@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+   <style>
+       header{
+           height: 150px;
+           width: 300px;
+           border: 1px solid #ddd;
+           margin: 30px;
+       }
+   </style>
+</head>
+<body>
+
+    <div id="app">
+        <h2>{{msg}}</h2>
+        username: <input type="text" v-model="user">
+        <my-header :user="user"></my-header>
+    </div>
+
+    <template id="header">
+       <header>
+          这是子组件内部
+          header, {{user}} <br>
+         
+       </header>
+    </template>
+
+    <script src="lib/vue.js"></script>
+    <script>
+        
+        var myHeader = {
+            template: "#header",
+            props: {
+                user: {
+                    type: String,
+                    required: true
+                }
+            }
+        };
+
+       
+        var app = new Vue({
+            el: "#app",
+            data: {
+                msg: "test",
+                user: "john"
+            },
+            components: {
+                myHeader,
+                
+            }
+        });
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        Animal   type,age
+                eat
+                run()
+        Dog     
+                wang()
+        */
+
+
+        function Animal(type, age) {
+            this.type = type;
+            this.age = age;
+        }
+
+        Animal.prototype.eat = function() {
+
+        };
+
+        Animal.prototype.run = function() {
+
+        };
+
+        function Dog(type, age) {
+            Animal.call(this, type, age);
+        }
+
+        Dog.prototype = new Animal();
+        Dog.prototype.constructor = Dog;
+
+        Dog.prototype.wang = function() {
+
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        属性：
+           length   代表字符串字符的数量 
+        方法: 
+            字符方法:
+                charAt() 
+                charCodeAt() 
+            字符串方法: 
+                concat()    和 + 的作用相同
+                slice(start, end)   切片方法
+                substr(start, length)
+                substring(start, stop)
+                如果没有指定end, stop, length,都是截到末尾
+            位置方法:
+                indexOf(searchvalue)
+                lastIndexOf(searchvalue)
+            去除两端空格:
+                trim()
+            大小写转换:
+                toUpperCase()
+                toLowerCase()
+            正则相关:
+                match()
+                replace()
+                search()
+            切割方法:
+                split()
+        */
+
+        var s = "hello world!world!world";
+        console.log(s.length);
+
+        var a = "好好学习\'";
+        console.log(a.length);
+
+
+        // charAt(index)
+        console.log(s.charAt(1));
+        for (var i = 0; i < s.length; i++) {
+            console.log(s.charAt(i));
+        }
+
+        console.log(s.charAt(40));  // ""   ''
+
+        // charCodeAt(index)
+        console.log(s.charCodeAt(0));
+        console.log(a.charCodeAt(0));
+        console.log(a.charCodeAt(0).toString(16));
+
+        // concat()
+        var b = s.concat(a, "!!!", "天气不错");
+        console.log(b);
+        var c = s + a + "!!!" + "天气不错";
+        console.log(c);
+
+        // slice(start, end)
+        var m = s.slice(2, 5);
+        console.log(m);
+        // substr(start, length)
+        var n = s.substr(2, 5);
+        console.log(n);
+        // substring(start, stop);
+        var x = s.substring(2, 5);
+        console.log(x);
+
+        // indexOf()
+        var p = s.indexOf("world", 7);
+        console.log(p);
+
+        // lastIndexOf()
+        var o = s.lastIndexOf("world");
+        console.log(o);
+
+        // trim()
+        var r = "  zhangsan    ";
+        var t = r.trim();
+        console.log(r);
+        console.log(t);
+
+        // var un = prompt("username:").trim();
+        // console.log(un);
+
+
+        // toUpperCase()
+        var h = s.toUpperCase();
+        console.log(h);
+
+        // toLowerCase()
+        var y = h.toLowerCase();
+        console.log(y);
+
+        // var checkCode = "Rt78Wp";
+
+        // var input = prompt(checkCode + "\ncheckcode:");
+
+        // console.log(checkCode);
+        // console.log(input);
+
+        // if(checkCode.toUpperCase() === input.toUpperCase()) {
+        //     alert("checkcode input right!");
+        // }else{
+        //     alert("checkcode input error!");
+        // }
+
+
+        // match()
+        var arr = s.match("world");
+        console.log(arr);
+
+        // replace()
+        var no = "24O3o4O3o43545ADFBO000o";
+        // var newNo = no.replace('O', '0').replace('o', '0');
+        var newNo = no.replace(/O/g, '0').replace(/o/g, '0');
+        console.log(no);
+        console.log(newNo);
+
+        // split()
+        var str = "username=aaa&password=123&phone=123445";
+        var arr = str.split("&");
+        console.log(arr);
+        // 找出username的值
+        // var un = arr[0].substring(arr[0].indexOf("=") + 1);
+        // console.log(un);
+        // var un = arr[0].split("=")[1];
+        // console.log(un);
+        /*
+            {
+                username: "aaa",
+                password: "123",
+                phone: "123445"
+            }
+        */
+        // var o = {};
+        // arr.forEach(function(e) {
+        //     // console.log(e);
+        //     var brr = e.split("=");
+        //     // console.log(brr[1]);
+        //     o[brr[0]] = brr[1];
+        // });
+        // console.log(o);
+
+        function strToObj(str, sp1, sp2) {
+            var arr = str.split(sp1);
+            var o = {};
+            arr.forEach(function (e) {
+                var brr = e.split(sp2);
+                o[brr[0]] = brr[1];
+            });
+            return o;
+        }
+
+        var p = "a=123&b=hello&c=990&temp=45678";
+        var w = strToObj(p, "&", "=");
+        console.log(w);
+
+        var t = "e:234|b:ppp|g:world";
+        var z = strToObj(t, "|", ":");
+        console.log(z);
+
+        // 快速将一个字符串转换成一个字符数组
+        // "hello"   ['h', 'e', 'l', 'l', 'o'];
+        var crr = s.split("");
+        console.log(crr);
+        crr.sort();
+        console.log(crr);
+
+        // localeCompare()
+        var j = "hello";
+        var l = "wello";
+        console.log(j.localeCompare(l));
+        console.log(l.localeCompare(j));
+
+        // String.fromCharCode()
+        var h = String.fromCharCode(97, 99, 105);
+        console.log(h);
+
+        var n = String.fromCharCode(25105);
+        console.log(n);
+
+        // 
+        var err = [26377,19968,20010,20250,24605,32771,30340,22836,33041,24456,37325,35201];
+        // var s = "";
+        // err.forEach(function(e) {
+        //     s += String.fromCharCode(e);
+        // });
+        var s = String.fromCharCode.apply(null, err);
+        console.log(s);
+    </script>
+</body>
+
+</html>

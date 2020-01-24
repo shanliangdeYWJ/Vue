@@ -1,0 +1,90 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.slides, .slides2 {
+    width: 640px;
+    height: 320px;
+    margin: 30px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.slides2 {
+    height: 360px;
+}
+
+.pics {
+    /* width: 3200px; */
+    position: absolute;
+    transition: all .5s;
+    left: 0;
+}
+
+.pics .item{
+    float: left;
+}
+
+.pics .item h3{
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    background: rgba(255, 255, 255, 0.3);
+    bottom: 30px;
+}
+
+.dots{
+    list-style: none;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dots li {
+    float: left;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.slides2 .dots li{
+    border: none;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.slides .dots li.active{
+    background: #eee;
+}
+
+.slides2 .dots li.active{
+    background: #fff;
+}
+
+.arrow {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.slides2 .arrow {
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.arrow.left{
+    left: 0;
+    background-image: url(../images/arrow-left.png);
+}
+
+.arrow.right{
+    right: 0;
+    background-image: url(../images/arrow-right.png);
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        /*
+         编写一个函数getMax, 得到数组中元素的最大值
+   输入： 
+     一个数组
+   输出：
+     数组元素的最大值
+     */
+      
+     var arr = [45, 34, 12, 89];
+
+     var crr = [78, 90, 67, 99];
+
+     function getMax(drr) {  // 形参不用显式声明不用var,也只能在函数内部使用
+        //  var drr = [];
+         var max = drr[0];
+         for(var i = 1; i < drr.length; i++) {
+             if(arr[i] > max) {
+                 max = drr[i];
+             }
+         }
+
+         return max;
+     }
+
+     console.log(getMax(arr));
+
+     console.log(getMax(crr));
+    </script>
+</body>
+</html>

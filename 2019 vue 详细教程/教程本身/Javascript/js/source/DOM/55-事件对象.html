@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="box">
+        hello
+    </div>
+
+    <script>
+        var o = document.querySelector(".box");
+        o.addEventListener('click', function (e) {
+            //    console.log(e.bubbles);
+            console.log("box click");
+            // if (e.bubbles) {
+            //     e.cancelBubble = true;  // 表示阻止继续冒泡
+            // }
+            e.stopPropagation();
+
+        });
+
+        document.body.addEventListener("click", function () {
+            console.log("body click");
+        })
+    </script>
+</body>
+
+</html>

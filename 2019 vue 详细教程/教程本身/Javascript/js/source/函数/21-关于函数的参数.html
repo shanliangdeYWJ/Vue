@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        /*
+        3. 编写一个函数sayHello
+   输入： 
+     姓名
+   输出：
+     你好, 姓名
+     如果姓名缺失，则输出 你好
+     */
+
+        //  var username = "小明";
+
+        //  function sayHello(username) {
+        //      if(username === undefined) {
+        //          return "你好";
+        //      }else {
+        //          return "你好, " + username;
+        //      }
+        //  }
+
+        //  console.log(sayHello(username));
+        //  console.log(sayHello());  // 不传对应的参数，称为参数缺失
+
+        // var username = "小明";
+        function getName() {
+            return "小明";
+        }
+
+        function sayHello(un) {
+            if (un === undefined || un === '' || un === null) {
+                return "你好";
+            } else {
+                return "你好, " + un;
+            }
+        }
+
+        alert(sayHello(getName()));
+
+
+
+    </script>
+</body>
+
+</html>

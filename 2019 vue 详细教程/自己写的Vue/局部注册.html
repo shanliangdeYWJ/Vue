@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- 使用组件 -->
+    <my-header></my-header>
+    <my-main></my-main>
+    <my-footer></my-footer>
+    <hello-world></hello-world>
+  </div>
+
+  <template id="box">
+    <div>
+      <h2>hello!!!{{ uname }}</h2>
+      <h6 @click="changeHandler"></h6>
+      <h3>{{ prefix }}</h3>
+      <hr>
+    </div>
+  </template>
+
+  <!-- 定义组件模板 -->
+  <template id="header">
+    <header>
+      善良的YWJ TIS IS HEADER
+    </header>
+  </template>
+
+  <template id="main">
+    <div class="main">
+      TIS IS MAIN
+    </div>
+  </template>
+
+  <template id="footer">
+    <footer>
+      THIS IS FOOTER
+    </footer>
+  </template>
+
+</body>
+<script>
+
+  // 定义组件
+  var helloWorld = {
+    template:"#box",  
+    data(){
+      return {
+        uname: "李明"
+      }
+    },
+    methods:{
+      changeHandler(){
+        this.uname = 'liming'
+      }
+    },
+    computed : {
+      prefix(){
+        return "~~~~~" + this.uname
+      }
+    }
+  }
+  // 定义组件
+  var myHeader = {
+    template: '#header'
+  };
+  var myMain = {
+    template: '#main'
+  };
+  var myFooter = {
+    template: '#footer'
+  };
+
+  var app = new Vue({
+    el:'#app',
+    data: {
+      msg:'hi',
+    },
+    // 注册组件
+    components: {
+      myHeader,
+      myMain,
+      myFooter,
+      helloWorld
+    }
+  });
+
+
+
+  /*
+  div#app挂载 vue对象
+  内部调用已注册模板(通过标签形式)
+
+  在html中新建组件的模板
+
+
+  在js中新建组件对应的js组件的对象，并且用 template 挂载 id
+  设置相应的方法、数据、属性
+  在 Vue 的 component是里面注册
+
+  Vue对象 注册组件
+  
+  
+  */
+</script>
+</html>

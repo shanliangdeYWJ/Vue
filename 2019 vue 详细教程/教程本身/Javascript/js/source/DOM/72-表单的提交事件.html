@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <form action="" id="form1">
+        username: <input type="text" id="username"> <br>
+        password: <input type="password" id="password"> <br>
+        sex: <input type="radio" name="sex" value="male"> 男 
+        <input type="radio" name="sex" value="female"> 女 <br>
+        likes: <input type="checkbox" class="likes" value="sport"> 运动
+        <input type="checkbox" class="likes" value="music"> 音乐
+        <input type="checkbox" class="likes" value="draw"> 绘画
+        <br>
+        from: <select name="" id="city">
+            <option value="shanghai">上海</option>
+            <option value="beijing">北京</option>
+            <option value="tianjin">天津</option>
+        </select> 
+        <br>
+        info: <textarea name="" id="info" cols="30" rows="10">df</textarea> <br>
+
+        <button id="mybut">button</button> 
+        <input type="reset">
+    </form>
+
+    <script>
+        /*
+        当表单内部有submit按键时，点击它时触发的是表单的submit事件，而不是按钮的事件
+        当表单内部有button标签时，会自动当成submit按钮
+        */
+
+        var oun = $("username");
+        var opwd = $("password");
+        var osexs = document.getElementsByName("sex");
+        var olikes = document.getElementsByClassName("likes");
+        var ocity = $("city");
+        var oinfo = $("info");
+
+        var user = {};
+
+        document.getElementById("form1").onsubmit = function () {
+            user.username = oun.value;
+            user.password = opwd.value;
+            for(var i = 0; i < osexs.length; i++) {
+                 if(osexs[i].checked) {
+                     user.sex = osexs[i].value;
+                     break;
+                 }
+            }
+
+            var likes = [];
+            for(var j = 0; j < olikes.length; j++) {
+                if(olikes[j].checked) {
+                    likes.push(olikes[j].value);
+                }
+            }
+            user.likes = likes;
+        
+            user.city = ocity.value;
+
+            user.info = oinfo.value;
+            console.log(oinfo.value);
+            console.log(user);
+            return false;
+        };
+
+
+        function $(id) {
+            return document.getElementById(id);
+        }
+
+    </script>
+</body>
+
+</html>

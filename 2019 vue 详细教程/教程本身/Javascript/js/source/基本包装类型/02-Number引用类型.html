@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 每当读取一个基本类型值的时候，后台就会创建一个对应的基本包装类型的对象
+
+        var a = 255;
+        var aa = a.toString();  // 默认10进制
+
+        var aaa = a.toString(2);  // 2进制
+
+        var bbb = a.toString(8);  // 8进制
+
+        var ccc = a.toString(16);  // 16进制
+
+
+        // toFixed(小数位数)   返回的是字符串形式的数值  自动四舍五入
+        var b = 45.6676767;
+        var s = +b.toFixed(2);
+
+        // toFixed(小数位数)   返回的是字符串形式的数值  自动四舍五入
+        // 如果想直接截断，需变通的方式
+        var t = Math.floor(b * 100) / 100; 
+
+
+        /*
+            num: 需要操作的数值
+            n: 需要保留的小数位数
+            b: 是否进行四舍五入  true 是 false 否
+            function getNumber(num, n, b) {
+
+            }
+        */
+
+        function getNumber(num, n, b) {
+            if(b) {   // 四舍五入
+                return +num.toFixed(n);
+            }else{   // 直接截断
+                var p = Math.pow(10, n);
+                return Math.floor(num * p) / p;
+            }
+        }
+
+        var m = 3456.77878;
+        var n = getNumber(m, 3, false);
+        var n2 = getNumber(m, 2, true);
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        function 函数名() {
+            函数体
+        }
+
+        三个要素：
+            1） 是否需要参数（形参）
+            2） 需要实现的功能
+            3） 结果是否要反馈
+        */
+
+        function add(m, n) {
+            var r = m + n;
+            return r;    // 返回结果给调用方，同时结束当前函数调用
+            // console.log("hello");  // 永远没有机会执行，不应该写在此处
+        }
+
+        var h = add(30, 30);
+        console.log(h);
+    </script>
+</body>
+</html>

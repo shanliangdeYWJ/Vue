@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!--
+
+        HTML data-* 属性
+        定义和用法
+            data-* 属性用于存储页面或应用程序的私有自定义数据。
+
+            data-* 属性赋予我们在所有 HTML 元素上嵌入自定义 data 属性的能力。
+
+            存储的（自定义）数据能够被页面的 JavaScript 中利用，以创建更好的用户体验。
+
+        data-* 属性包括两部分：
+
+            •属性名不应该包含任何大写字母，并且在前缀 "data-" 之后必须有至少一个字符
+            •属性值可以是任意字符串
+       
+        HTML 4.01 与 HTML5 之间的差异
+            data-* 属性是 HTML5 中的新属性。
+        语法
+            <element data-*="somevalue">
+                
+    -->
+
+    <div data-user = "zhangsan">hello</div>
+    <p data-id="123" data-address="henan" data-user-phone="12132323">Test</p>
+    <p data-age="20">Test2</p>
+</body>
+    <script>
+        /*
+        其实这是HTML5规范的一部分，DOM对象中有个dataset属性对象，
+        可以在该对象中存一些与该DOM对象相关的数据。
+        如上写法是在生成dom对象时对dataset的一个初始化的动作，
+        dataset中会存在一个id属性和age属性。这里需要注意data-仅仅是一个约定好的前缀，
+        在生成DOM对象时所有已data-开头的属性会将其去掉前缀data-后存在dataset中。
+        */
+
+        var p1 = document.querySelector("p");
+        console.log(p1.dataset);
+        console.log(p1.dataset.id,  p1.dataset.address, p1.dataset.userPhone);
+
+        p1.dataset.address = "上海";
+        p1.dataset.userSex = "男";
+    </script>
+</html>

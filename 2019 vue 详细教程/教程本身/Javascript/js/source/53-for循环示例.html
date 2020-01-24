@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* body{
+            color: red;
+        } */
+
+        span {
+            color: red;
+            display: inline-block;
+            width: 21px;
+            text-align: center;
+        }
+
+        .green {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <script>
+        /* 打印矩形
+        每行10个,共5行
+        **********
+        **********
+        **********
+        **********
+        **********
+
+        嵌套循环
+       */
+
+        for (var n = 1; n <= 5; n++) {
+            for (var i = 1; i <= 10; i++) {
+                document.write("*");
+            }
+            document.write('<br />');
+        }
+
+        /*
+            进行外循环
+                1. n = 1
+                2. n <= 5 是否成立
+                成立
+                进入内循环
+                    1) i = 1
+                    2) i <=10  是否成立
+                    成立
+                    3)   打印一个*
+                    4)  i++
+                        回到2)
+                    直到i=11时跳出内循环,执行后续语句
+                3.  打印<br />
+                4. n++
+                回到2
+        */
+    </script>
+</body>
+
+</html>

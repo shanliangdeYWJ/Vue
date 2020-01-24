@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        */
+
+        function hello(username) {
+            username = "小红";
+            console.log("hello, ", username);
+        }
+        var un = "小明";
+        hello(un);
+        console.log(un);
+
+        function add(a, b) {
+            return a + b;
+        }
+
+        add(8, 9);
+
+        function test(arr) {
+            console.log(arr);
+            arr[0] = 90;
+        }
+        
+        var brr = [4, 5, 6];
+        test(brr);
+        console.log(brr);
+
+
+        /*
+        在传参时，其实传递的都是值本身
+        如果是基本数据类型，传递的值就是数据本身
+        如果是引用数据类型，传递的值是地址本身
+        */
+    </script>
+</body>
+</html>

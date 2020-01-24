@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    
+    <div id="app">
+        <h2>{{msg}}</h2>
+       <input type="button" value="事件测试" @click="clickHandler">
+    </div>
+
+    <script src="lib/vue.js"></script>
+
+    <script>
+        // el属性定义了vue实例所管理的边界
+        var app = new Vue({
+            el: '#app',
+            data: {
+              msg: "hello vue"
+            },
+            methods: {
+                clickHandler() {
+                    this.msg = "你好，vue"
+                }
+            }
+        });
+    </script>
+</body>
+</html>

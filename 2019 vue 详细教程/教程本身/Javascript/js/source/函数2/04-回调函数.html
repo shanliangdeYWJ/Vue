@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 回调函数  callback function
+
+        /*
+        既然函数可以像普通的值一样使用，即么它就可以像值一样作为参数传给另一个函数
+
+        一个函数就可以接收另一个函数作为参数,这种函数就称之为高阶函数。
+        */
+
+        function fn(f) {  // fn接受了另一个函数作为参数,fn就称之高阶函数， 而f就称为回调函数
+            console.log("hello");
+            // f();
+            //...
+            // if(...) {
+            //     f();
+            // }
+        }
+
+        fn(function() {
+            console.log("f");
+        });
+    </script>
+</body>
+</html>

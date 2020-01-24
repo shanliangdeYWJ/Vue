@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        2. 询间用户需录入的学员个数n
+依次录入n个学员的成绩
+输出n项成绩中的最高分和最低分
+max=score[0]
+min=score[0]
+        */
+        // 输入
+        var n = 5;
+        var scores = [56, 89, 45, 12, 96];
+        
+        // 求最高分最低分
+        var max = scores[0]; 
+        var j = 0;   // 用来记录最大值的索引位置
+
+        var min = scores[0];
+        var m = 0;   // 用来记录最小值的索引位置
+
+        for(var i = 1, length = scores.length; i < length; i++) {
+            if(scores[i] > max) {
+                max = scores[i];
+                j = i;
+            }
+
+            if(scores[i] < min) {
+                min = scores[i];
+                m = i;
+            }
+        }
+
+        console.log("最高分是" + max + "，它的位置是" + j);
+        console.log("最低分是" + min + "，它的位置是" + m);
+
+        console.log(i); 
+
+       </script>
+</body>
+</html>

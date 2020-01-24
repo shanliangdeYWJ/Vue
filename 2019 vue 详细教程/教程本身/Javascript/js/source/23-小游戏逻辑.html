@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        /*
+        1. 玩家双方
+            player
+            computer
+           约定：
+            剪刀   0
+            石头   1
+            布     2
+
+        2. 判断输赢的算法
+            总结一下player赢的情况：
+            player === 0 && computer === 2 || player === 1 && computer === 0 || player === 2 && computer === 1
+
+        */
+
+        var player = 0;
+        var computer = 1;
+        if ((player === 0 && computer === 2)
+            || (player === 1 && computer === 0)
+            || (player === 2 && computer === 1)) {
+            alert("您赢了！");
+        }else if(player === computer) {
+            alert("平局！");;
+        }else{
+            alert("您输了！");;
+        }
+
+        // console.log(result);
+    </script>
+</body>
+
+</html>

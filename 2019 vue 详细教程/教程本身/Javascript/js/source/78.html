@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //1.校验用户名： 8-12位字母或数字组成
+
+
+        // var username="asdf2423_";
+        // var p=/^[0-9a-zA-Z][0-9a-zA-Z]{7,11}$/;
+
+
+        //2.校验QQ号
+
+        // var p=/^[1-9][0-9]{4,10}$/;
+        // var qq='123456789109';
+
+        //3.校验电话号码
+        // var p=/^[1]\d{10}$/;
+        // var tel='189909090f1';
+
+        //4.校验邮箱
+        //6767@qq.com    xx@163.com    xx@gmail.cn
+
+        //  \转义字符
+
+        var p=/^[0-9a-zA-Z_]+@[0-9a-zA-Z]+\.[a-zA-Z]+$/;
+        var mail='123898@126.com';
+
+        if(p.test(mail)){
+            alert('正确');
+        }else{
+            alert('失败');
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

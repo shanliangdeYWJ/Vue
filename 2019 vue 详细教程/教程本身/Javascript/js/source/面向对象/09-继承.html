@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function Employee (no, name, salary) {
+            this.no = no;
+            this.name = name;
+            this.salary = salary;
+        }
+
+        Employee.prototype.work = function() {
+            console.log(this.name + " is working...");
+        };
+
+        
+
+        function DevEmployee (no, name, salary, dept) {
+            this.no = no;
+            this.name = name;
+            this.salary = salary;
+            this.dept = dept;
+        }
+
+        DevEmployee.prototype.work = function() {
+            console.log(this.name + " is working...");
+        };
+
+        DevEmployee.prototype.say = function() {
+            console.log(this.name + " is talking...");
+        };
+
+
+// 以上两种类型的很多代码逻辑是相似的，但是却不能复用
+
+
+    </script>
+</body>
+</html>

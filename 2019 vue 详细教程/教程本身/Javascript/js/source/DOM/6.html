@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img{width: 150px;height: 100px;}
+    </style>
+</head>
+<body>
+        <img src="images/2.jpg" alt="">
+        <img src="images/3.jpg" alt="">
+        <img src="images/4.jpg" alt="">
+        <img src="images/2.jpg" alt="">
+    <script>
+    // 3.点击(每个)图片弹出对话框
+
+    var imgs=document.getElementsByTagName('img');
+    console.log(imgs.length);//集合中元素的个数
+    // console.log(imgs[0]);
+    // console.log(imgs[1]);
+    // console.log(imgs[2]);
+    // imgs[0].onclick=function(){
+    //     alert('0');
+    // };
+
+    // imgs[1].onclick=function(){
+    //     alert('1');
+    // };
+
+    // imgs[2].onclick=function(){
+    //     alert('2');
+    // };
+
+    //遍历所有节点，添加点击事件
+    for(var i=0;i<imgs.length;i++){
+        imgs[i].onclick=function(){
+            alert('run');
+        };
+    }
+    </script>
+</body>
+</html>

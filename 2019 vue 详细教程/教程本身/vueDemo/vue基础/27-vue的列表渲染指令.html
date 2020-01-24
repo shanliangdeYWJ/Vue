@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- v-for可以遍历对象和数组
+        遍历对象时：
+            v-for="v in user"
+            v-for="(v, k) in user"
+            v-for="(v, k, i) in user"
+
+        遍历数组时:
+            v-for="e in emps"
+            v-for="(e, i) in emps"
+    -->
+    <div id="app">
+       <p v-for="(v, k, i) in user">
+            {{k}}, {{v}}, {{i+1}}
+       </p>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                user: {
+                    id: 1002,
+                    name: "小明",
+                    sex: "男"
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

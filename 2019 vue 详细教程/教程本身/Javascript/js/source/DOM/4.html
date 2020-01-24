@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">点我</button>
+    <div id="box"></div>
+    <script>
+        /*
+            事件：事件不会自我执行，需要触发之后才可以执行
+
+        */
+
+        //获取页面元素
+        var button=document.getElementById('btn');
+        var o=document.getElementById('box');
+        // console.log(button);
+        //为按钮添加点击事件
+        button.onclick=function(){
+            // alert('hello');
+            o.innerHTML='新来的';
+        };
+    </script>
+</body>
+</html>

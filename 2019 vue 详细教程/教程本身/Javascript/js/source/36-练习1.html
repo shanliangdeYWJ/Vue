@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        1.假设你应聘web前端技术开发岗位，如果你会html、css和javasscript技术，你面试成功，
+        欢迎加入公司，否则你面试不成功，不能加入公司。
+  例：
+	请问您会html技术吗(yes/no)?
+	请问您会css技术吗(yes/no)?
+	请问您会javascript技术吗(yes/no)?
+	以上三问都回答为yes时面试成功，否则失败。
+        */
+
+        var html = prompt("请问您会html技术吗(yes/no)?");
+        var css = prompt("请问您会css技术吗(yes/no)?");
+        var js = prompt("请问您会javascript技术吗(yes/no)?");
+
+        var result;
+        if(html === "yes" && css === "yes" && js === "yes") {
+            result = "面试通过";
+        }else {
+            result = "面试失败";
+        }
+
+        alert(result);
+    </script>
+</body>
+</html>

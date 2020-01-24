@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <input type="text" id="info" value="aaaa">
+
+
+    <script>
+        // 有三个常用的事件，js提供了更简化的方法触 发
+        // click(), focus(), blur()
+        // input输入框还有一个特殊的select(),用于选中输入框的内容
+        var info = document.querySelector("#info");
+        var box = document.querySelector(".box");
+       
+        box.addEventListener("click", function() {
+            console.log("click");
+        });
+
+
+        box.click();
+        box.click();
+
+        info.focus();
+        info.blur();
+
+        info.select();
+
+
+
+
+      
+
+    </script>
+</body>
+
+</html>

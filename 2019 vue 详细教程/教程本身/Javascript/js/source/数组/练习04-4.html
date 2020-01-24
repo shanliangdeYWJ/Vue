@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        4. 提示用户输入用户名密码。
+共三次机会，当输入错误时，提示还有几次机会。
+三次都输入错误，提示无权登录系统。
+三次中有一次输入正确，提示登录成功。
+正确的用户名密码为： admin  123
+        */
+        var flag = false;
+        var count = 5;   // 可输入的总次数
+        for (var n = 1; n <= count; n++) {
+            var username = prompt("username:");
+            var password = prompt("password:");
+            if (username === "admin" && password === "123") {
+                flag = true;
+                break;
+            } else {
+                if (count - n > 0) {
+                    alert("输入错误，您还有" + (count - n) + "次机会！");
+                }
+            }
+        }
+
+        if (flag) {
+            alert("登录成功");
+        } else {
+            alert("无权登录系统");
+        }
+
+    </script>
+</body>
+
+</html>

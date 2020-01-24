@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="box">
+
+
+    </div>
+    <script>
+        
+        /*
+
+        */
+
+        var data = [
+            {
+                title: "数码/摄照潜客营销",
+                time: "2017-05-27 16:06:33",
+                image: "images/a.jpg",
+                imageText: "数码/摄照",
+                numbers: 7973,
+                filters: 7973,
+                userDesc: {
+                    no: 2514,
+                    sex: ["女", "男", "未知"],
+                    age: ["20岁以下", "21-30岁"],
+                    card: ["V钻卡", "金钻卡"],
+                    creater: "总店"
+                }
+            },
+            {
+                title: "青春装潜客营销",
+                time: "2017-05-27 16:06:33",
+                image: "images/b.jpg",
+                imageText: "青春装",
+                numbers: 41193,
+                filters: 2706,
+                userDesc: {
+                    no: 2514,
+                    sex: ["女", "男", "未知"],
+                    age: ["20岁以下", "21-30岁"],
+                    card: ["V钻卡", "金钻卡"],
+                    creater: "总店"
+                }
+            }
+        ];
+
+
+        function createDiv() {
+            var box = document.querySelector(".box");
+            data.forEach(function(e) {
+                var div = document.createElement("div");
+
+                var title = document.createElement("h3");
+                title.innerHTML = e.title;
+
+                var time = document.createElement("span");
+                time.innerHTML = e.time;
+
+
+                div.append(title, time);
+                box.append(div);
+            });
+        }
+
+        createDiv();
+    </script>
+</body>
+</html>

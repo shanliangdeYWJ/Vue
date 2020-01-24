@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+      
+        var arr = [11, 22, 33, 44];
+        
+        // 1. for
+        // for(var i = 0; i < arr.length; i++) {
+        //     arr[i] = 99;
+        //     console.log(arr[i]);
+        // }
+
+        // console.log(arr);
+        console.log("****************");
+        // 2. forEach()，它只是对数组中的每一项运行传入的函数。这个方法没有返回值，
+        // 本质上与使用for 循环迭代数组一样
+        arr.forEach(function(e, i, brr) {
+            // e = 99;
+            brr[i] = 99;
+            console.log(e);
+        });
+
+        console.log(arr);
+    </script>
+</body>
+</html>

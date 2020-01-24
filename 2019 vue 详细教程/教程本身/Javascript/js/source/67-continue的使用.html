@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        报出100以内的不安全数（不安全的数指7的倍数或者尾数为7的)
+
+        当循环中遇到continue时，会直接跳过其他的循环体部分，直接进入下一次循环（先将循环变量的值改变，再判断）
+        */
+
+        // for(var i = 1; i <= 100; i++) {
+        //     if(!(i % 7 === 0 || i % 10 === 7)) {  // 安全数（不打印， 直接跳过此数）
+        //         continue; // 结束本次循环，进入下一次循环
+        //     }
+        //     console.log(i);
+        // }
+
+
+        // var sum = 0;
+        // for(var i = 0; i < 100; i++){
+        //     if( i % 2 !== 0){
+        //         continue;
+        //     } 
+        //     sum += i;
+        // }
+        // document.write( sum); 
+
+
+        // var height = 0.07;
+        // var i = 0;
+        // while(height < 8848000){
+        //     height *= 2;
+        //     i++;  
+        // }
+        // document.write(i);
+
+        // var sum = 1;
+        // for (var i = 2; i <= 64;i++ ){
+        //     sum *=2;
+        // }
+        // document.write(sum);
+
+        var day = new Date(2019,4 - 1,24);
+        var weekDay = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+        alert(  weekDay[day.getDay()]);
+        
+
+    //     var	a=888;
+	// a++;
+	// var	b=++a;
+	// alert(a);
+        
+    </script>
+</body>
+</html>

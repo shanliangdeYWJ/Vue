@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <hello-world></hello-world>
+        <hello-world></hello-world>
+        <hr>
+        <hello-world></hello-world>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script>
+
+        // 全局注册组件
+        // Vue.component('hello-world', {
+        //     template: '<div><h3>欢迎大家进入vue的世界！</h3><h4>hello</h4></div>'
+        // });
+
+        Vue.component('helloWorld', {
+            template: '<div><h3 @click="clickHanlder">欢迎{{info}}进入vue的世界！</h3><h4>hello</h4></div>',
+            data(){
+                return {
+                    info: "李明"
+                }
+            },
+            methods: {
+                clickHanlder() {
+                    this.info = "王丽";
+                }
+            }
+        });
+
+        var app = new Vue({
+            el:"#app"
+        });
+    </script>
+</body>
+</html>

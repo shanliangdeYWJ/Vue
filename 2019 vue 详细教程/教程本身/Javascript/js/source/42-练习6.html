@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        6.剪刀石头布的游戏逻辑。变量a和b中存储的是双方的选择（剪刀，石头，布中的一种，可输入）。
+  请描述不同选择的输赢情况。
+        */
+
+        var a = prompt("剪刀，石头，布");
+        var b = prompt("剪刀，石头，布");
+
+        var result;
+        if(a === "剪刀" && b === "布" || a === "石头" && b === "剪刀" || a === "布" && b === "石头") {
+            result = "玩家A赢了";
+        }else if(a === b) {
+            result = "玩家A与玩家B平局";
+        }else {
+            result = "玩家B赢了";
+        }
+
+        alert(result);
+    </script>
+</body>
+</html>

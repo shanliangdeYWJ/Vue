@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .top {
+            height: 50px;
+            background: pink;
+        }
+        .top .router-link-active {
+            background: yellowgreen;
+            color: #fff;
+        }
+
+        .user-main .left {
+            width: 15%;
+            float: left;
+            background: #ddd;
+            min-height: 500px;
+        }
+
+        .user-main .left .router-link-active{
+            background: lightblue;
+            color: #fff;
+        }
+
+        .user-main .right {
+            width: 85%;
+            float: left;
+            background: #eee;
+            min-height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="top">
+            <router-link to="/user">用户管理</router-link>
+            <router-link to="/order">订单管理</router-link>
+        </div>
+
+        <div class="main">
+            <router-view></router-view>
+        </div>
+    </div>
+
+    <!-- 定义用户管理的模板 -->
+    <template id="tpl-user">
+        <div class="user-main">
+            <div class="left">
+                <router-link tag="p" to="/user/base">基本信息</router-link>
+                <router-link tag="p" to="/user/address">地址信息</router-link>
+                <router-link tag="p" to="/user/myorder">我的订单</router-link>
+            </div>
+            <div class="right">
+                <router-view></router-view>
+            </div>
+        </div>
+    </template>
+
+
+    <template id="tpl-order">
+        <div class="order-main">
+            <div class="left">
+                <router-link tag="p" to="/user/base">基本信息</router-link>
+                <router-link tag="p" to="/user/address">地址信息</router-link>
+                <router-link tag="p" to="/user/myorder">我的订单</router-link>
+            </div>
+            <div class="right">
+                <router-view></router-view>
+            </div>
+        </div>
+    </template>
+
+    <script src="lib/vue.js"></script>
+    <script src="lib/vue-router.js"></script>
+    <script>
+        // 1. 定义所需要的组件
+        var comUser = {
+            template: "#tpl-user"
+        };
+
+        var comOrder = {
+            template: "#tpl-order"
+        };
+
+        var userBase = {
+            template: `<div><h2>user - 基本信息管理</h2></div>`
+        };
+
+        var userAddress = {
+            template: `<div><h2>user - 地址信息管理</h2></div>`
+        };
+
+        var userOrder = {
+            template: `<div><h2>user - 我的订单</h2></div>`
+        };
+
+
+        //2. 定义一个数组（定义路径和组件的映射关系）
+        var routes = [
+            {
+                path: "/user",
+                component: comUser,
+                children: [
+                    {
+                        path: "base",
+                        component: userBase
+                    },
+                    {
+                        path: "address",
+                        component: userAddress
+                    },
+                    {
+                        path: "myorder",
+                        component: userOrder
+                    },
+                    {
+                        path: "",
+                        redirect: "base"
+                    },
+                ]
+            },
+            {
+                path: "/order",
+                component: comOrder
+            },
+            {
+                path: "/",
+                redirect: "/user"
+            }
+        ];
+        // 3. 创建路由对象，将上面的数组绑定到路由对象上
+        var router = new VueRouter({
+            routes
+        });
+
+
+        /*
+        将组件 (components) 映射到路由 (routes)，然后告诉 Vue Router 在哪里渲染它们。
+        */
+        // 4. 将路由对象注入vue实例
+        new Vue({
+            el: "#app",
+            router
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        +
+        - 
+        *
+        /
+        %
+
+        单目运算符（只需一个操作数）
+        ++    自增（递增）
+        --    自减（递减）
+        */
+
+        var a = 10;
+        a++;   // a = a + 1
+        a++;
+        console.log(a);  // 12
+
+        ++a;   // a = a + 1
+        ++a;   
+        a--;   // a = a - 1
+        console.log(a);  // 13
+
+        var c = a;
+        c++;
+        a++;
+        --c;
+        ++a;
+        console.log(a, c);  // 15   13
+    </script>
+</body>
+</html>

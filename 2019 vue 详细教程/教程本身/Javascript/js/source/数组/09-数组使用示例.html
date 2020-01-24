@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 40%;
+        }
+
+        table, th, td{
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        .title{
+            background: yellowgreen;
+            color: #fff;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <script>
+        // 输入三个学员编号以及对应的姓名，并记录
+        var stuNos = [];
+        var stuNames = [];
+
+        for(var i = 0 ; i <= 2; i++) {
+            stuNos[i] = prompt('input no');
+            stuNames[i] = prompt('input name');
+        }
+
+        console.log(stuNos);
+        console.log(stuNames);
+
+        // 输出
+        document.write("<table border=1>");
+        document.write("<tr class='title'>");
+        document.write("<th>编号</th>");
+        document.write("<th>姓名</th>")
+        document.write("</tr>");
+        for(var i = 0; i < stuNos.length; i++) {
+            document.write("<tr>");
+            document.write("<td>" + stuNos[i] + "</td>");
+            document.write("<td>" + stuNames[i] + "</td>");
+            document.write("</tr>");
+        }
+
+        document.write("</table>");
+       
+    </script>
+</body>
+</html>

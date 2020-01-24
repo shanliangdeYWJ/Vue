@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="box">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+    </div>
+
+    <script>
+        /*
+            两类获取DOM元素的方法：
+                1. document.getElement....
+                    根据id获取元素
+                        document.getElementById("id")    单一DOM元素
+                    根据标签名获取元素
+                        document.getElementsByTagName("tagName");     集合元素（类数组结构）
+                            可以像数组一样通过[]取出集合中的某一个元素
+                    根据类名来获取元素
+                        document.getElementsByClassName("className");   集合元素
+                2. document.querySelector...
+                    document.querySelector("选择器")      单一DOM元素 （第一个匹配的）
+                    document.querySelectorAll("选择器")   集合元素
+        */
+
+
+        var as = document.getElementsByTagName("p");
+
+       
+
+        // 添加新元素p
+        var p = document.createElement("p");
+        p.innerHTML = 5;
+
+        document.getElementById("box").appendChild(p);
+        
+
+        var bs = document.querySelectorAll("p");
+
+    </script>
+</body>
+
+</html>

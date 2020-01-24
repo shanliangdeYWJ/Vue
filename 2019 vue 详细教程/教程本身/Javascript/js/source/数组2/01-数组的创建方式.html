@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 使用构造函数的方式创建
+        // var arr = new Array();   //创建长度为０的数组
+
+        var arr = new Array(5);　// 创建长度为5的数组
+        console.log(arr);
+        console.log(arr.length);
+
+        var brr = new Array(5, 4);  // 参数多于1个时，代表的就是元素
+        console.log(brr);
+        console.log(brr.length);
+
+        var crr = new Array("hello", "5hi");
+
+        var drr = new Array("hello");
+        console.log(drr);
+
+
+        var err = Array("hi");  // 省略了new
+        console.log(err);
+
+        // 字面量方式创建
+        // var brr = [];
+        var frr = [];
+
+        var prr = [4,,9];   // 第一个数组元素的值为4
+        console.log(prr);
+    </script>
+</body>
+</html>

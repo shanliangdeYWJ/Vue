@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 创建一个日期对象
+
+
+        function getTime() {
+            var now = new Date();
+
+            // console.log(typeof now);
+            // 获取年份
+            var year = now.getFullYear();
+            var month = now.getMonth() + 1;
+            var date = now.getDate();
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+
+            var time = year + "年" + month + "月" + date + "日  " + hour + ":" + minute + ":" + second;
+            return time;
+        }
+
+        console.log(getTime());
+
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="box">
+
+    </div>
+    
+
+    <script>
+        var s = "";
+        for(var i = 0 ; i < 128; i++) {
+            var c = String.fromCharCode(i);
+            s += i + ":" + c + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+            if(i % 10 === 0) {
+                s += "<br />";
+            }
+        }
+        console.log(s);
+        document.getElementById("box").innerHTML = s;
+    </script>
+</body>
+</html>

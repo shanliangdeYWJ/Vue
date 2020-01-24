@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+             1. 有一张纸,厚度0.01米, 这张纸对折多少次可以超过珠峰的高度(8848米)
+        */
+
+        var max = 884800;
+        var count = 0;
+        var h = 1;
+        while(h <= max) {
+            h *= 2; // 表示对折的结果，厚度在上一次的基础上*2
+            console.log(h);
+            count++;
+        }
+        console.log(count);
+    </script>
+</body>
+</html>

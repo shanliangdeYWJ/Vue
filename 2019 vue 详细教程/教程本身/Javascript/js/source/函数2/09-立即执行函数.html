@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        匿名函数的常见使用场景 
+        1. 被赋值给另一个变量
+        2. 作为参数传给给另一个函数（callback)
+        3. 立即执行函数（即时函数）
+        */
+
+        // (function() {
+        //     console.log("hello");
+        // })();
+
+        // (function() {
+        //     console.log("hello");
+        // }());
+
+        +function () {
+            console.log("hi");
+        }();
+
+        -function () {
+            console.log("hi");
+        }();
+        
+        // !function () {
+        //     console.log("ppp");
+        // }();
+        
+
+        var r = (function (a, b) {
+            return a + b;
+        })(12, 34);
+
+        console.log(r);
+
+        // (function(f1, f2) {
+        //     console.log(f1() + f2());
+        // })(function(){
+        //     return 111;
+        // }, function(){
+        //     return 222;
+        // });
+
+        (function(f1, f2){
+            console.log(f1() + f2());
+        })(function(){
+            return 111;
+        }, function(){
+            return 222;
+        });
+        
+
+    </script>
+</body>
+</html>

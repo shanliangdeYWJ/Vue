@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        9. 编写一个函数getSelect，实现“剪刀石头布”游戏中的数字和字符的转换
+   输入：
+     [0,2]之间一个整数
+   输出： 
+     剪刀 或 石头 或 布
+        */
+
+        function getSelect(n) {
+            var arr = ["剪刀", "石头", "布"];
+            return arr[n];
+        }
+
+        // 根据数值得到中文星期
+        function getWeek(n) {
+            var arr = ["星期日", "星期一","星期二","星期三","星期四","星期五","星期六"];
+            return arr[n];
+        }
+
+        var now = new Date();
+        console.log(getWeek(now.getDay()));
+    </script>
+</body>
+</html>

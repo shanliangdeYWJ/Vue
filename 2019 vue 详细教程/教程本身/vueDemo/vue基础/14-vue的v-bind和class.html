@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .border {
+            border: 5px solid yellowgreen;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background: lightblue;
+        }
+
+        .redfont{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <input type="button" value="切换样式" @click="changeStyle">
+        <div  class="border" :class="{'box': flag1, 'redfont': flag2}">
+            {{msg}}
+        </div>
+    </div>
+
+    <script src="lib/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                msg: "hello vue",
+                flag1: true,
+                flag2: true
+            },
+            methods: {
+                changeStyle() {
+                    this.flag = !this.flag;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

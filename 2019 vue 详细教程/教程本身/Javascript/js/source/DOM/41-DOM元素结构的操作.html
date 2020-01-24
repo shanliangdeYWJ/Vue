@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul class="container">
+        <li>音乐
+            <ul>
+                <li>古典音乐</li>
+                <li>摇滚音乐</li>
+            </ul>
+        </li>
+        <li>绘画</li>
+        <li>游戏</li>
+        <li>旅游</li>
+    </ul>
+
+    <script>
+        /*
+        element.cloneNode(deep)
+        element.cloneNode()   
+            默认deep为false, 只克隆element, 但不克隆其孩子节点
+            deep为true，克隆element及其孩子节点
+        */
+
+        // var ul = document.querySelector(".container");
+
+        // var lis = ul.querySelectorAll("li");
+
+        var ul = document.getElementsByClassName("container")[0];
+        var lis = ul.getElementsByTagName("li");
+
+        for(var i = 0 ; i < lis.length; i++) {
+            lis[i].onclick = function() {
+                alert(this.innerHTML);
+            };
+        }
+
+
+        var oUl = ul.cloneNode(true);
+
+        // console.log(oUl);
+
+        document.body.appendChild(oUl);
+
+
+
+    </script>
+</body>
+
+</html>

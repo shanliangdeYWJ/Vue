@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="show">show</button>
+        <div v-if="flag" class="box" ref="box">
+            hello
+        </div>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script>
+
+        
+        new Vue({
+            el: "#app",
+            
+            data: {
+                flag: false
+            },
+
+            methods: {
+                show() {
+                    this.flag = true;
+                    
+                    // console.log(this.$refs.box.innerHTML);
+                    this.$nextTick(() => {
+                        console.log(this.$refs.box.innerHTML)
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

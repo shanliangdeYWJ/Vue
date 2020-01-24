@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 40%;
+            line-height: 28px;
+            text-align: center;
+            color: #666;
+        }
+
+        th{
+            background: yellowgreen;
+            color: #fff;
+        }
+        table, th, td{
+            border: 1px solid #ddd;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <table>
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>姓名</th>
+                    <th>工资</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="e in emps">
+                    <td>{{e.eno}}</td>
+                    <td>{{e.ename}}</td>
+                    <td>{{e.salary}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                emps: [
+                    {
+                        eno: 1006,
+                        ename: "李明",
+                        salary: 15000
+                    },
+                    {
+                        eno: 1009,
+                        ename: "李丽",
+                        salary: 12000
+                    },
+                    {
+                        eno: 1003,
+                        ename: "杨明",
+                        salary: 19000
+                    }
+                ]
+            }
+        });
+    </script>
+</body>
+
+</html>

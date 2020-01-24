@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <p v-for="v in infos">
+            {{v.title}}
+        </p>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script src="lib/axios.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                infos: []
+            },
+            created() {
+                // 调用后台接口，得到数据
+                var url = "http://localhost:8088/?myUrl=http://apis.juhe.cn/goodbook/query?key=95aaa66c550a46a3f7ad4f98b654fc44&catalog_id=246&rn=10&rn=10";
+                axios.get(url).then(res => {
+                   this.infos = res.data.result.data;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+#app{
+    width: 700px;
+    margin: 30px auto;
+}
+
+h1{
+    color: rgba(174, 47, 47, 0.2);
+    font-size: 60px;
+    text-align: center;
+}
+
+.thing{
+    font-size: 20px;
+    width: 100%;
+    outline: none;
+    padding: 10px 4px;
+}
+
+.thing::-webkit-input-placeholder{
+    color: #ddd;
+    font-style: italic;
+    font-weight: 200;
+}
+
+.list{
+    list-style: none;
+    color: #666;
+}
+
+.list li{
+    width: 100%;
+    line-height: 40px;
+    height: 40px;
+    position: relative;
+}
+
+.list li.line{
+    color: #eee;
+}
+
+.list li.line .text, .list li.line .time{
+    text-decoration: line-through;
+}
+
+.list input[type='checkbox'], .list .close {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.list .text{
+    float: left;
+    margin-left: 40px;
+}
+
+.list .time{
+    float: right;
+    margin-right: 40px;
+    color: #ddd;
+}
+
+.list .close{
+    right: 10px;
+    font-size: 20px;
+    display: none;
+}
+
+.list .close:hover{
+    color: orangered;
+    cursor: pointer;
+}
+
+.list li:hover .close{
+    display: block;
+}
+

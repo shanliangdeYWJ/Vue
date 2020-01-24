@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+        }
+
+        .blank {
+            height: 1000px;
+            background: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <h3>您的兴趣爱好？</h3>
+        <p>
+            <input type="checkbox" v-model="like" value="music"> 音乐
+        </p>
+        <p>
+            <input type="checkbox" v-model="like" value="reading"> 阅读
+        </p>
+        <p>
+            <input type="checkbox" v-model="like" value="sport"> 运动
+        </p>
+        <p>
+            <input type="checkbox" v-model="like" value="travel"> 旅游
+        </p>
+        <p>
+            {{like}}
+        </p>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                like: ["music"]
+            }
+        });
+    </script>
+</body>
+
+</html>

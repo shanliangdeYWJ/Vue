@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="">
+        <input type="text" id="username"> <br>
+
+        <input type="button" id="btn" value="login">
+    </form>
+
+    <script src="js/cookie.js"></script>
+    <script>
+        document.getElementById("btn").onclick = function() {
+            var v = document.getElementById("username").value;
+            if(v !== "") {
+                // 将用户信 息写入cookie
+                setCookie("uname", v, {minutes: 5});
+                window.location.href = "11-cookie_home.html";
+            }
+        }
+    </script>
+</body>
+</html>

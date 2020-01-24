@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 50%;
+            line-height: 30px;
+            text-align: center;
+            color: #666;
+        }
+
+        th{
+            background: yellowgreen;
+            color: #fff;
+        }
+        table, th, td{
+            border: 1px solid #ddd;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <table>
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>姓名</th>
+                    <th>工资</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <template v-if="emps.length>0"> -->
+                    <tr v-for="(e, i) in emps" v-if="emps.length>0">
+                        <td>{{e.eno}}</td>
+                        <td>{{e.ename}}</td>
+                        <td>{{e.salary}}</td>
+                        <td><button @click="removeHandler(i)">删除</button></td>
+                    </tr>
+                <!-- </template> -->
+                <tr v-if="emps.length==0">
+                    <td colspan="4">暂无员工信息</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                emps: [
+                    {
+                        eno: 1006,
+                        ename: "李明",
+                        salary: 15000
+                    },
+                    {
+                        eno: 1009,
+                        ename: "李丽",
+                        salary: 12000
+                    },
+                    {
+                        eno: 1003,
+                        ename: "杨明",
+                        salary: 19000
+                    }
+                ]
+            },
+            methods: {
+                removeHandler(index) {
+                    this.emps.splice(index, 1);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="addBtn">add</button>
+    <table>
+        <thead>
+            <tr>
+                <th>NO</th>
+                <th>NAME</th>
+                <th>ADDRESS</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+
+    <script>
+        var tbody = document.getElementsByTagName("tbody")[0];
+        
+        document.getElementById("addBtn").onclick = function() {
+           var oTr = tbody.insertRow();
+           oTr.insertCell().innerHTML = "AAA";
+           oTr.insertCell().innerHTML = "AAA";
+           oTr.insertCell().innerHTML = "aaaa";
+        };
+    </script>
+</body>
+
+</html>

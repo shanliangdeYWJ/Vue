@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #clock {
+            position: relative;
+            list-style: none;
+            width: 600px;
+            height: 600px;
+            background: url(clock/clockface.jpg);
+            margin: 10px auto;
+        }
+
+        #clock li {
+            width: 30px;
+            height: 600px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #hour {
+            background: url(clock/hourhand.png);
+        }
+
+        #minute {
+            background: url(clock/minhand.png);
+        }
+
+        #second {
+            background: url(clock/sechand.png);
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul id="clock">
+        <li id="hour"></li>
+        <li id="minute"></li>
+        <li id="second"></li>
+    </ul>
+
+    <script>
+        function showTime() {
+            var now = new Date();
+
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+
+            // 找元素
+            var o_hour = document.getElementById("hour");
+            var o_minute = document.getElementById("minute");
+            var o_second = document.getElementById("second");
+            // 时针转动的角度
+            var hour_degree = hour * 30 + minute / 2;
+            // 分针角度
+            var minute_degree = minute * 6;
+            // 秒针角度
+            var second_degree = second * 6;
+            // 将角度设置到元素上
+            o_hour.style.transform = "translateX(-50%) rotate(" + hour_degree + "deg)";
+            o_minute.style.transform = "translateX(-50%) rotate(" + minute_degree + "deg)";
+            o_second.style.transform = "translateX(-50%) rotate(" + second_degree + "deg)";
+        }
+
+        showTime();
+        setInterval(showTime, 1000);
+    </script>
+</body>
+
+</html>

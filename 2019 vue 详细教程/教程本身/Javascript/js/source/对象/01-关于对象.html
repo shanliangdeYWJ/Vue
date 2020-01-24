@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            现实世界中的任一可见或不可见的事物都可以称之为对象
+
+            对象：
+                特征(属性)  
+                行为(功能)
+                
+            人：
+                特征： 姓名， 身份证号，身高，体重....
+                行为： 吃， 睡， 走... 
+
+            创建对象的方式：
+             1) new Object()
+                定义对象的属性和行为用操作符 . (的)
+             2) 字面量方式直接创建
+                var 对象名 = {
+                    属性名: 属性值,
+                    属性名: 属性值,
+                    方法名：function() {
+
+                    }
+                }
+
+        */
+
+        var person = new Object();
+        // 定义属性
+        person.name = "小明";
+        person.no = "42323232";
+        person.height = 1.75;
+        person.weight = 60;
+
+        // 定义行为
+        person.eat = function() {
+            console.log("eat");
+        };
+
+        person.sleep = function() {
+            console.log("sleep");
+        };
+        console.log(person);
+
+        // 调用某个行为
+        person.eat();
+
+        // 字面量方式创建
+        var student = {
+            "name": "小红",
+            no: 1234,
+            study: function() {
+                console.log("study");
+            }
+        };
+        
+        console.log(student);
+        student.study();
+
+
+        var animal = {};
+        animal.type = "哺乳类";
+
+        console.log(animal);
+
+        console.log(student.name);
+        student.study();
+
+        // 还可以用[]的方式访问对象的属性
+        console.log(person["height"]);
+        console.log(person.height);
+
+        var a = "no";
+        console.log(person.a); // undefined
+        console.log(person[a]);  // 适用于属性名是一个变量时
+    </script>
+</body>
+</html>

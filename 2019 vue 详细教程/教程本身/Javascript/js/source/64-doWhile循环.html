@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        /*
+            do {
+                循环体
+            }while(循环条件);
+
+            1. 先执行一次循环体
+            2. 判断循环条件是否成立
+               成立 ，再次执行循环
+               不成立，跳出循环
+            do - while，先一次一次循环体再判断 
+            而while是先判断 再执行循环
+        */    
+
+        /* 猜数字  
+        计算机随机一个0-9之间的整数
+        用户输入数字，判断大小，给出提示，直到猜对为止
+        */
+
+        var n = Math.floor(Math.random() * 10);  // [0,9]
+        var count = 0;
+        do {
+            // 猜
+            count++;
+            var m = +prompt("请输入一个0-9之间的整数");
+            if(m > n) {
+                alert("猜大了");
+            }else if(m < n) {
+                alert("猜小了");
+            }else {
+                alert("猜对了");
+                break;
+            }
+        }while (true);
+
+        alert("一共猜了" + count + "次");
+    </script>
+</body>
+</html>

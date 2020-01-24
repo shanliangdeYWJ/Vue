@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #menu{
+            position: absolute;
+            width: 250px;
+            height: 300px;
+            border: 1px solid #ddd;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="menu">
+        aaaa <br>
+        bbbb
+    </div>
+    <script>
+        var menu = document.querySelector("#menu");
+        document.oncontextmenu = function(e) {
+            menu.style.display = "block";
+            menu.style.left = e.pageX + "px";
+            menu.style.top = e.pageY + "px";
+            e.preventDefault();
+        };
+
+        document.onclick = function() {
+            menu.style.display = "none";
+        }
+
+    </script>
+</body>
+</html>

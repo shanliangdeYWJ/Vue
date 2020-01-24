@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/note.css">
+</head>
+<body>
+    
+    <div id="app">
+        <h1>MY NOTEPAD</h1>
+        <p>
+            <input type="text" class="thing" 
+            placeholder="请在此写下需要记录的事情"
+            v-model="thing" @keyup.enter="addThing">
+        </p>
+        <ul class="list">
+            <li v-for="thing in things" :class="{'line':thing.done}">
+                <input type="checkbox" v-model="thing.done"
+                @change="saveStatus">
+                <span class="text">{{thing.text}}</span>
+                <span class="time">{{thing.time}}</span>
+                <span class="close">&times;</span>
+            </li>
+        </ul>
+    </div>
+
+    <script src="../lib/vue.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/note.js"></script>
+</body>
+</html>

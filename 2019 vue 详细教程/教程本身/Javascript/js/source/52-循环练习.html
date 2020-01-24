@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        1. 有一张纸,厚度0.01米, 这张纸对折多少次可以超过珠峰的高度(8848米)
+        
+        2. 打印所有的水仙花数
+            三位数   n
+                  个位数  c
+                  十位数  b
+                  百位数  a
+
+            n = a * a * a + b * b * b + c * c * c
+
+        3. 思考题 :
+            阿基米德和国王下棋的故事
+            计算总共的米粒数
+
+
+        */
+var sum=0;
+var a=0.01
+for(var i=0;i<100;i++){
+a=a*2;
+sum=sum+1;
+if(a>=8848){
+break;
+}
+}
+alert(sum);
+    </script>
+</body>
+</html>

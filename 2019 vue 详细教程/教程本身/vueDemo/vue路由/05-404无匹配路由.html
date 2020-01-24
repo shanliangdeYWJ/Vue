@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <div class="top">
+            <router-link to="/a">AAA</router-link>
+        </div>
+
+        <div class="main">
+            <router-view></router-view>
+        </div>
+    </div>
+    
+    <script src="lib/vue.js"></script>
+    <script src="lib/vue-router.js"></script>
+    <script>
+        // 1. 定义所需要的组件
+        var comA = {
+            template: `
+                <div><h2>传递过来的id为:{{$route.params.id}}</h2></div>
+            `,
+            created() {
+                console.log("comA created...");
+            }
+        };
+
+        var com404 = {
+            template: `
+                <div>这个路径暂时不能解析</div>
+            `
+        };
+
+       
+
+        //2. 定义一个数组（定义路径和组件的映射关系）
+        var routes = [
+            {
+                path: "/a/:id",
+                component: comA
+            },
+            {
+                path: "*",
+                component: com404
+            }
+        ];
+        // 3. 创建路由对象，将上面的数组绑定到路由对象上
+        var router = new VueRouter({
+            routes
+        });
+
+        
+        /*
+        将组件 (components) 映射到路由 (routes)，然后告诉 Vue Router 在哪里渲染它们。
+        */
+        // 4. 将路由对象注入vue实例
+        new Vue({
+            el: "#app",
+            router,
+            created(){
+                console.log("vue created...");
+            }
+        });
+    </script>
+</body>
+</html>

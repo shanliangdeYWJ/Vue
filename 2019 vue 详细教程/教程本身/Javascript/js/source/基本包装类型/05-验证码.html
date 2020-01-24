@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+            length  可选  ， 产生的验证码的字符数量
+                不指定length,length默认为4
+            flag  可选  
+                不指定flag, flag默认为'd' , 代表产生的验证码是纯数字
+                如果指定成'a', 代表产生的验证码是纯字母，大小写都可 
+                如果指定成'ad', 代表产生的验证码是字母和数字的混合
+        */
+        function getCode(length, flag) {
+            var s1 = "0123456789";
+            var s2 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            var s3 = s1 + s2;
+
+            var r = "";
+
+            if (length === undefined) {
+                length = 4;
+            }
+
+            if (flag === undefined) {
+                flag = 'd';
+            }
+
+            switch (flag) {
+                case 'd':
+                    inner(s1);
+                    break;
+                case 'a':
+                    inner(s2);
+                    break;
+                case 'ad':
+                    inner(s3);
+                    break;
+            }
+
+            function inner(ss) {
+                // var p = "";
+                for(var i = 0; i < length; i++) {
+                    var index = Math.floor(Math.random() * ss.length);
+                    r += ss.charAt(index);
+                }
+                // return p;
+            }
+
+            return r;
+        }
+
+
+        var a = getCode(6, 'ad');
+
+        var b = getCode(6);
+    </script>
+</body>
+
+</html>

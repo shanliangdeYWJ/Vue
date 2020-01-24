@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    /*
+    8. 编写一个函数getIndex， 得到数组中某个元素所在的位置
+   输入： 
+     一个数组和要查找的元素
+   输出：
+     元素在数组中的下标（若不存在，请返回-1）
+    */
+
+    function getIndex(arr, ele) {
+        var j = -1;
+        for(var i = 0 ;i < arr.length; i++) {
+            if(arr[i] === ele) {
+                j = i;
+            }
+        }
+
+        return j;
+    }
+
+    // var brr = [55, 66, 88, 99];
+    // var e = +prompt("请输入要查找的数据");
+    // console.log(getIndex(brr, e));
+
+    var brr = ["hello", "hi", "你好", "world"];
+    var e = prompt("请输入要查找的数据");
+    console.log(getIndex(brr, e));
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        /*
+        var c = {
+            name: "eee",
+            age: 12,
+            say: function() {
+                console.log(this.name);
+            }
+        };
+
+        var d = {
+            name: "rrr",
+            age: 22,
+            say: function() {
+                console.log(this.name);
+            }
+        }
+        */
+
+        // 工厂函数，负责创建对象
+        function factory(name, age) {
+            var o = new Object();
+            o.name = name;
+            o.age = age;
+            o.say = function() {
+                console.log(this.name);
+            };
+
+            return o;
+        }
+
+        var c = factory("eee", 12);
+        var d = factory("rrr", 22);
+
+        console.log(c);
+        console.log(d);
+
+        c.say();
+        d.say();
+
+        console.log(typeof c)
+    </script>
+</body>
+</html>

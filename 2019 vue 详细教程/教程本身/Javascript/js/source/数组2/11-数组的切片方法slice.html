@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        newArray arrayObject.slice(start [, end]);
+        不是修改原数组，产生的是一个新的数组
+
+            [start, end)   包括start位置，不包括end位置
+        */
+
+        var arr = ["a", "b", "c", "d", "e"];
+
+        var brr = arr.slice(2);  
+
+        console.log(brr);
+
+        var crr = arr.slice(2, 4);  // 索引为4的不包括 
+
+        console.log(crr);
+
+        var drr = arr.slice(0);  // 产生了一个arr的副本
+
+        console.log(drr, arr);
+
+    </script>
+</body>
+</html>

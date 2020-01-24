@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>子组件数据传递给父组件数据</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <!-- 父传子用 props; 子传父 自定义事件 -->
+  <div id="app">
+    子组件按下回车挥着按下按钮变动{{data1}}<br>
+    <p>跟随：子组件自动变动{{data1}}</p>
+    父组件里面被侦听器侦听的data1：<input type="text" v-model="data1">
+    <br>
+    <com-a @transfer-data="receiveEvent"></com-a>
+  </div>
+
+</body>
+<script>
+
+  var comA = {
+    template: `
+      <div>
+        子组件的按钮<input type="button" @click="transferData" value="向父组件传递数据">
+        子组件被侦听的输入框<input type="text" v-model="username" @keyup.enter="transferData">
+      </div>
+    `,
+    data() {
+      return { username: 'default' }
+    },
+    methods: {
+      transferData() {
+        // 自定义事件发送数据到父组件
+        this.$emit("transfer-data", this.username) // transferData自定义事件名
+      }
+    },
+    watch: { username(){ this.$emit("transfer-data", this.username);} }
+
+  }
+  new Vue({
+    el: "#app",
+    data: { data1: 'hello' },
+    components: { comA },
+    methods: { receiveEvent(data) { console.log("csshi", "123" + data); this.data1 = data; } },
+    watch: { data1(v){ console.log(v);} }
+  });
+</script>
+
+</html>

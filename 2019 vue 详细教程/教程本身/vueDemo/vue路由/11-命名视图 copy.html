@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <home></home>
+    </div>
+
+    <template id="tpl-home">
+        <div class="home">
+            <router-view name="header"></router-view>
+            <router-view name="menu"></router-view>
+            <router-view name="content"></router-view>
+        </div>
+    </template>
+
+    <template id="tpl-header">
+        <div class="header">
+            this is header
+        </div>
+    </template>
+
+    <template id="tpl-menu">
+        <div class="menu">
+            this is menu
+        </div>
+    </template>
+
+    <template id="tpl-content">
+        <div class="content">
+            this is content
+        </div>
+    </template>
+
+
+    <script src="lib/vue.js"></script>
+    <script src="lib/vue-router.js"></script>
+    <script>
+
+        var home = {
+            template: "#tpl-home"
+        };
+
+        var header = {
+            template: "<div>header</div>"
+        };
+
+        var menu = {
+            template: "#tpl-menu"
+        };
+
+        var content = {
+            template: `#tpl-content`
+        };
+
+        var list = {};
+
+        var detail = {};
+
+
+        var routes = [
+            {
+                path: '/',
+                redirect: '/home'
+            },
+            {
+                path: '/home',
+                name: 'home',
+                components: {
+                    'header': header,
+                    'menu': menu,
+                    'content': content
+                },
+                children: [
+                    {
+                        path: 'menu',
+                        // children: [
+                        //     {
+                        //         path: 'list/:index',
+                        //         name: 'list',
+                        //         component: list
+                        //     },
+                        //     {
+                        //         path: 'list/:index/detail/:detailIndex',
+                        //         name: 'detail',
+                        //         component: detail
+                        //     }
+                        // ]
+                    }]
+            },
+            // {
+            //     path: '/detailNoMenu',
+            //     name: 'detailNoMenu',
+            //     component: detail
+            // }
+        ];
+
+        var router = new VueRouter({
+            routes
+        });
+
+
+        new Vue({
+            el: "#app",
+            router,
+            components: {
+                home
+            }
+        });
+    </script>
+</body>
+
+</html>

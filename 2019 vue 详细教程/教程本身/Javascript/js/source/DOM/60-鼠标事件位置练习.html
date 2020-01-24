@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p {
+            width: 100px;
+            height: 30px;
+            border: 1px solid #ddd;
+        }
+
+        .s {
+            position: absolute;
+            width: 60px;
+            height: 26px;
+            border: 1px solid blue;
+            border-radius: 3px;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="height: 900px;"></div>
+
+    <div>
+        <p>你好</p>
+    </div>
+
+    <div style="height: 300px;"></div>
+
+    <script>
+        var p = document.querySelector("p");
+
+        p.onmouseenter = function (e) {
+            var b = document.createElement("div");
+            b.className = "s";
+            b.innerHTML = "hello";
+            b.style.left = e.pageX + 8 + "px";
+            b.style.top = e.pageY + 8 + "px";
+            document.body.append(b);
+        };
+
+        p.onmousemove = function (e) {
+            var o = document.getElementsByClassName("s")[0];
+            o.style.left = e.pageX + 8 + "px";
+            o.style.top = e.pageY + 8 + "px";
+        };
+
+        p.onmouseleave = function () {
+            document.getElementsByClassName("s")[0].remove();
+        };
+    </script>
+</body>
+
+</html>

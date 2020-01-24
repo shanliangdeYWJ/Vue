@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var arr = [];
+        arr[0] = function () {
+            console.log(0);
+        };
+
+
+        arr[1] = function () {
+            console.log(1);
+        };
+
+        arr[2] = function () {
+            console.log(2);
+        };
+
+        arr[0]();
+        arr[1]();
+        arr[2]();
+
+        /*
+        产生一个数组10个元素，每个元素是一个函数，负责输出其在数组中的索引
+        */
+        var brr = [];
+        for (var i = 0; i < 10; i++) {
+            brr[i] = (function (j) {
+                return function() {
+                    console.log(j);
+                }
+            })(i);
+        }
+
+        // console.log(brr);
+        /*
+            brr[0] = (function(j) {   j = 0
+                return function() {
+                    console.log(j)
+                }
+            })(0);
+
+
+            brr[0] = fuction() {
+                console.log(j);
+            }
+
+            brr[1] = (function(j) {   j = 1
+                return function() {
+                    console.log(j)
+                }
+            })(1);
+
+            brr[1] = function() {
+                console.log(j);
+            }
+
+
+            .....
+        */
+
+        brr.forEach(function (e) {
+            // console.log(e);
+            e();
+        });
+
+    </script>
+</body>
+
+</html>

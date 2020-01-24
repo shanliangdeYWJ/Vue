@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        /*
+            DOM中常见的操作：
+                1.获取页面元素
+                    1)根据ID获取元素
+                        document.getElementById(id)
+                            返回值： 节点对象    null
+
+                    2)根据标签名查找节点对象
+                        document.getElementsByTagName(tagName)
+
+                            返回值；类集合   HTMLCollection   索引  0   length
+
+                2.动态创建元素
+                3.对元素进行操作（属性操作、样式操作）
+                4.事件
+        */
+    
+        // var o=document.getElementById('box');//null
+        // console.log(o);
+    </script>
+</head>
+<body>
+    <div id="box"></div>
+
+    <p id="content">我好</p>
+    <script>
+        //获取元素
+        var o=document.getElementById('box');
+        // console.log(o,typeof o);//节点对象
+        o.innerHTML='你好';//修改元素内容
+
+        var o1=document.getElementById('content');
+        o1.innerHTML='大家好';
+    </script>
+</body>
+</html>

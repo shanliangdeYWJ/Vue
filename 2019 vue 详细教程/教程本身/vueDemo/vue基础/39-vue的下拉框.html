@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+        }
+
+        .blank {
+            height: 1000px;
+            background: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        您来自：
+        <select v-model="city">
+            <option value="zhengzhou">郑州</option>
+            <option value="beijing">北京</option>
+            <option value="shanghai">上海</option>
+        </select>
+
+        {{city}}
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+               city: 'shanghai'
+            }
+        });
+    </script>
+</body>
+
+</html>

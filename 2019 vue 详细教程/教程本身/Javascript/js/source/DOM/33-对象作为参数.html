@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        // function fn(settings) {
+        //     console.log(settings);
+        //     if(settings.dots) {
+        //         alert("显示控制点");
+        //     }else {
+        //         alert("不显示控制点");
+        //     }
+        // }
+
+        function fn(settings) {
+            var mySettings = {    // 默认设置
+                speed: 2000,
+                dots: false,
+                arrow: false
+            };
+
+            for(var s in settings) {
+                console.log(s);
+                mySettings[s] = settings[s];
+            }
+
+            console.log(mySettings);
+
+            // if(settings.dots) {
+            //     alert("显示控制点");
+            // }else {
+            //     alert("不显示控制点");
+            // }
+        }
+
+        // fn({
+        //    speed: 3000,
+        //    dots: true,
+        //    arrow: false 
+        // });
+
+        // fn();
+
+        fn({
+            speed: 3000
+        })
+    </script>
+</body>
+</html>

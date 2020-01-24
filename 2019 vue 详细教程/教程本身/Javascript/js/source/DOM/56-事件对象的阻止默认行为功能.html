@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            height: 300px;
+            background: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="text" id="info">
+
+    <script>
+        var o = document.querySelector("#info");
+        o.addEventListener("keypress", function(e) {
+            console.log(e);
+            if(e.charCode < 65 || e.charCode > 90) {
+                e.preventDefault();   // 阻止浏览器默认行为
+            }
+        });
+
+        // document.body.addEventListener("keyup", function(e) {
+        //     console.log(e);
+        // });
+        /*
+        常用的情况：
+            超链接： 默认行为是会跳转到href指定的页面， href=""也会导致当前页面被刷新
+            输入框输入：  默认行为会在输入框中出现相应的键盘字符
+            表单的submit按钮： 默认行为是触发表单的submit事件，页面会跳转到表单的action指定的位置（后台接口）
+        */
+    </script>
+</body>
+
+</html>

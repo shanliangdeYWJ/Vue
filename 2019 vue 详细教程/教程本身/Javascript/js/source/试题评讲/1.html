@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var date=new Date();//获取当前日期对象
+
+        console.log(date);
+        var week=date.getDay();//星期几
+
+        //2019/5/3  getDay()
+
+        var d=new Date('2019/5/3');//转换为日期对象
+        console.log(d);
+        console.log(d.getDay());
+
+
+        //倒计时：    截止时间 
+
+
+        function demo1(){
+            var sum=0;
+            for(var i=0;i<100;i++){
+                if(i%2==0){
+                    continue;
+                }
+                sum+=i;
+            }
+            console.log(sum);
+        }
+
+        // demo1();
+
+
+        function demo2(){
+            var count=0;
+            var h=7;//毫米
+            var tHeight=884800000;
+            while(h<=tHeight){
+                count++;//计算器改变
+                h*=2;
+                // if(h>=tHeight){
+                //     break;
+                // }
+            }
+            console.log('共折叠了：'+count+'次');
+        }
+
+        // demo2();
+        demo3();
+        
+        function demo3(){
+            var count=1;//初值
+            //循环执行63次
+            for(var i=1;i<64;i++){
+                count*=2;
+            }
+            console.log(count);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

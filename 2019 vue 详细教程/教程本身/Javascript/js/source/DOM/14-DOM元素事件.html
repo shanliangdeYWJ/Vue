@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box"></div>
+
+    <script>
+        /*
+            事件： 通常是用户的浏览页面时发出的一些动作。
+                   页面一般需要根据这些动作作出相应的反应。
+
+            如果页面需要对用户的动作作出响应，通常需要将此动作发生后要做的响应写成一个事件处理程序
+            绑定到相应的元素上。
+
+            第一步： 找到元素
+            第二步： 指定事件类型（单击，双击，键盘按下....)
+            第三步： 设置事件处理程序（函数）
+        */
+
+        var o = document.querySelector(".box");
+        var b = false;
+        o.onclick = function () {
+            console.log(this);
+            if (b) {
+                this.innerHTML = "";
+                // b = false;
+            } else {
+                this.innerHTML = "hello";
+                // b = true;
+            }
+            b = !b;
+        };
+
+
+        // o.onclick = fn;
+
+        // function fn() {
+        //     if (b) {
+        //         o.innerHTML = "";
+        //         // b = false;
+        //     } else {
+        //         o.innerHTML = "hello";
+        //         // b = true;
+        //     }
+        //     b = !b;
+        // }
+    </script>
+</body>
+
+</html>

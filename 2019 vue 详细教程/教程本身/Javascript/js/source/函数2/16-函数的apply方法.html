@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        每一个函数都有两个方法
+
+        这两个方法的用途都是在特定的作用域中调用函数，
+        实际上等于设置函数体内 this 对象的值。
+        用来改变函数体内this的指向.
+        同时调用函数.
+
+        apply()
+            apply()方法接收两个参数：一个是在其中运行函数的作用域(this的指向)
+            ，另一个是参数数组
+
+
+        call()
+        */
+
+        function fn(a,b){
+            console.log(this);  // 
+            console.log(a, b);
+            console.log(a + b + this.age);
+            this.say();
+        }
+
+        // fn(45, 67);
+        var o = {
+            name: "aa",
+            age: 23,
+            say: function() {
+                console.log("say");
+            }
+        };
+
+        fn.apply(o, [12, 23]);  // 另一种函数调用方法
+
+        // 第三种调用函数的方法
+        fn.call(o, 44, 55);
+
+
+
+    </script>
+</body>
+</html>

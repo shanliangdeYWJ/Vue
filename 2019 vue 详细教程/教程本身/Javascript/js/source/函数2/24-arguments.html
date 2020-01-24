@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        function callIt(fn) {
+            var f = arguments[0];
+            Array.prototype.splice.call(arguments, 0, 1);
+            // return 
+            console.log(f);
+            return f(null, arguments);
+        }
+        // function fn() {
+        //     console.log(arguments);
+        //     // arguments.splice(0, 1);
+        //     Array.prototype.splice.call(arguments, 0, 1);
+
+        // }
+
+    
+            callIt(function() {
+                console.log(arguments);
+            }, 2, 4, 5);
+
+
+    </script>
+</body>
+
+</html>

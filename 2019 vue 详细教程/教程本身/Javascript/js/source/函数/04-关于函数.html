@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 编写一个计算支持+-*/的运算器（两个操作数）
+        // a  b代表两个操作数，  opp代表运算符
+        function calc(a, opp, b) {
+            var result;
+            switch (opp) {
+                case '+':
+                    result = a + b;
+                    break;
+                case '-':
+                    result = a - b;
+                    break;
+                case '*':
+                    result = a * b;
+                    break;
+                case '/':
+                    result = a / b;
+                    break;
+                default:
+                    result = "不支持此运算";
+                    break;
+            }
+            return result;
+        }
+
+        // var r = calc(30, '*', 60);
+        // console.log(r);
+        var m = +prompt("first number:");
+        var o = prompt("operator:");
+        var n = +prompt("second number:");
+
+        // var r = calc(m, o, n);
+        // // console.log(r);
+        // alert(r);
+
+        alert(calc(m, o, n));
+
+    </script>
+</body>
+
+</html>

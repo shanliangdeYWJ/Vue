@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+            ES5中只存在两种变量的作用域（可以使用的范围）
+            1. 全局作用域   函数外部
+            2. 局部作用域  函数内部
+            
+        */
+
+        var a = "hello";  // 全局变量   // welcome
+
+        function welcome() {
+           console.log(a);  // hello 
+           a = "welcome";
+           console.log(a);   // welcome
+        //    console.log(b);  error
+        }
+
+        console.log(a);   // hello 
+        welcome();
+        console.log(a);  // welcome
+
+        // 如果在同一个作用域下定义了同名变量，则后面的覆盖前面的
+        // 但是在不同作用域下定义了同名变量，互个影响
+
+    </script>
+</body>
+</html>

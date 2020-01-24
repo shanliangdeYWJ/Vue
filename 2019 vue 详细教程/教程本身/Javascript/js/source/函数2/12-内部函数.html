@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // function outer(param) {
+        //     function inner(theinput) {
+        //         return theinput * 2;
+        //     }
+        //     return 'The result is ' + inner(param);
+        // }
+
+        // console.log(outer(4));
+
+        //  function outer(param) {
+        //     function inner(theinput) {
+        //         return theinput * 2;
+        //     }
+
+        //     function inner2(theinput2) {
+        //         return theinput2 * theinput2;
+        //     }
+        //     return 'The result is ' + inner2(inner(param));
+        // }
+
+        // console.log(outer(4));
+
+
+        //  function outer(param) {
+        //     function inner(theinput) {
+        //         return theinput * 2;
+        //     }
+
+        //     function inner2(theinput2) {
+        //         return theinput2 * theinput2;
+        //     }
+        //     return 'The result is ' + (inner(param) + inner2(param));
+        // }
+
+        // console.log(outer(4));
+
+        var outer = function(param){
+            var inner = function(theinput) {
+                return theinput * 2;
+            };
+
+            var inner2 = function(theinput2) {
+                return theinput2 * theinput2;
+            };
+            return 'The result is ' + (inner(param) + inner2(param));
+        };
+
+      console.log(outer(4));
+    </script>
+</body>
+
+</html>

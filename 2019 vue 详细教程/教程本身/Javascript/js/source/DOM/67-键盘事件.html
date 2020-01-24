@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        .container {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: 1px solid #999;
+        }
+        .box {
+            position: absolute;
+            /* left: 0;
+            top: 0; */
+            width: 64px;
+            height: 64px;
+            background: url(images/save.png);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+        </div>
+    </div>
+    <script>
+        var box = document.querySelector(".box");
+        box.style.left = "0px";
+        box.style.top = "0px";
+        var step = 8;
+
+        document.onkeydown = function (e) {
+            // console.log(e);
+            if (e.key === "ArrowUp") {
+                box.style.top = parseInt(box.style.top) - step + "px";
+            } else if (e.key === "ArrowDown") {
+                box.style.top = parseInt(box.style.top) + step + "px";
+            } else if (e.key === "ArrowLeft") {
+                box.style.left = parseInt(box.style.left) - step + "px";;
+            } else if (e.key === "ArrowRight") {
+                box.style.left = parseInt(box.style.left) + step + "px";
+            }
+
+        };
+
+    </script>
+</body>
+
+</html>

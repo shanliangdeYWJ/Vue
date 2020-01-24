@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            现实世界中的任一可见或不可见的事物都可以称之为对象
+
+            对象：
+                特征(属性)  
+                行为(功能)
+                
+            人：
+                特征： 姓名， 身份证号，身高，体重....
+                行为： 吃， 睡， 走... 
+
+            创建对象的方式：
+             1) new Object()
+                定义对象的属性和行为用操作符 . (的)
+             2) 字面量方式直接创建
+                var 对象名 = {
+                    属性名: 属性值,
+                    属性名: 属性值,
+                    方法名：function() {
+
+                    }
+                }
+
+        */
+
+        var person = new Object();
+        // 定义属性
+        person.name = "小明";
+        person.no = "42323232";
+        person.height = 1.75;
+        person.weight = 60;
+
+        // 定义行为
+        person.eat = function() {
+            console.log("eat");
+        };
+
+        person.sleep = function() {
+            console.log("sleep");
+        };
+       
+
+        // 遍历person
+        for(var i in person) {
+            console.log(i, "=>", person[i]);
+        }
+    </script>
+</body>
+</html>

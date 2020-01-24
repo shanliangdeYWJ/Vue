@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+    
+    <div id="app">
+        <table v-if="results.data.length>0">
+            <thead>
+                <tr>
+                    <th width="10%">&nbsp;</th>
+                    <th width="35%">商品名称</th>
+                    <th width="25%">商品单价</th>
+                    <th width="18%">购买数量</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(goods,index) in results.data">
+                    <td>{{index+1}}</td>
+                    <td>{{goods.name}}</td>
+                    <td>{{goods.price}}</td>
+                    <td>
+                        <button @click="reduceHandler(index)">-</button>
+                        {{goods.num}}
+                        <button @click="addHandler(index)">+</button>
+                    </td>
+                    <td><button @click="removeHandler(index)">移除</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <p v-if="results.data.length>0">
+            总价: &yen;{{totalMoney}}
+        </p>
+    </div>
+
+    <script src="../lib/vue.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

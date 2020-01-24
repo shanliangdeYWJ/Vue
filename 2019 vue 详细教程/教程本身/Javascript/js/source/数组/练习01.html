@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 40%;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        .redBg {
+            background: red;
+        }
+
+        .greenBg {
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+        /*
+        1. 输入姓名和成绩，保存并输出
+要求输出成表格样式
+不及格（<60）的学员所在行用红色背景标识
+优秀的学员（>=90）所在的行用绿色背景标识
+*/
+
+        // 1. 输入（用约定数据代替输入）
+        var stuNames = ["小A", "小B", "小C", "小D", "小E", "小F"];
+        var stuScores = [52, 80, 70, 90, 96, 45];
+
+        // 2. 输出成表格
+        document.write("<table>");
+        document.write("<thead>");
+        document.write("<tr>");
+        document.write("<th>姓名</th>");
+        document.write("<th>成绩</th>");
+        document.write("</tr>");
+        document.write("</thead>");
+        document.write("<tbody>");
+        for(var i = 0, length = stuNames.length; i < length; i++) {
+            if(stuScores[i] >= 90) {
+                document.write("<tr class='greenBg'>");
+            }else if(stuScores[i] < 60) {
+                document.write("<tr class='redBg'>");
+            }else {
+                document.write("<tr>");
+            }
+            document.write("<td>" + stuNames[i] + "</td>");
+            document.write("<td>" + stuScores[i] + "</td>");
+            document.write("</tr>");
+        }
+        document.write("</tbody>");
+        document.write("</table>");
+    </script>
+</body>
+</html>

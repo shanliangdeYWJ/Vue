@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+  
+    <ul class="container">
+        <li>音乐</li>
+        <li>绘画</li>
+    </ul>
+
+    <hr>
+    <ul class="box"></ul>
+
+    <script>
+        /*
+        element.appendChild(newChild)  追加元素或移动位置
+        */
+        var ul = document.querySelector(".container");
+        var ulBox = document.querySelector(".box");
+        var fli = ul.querySelectorAll("li")[0];  // 页面中存在的元素
+        // ul.appendChild(fli);
+        ulBox.appendChild(fli);
+
+       
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 将一个键值对存入localStorage
+        // window.localStorage.username = "John";
+        // localStorage.setItem("address", "郑州");
+        // console.log(localStorage.getItem("address"));
+        // console.log(localStorage.getItem("username"));
+
+        // localStorage.setItem("user", {    直接存储对象没有用
+        //     name: "小明",
+        //     age: 20,
+        //     address: "北京"
+        // });
+
+
+        // localStorage.setItem("user", JSON.stringify({   // 将对象转成字符存储
+        //     name: "小明",
+        //     age: 20,
+        //     address: "北京"
+        // }));
+
+        // 将取得的字符转换成对象
+        // console.log(JSON.parse(localStorage.getItem("user")));
+
+        // var emps = [
+        //     {
+        //         eno: 1200,
+        //         ename: "yyy"
+        //     },
+        //     {
+        //         eno: 1208,
+        //         ename: "ccc"
+        //     },
+        //     {
+        //         eno: 1290,
+        //         ename: "bbb"
+        //     },
+        // ];
+
+        // localStorage.setItem("emps", JSON.stringify(emps));
+        // var o = JSON.parse(localStorage.getItem("emps"));
+        // console.log(o);
+
+
+        // var a = {
+        //     code: 200,
+        //     msg: "ok",
+        //     data: [
+        //         {
+        //             eno: 1200,
+        //             ename: "yyy"
+        //         },
+        //         {
+        //             eno: 1208,
+        //             ename: "ccc"
+        //         },
+        //         {
+        //             eno: 1290,
+        //             ename: "bbb"
+        //         },
+        //     ]
+        // }
+
+        // localStorage.setItem("newEmps", JSON.stringify(a));
+
+        
+        // localStorage.removeItem("newEmps");
+
+        console.log(localStorage.getItem("newsEmps"));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+          没有显式地创建对象；
+	  直接将属性和方法赋给了 this 对象；
+	  没有 return 语句。
+        此外，还应该注意到函数名 Person 使用的是大写字母 P
+
+        使用构造函数时，通过new来完成
+        */
+
+        function Student(no, name, school) {
+            this.no = no;
+            this.name = name;
+            this.school = school;
+
+            this.say = function() {
+                console.log(this.no, this.name, this.school);
+            };
+
+            this.study = function() {
+                console.log(this.name, "is studying");
+            };
+        }
+
+        //
+
+        var a = new Student(5, "aaa", "qinghua");
+        var b = new Student(7, "bbb", "qinghua");
+        var c = new Student(8, "ccc", "qinghua");
+
+        a.say();
+
+        c.study();
+
+
+        // 可以通过instanceof判断某个对象是否是某个构造函数的实例（对象）
+        console.log(a instanceof Student);
+
+
+        function Teacher(name) {
+            this.name = name;
+            this.teach = function() {
+                console.log(this.name, "is teaching...");
+            };
+        }
+
+        var t = new Teacher("AAA");
+        t.teach();
+
+        console.log(t instanceof Student);
+        console.log(t instanceof Teacher);
+
+
+        var now = new Date();
+        console.log(now instanceof Date);
+        console.log(now instanceof String);
+
+
+        //不同实例上的同名函数是不相等的，说明每个对象都拥有独立的方法定义。
+        console.log(a.say === b.say);  // false 说明不是一个方法
+
+    </script>
+</body>
+</html>

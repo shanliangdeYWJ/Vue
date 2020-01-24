@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 编写一个计算支持+-*/的运算器（两个操作数）
+        // a  b代表两个操作数，  opp代表运算符
+        // 不建议定义过多的全局变量，这样会浪费内存空间
+        /*
+           全局变量  -  在函数外部声明的变量
+           局部变量  - 在函数内部声明的变量
+                    - 随着函数调用的结束而释放
+           在开发中,能使用局部变量尽可能使用局部变量
+        */
+        var result;
+        function calc(a, opp, b) {
+            switch (opp) {
+                case '+':
+                    result = a + b;
+                    break;
+                case '-':
+                    result = a - b;
+                    break;
+                case '*':
+                    result = a * b;
+                    break;
+                case '/':
+                    result = a / b;
+                    break;
+                default:
+                    result = "不支持此运算";
+                    break;
+            }
+        }
+
+        // var r = calc(30, '*', 60);
+        // console.log(r);
+        var m = +prompt("first number:");
+        var o = prompt("operator:");
+        var n = +prompt("second number:");
+
+        
+        calc(m, o, n);
+        console.log(result);
+        
+        function b() {
+            var a = 10;
+            console.log(a);
+        }
+
+        b();
+        
+        function b() {   // 同名函数,后面的覆盖前面的
+            var a = 20;
+            console.log(a);
+        }
+
+        b();
+    </script>
+</body>
+
+</html>

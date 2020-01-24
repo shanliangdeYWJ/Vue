@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        条件运算符：   ?  :
+            条件表达式 ？ 操作数1  :  操作数2
+            整个条件运算符产生的表达式的值取决于条件表达式的值（true  , false)
+            如果条件表达式的值为true， 则整个表达式的值为操作数1
+            如果条件表达式值为false, 则整个表达式的值为操作数2
+
+        js中唯一一个三目运算符
+
+        */
+
+        var x = 30;
+        var y = 20;
+        var z = 90;
+
+        // 找出x, y, z中的最大者
+        var t = x > y ? x : y;
+        var m = t > z ? t : z;
+        console.log(m);
+    </script>
+</body>
+</html>

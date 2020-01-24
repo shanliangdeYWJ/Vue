@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 	map()：对数组中的每一项运行给定函数，返回每次函数调用的结果组成的数组。
+        // 
+        var arr = [1, 3, 6, 9];
+
+        var brr = arr.map(function (e) {
+            return e * e * e;
+        });
+
+        console.log(arr);
+        console.log(brr);
+
+        // function myMap(arr, fn) {
+        //     var err = [];
+        //     for(var i = 0; i < arr.length; i++) {
+        //         err.push(fn(arr[i]));
+        //     }
+        //     return err;
+        // }
+
+        // var crr = myMap(arr, function(e) {
+        //     return e * e * e;
+        // });
+
+        // console.log(crr);
+
+        var frr = [1, 2, 3, 4, 6, 8, 9];
+
+        // 使用map来实现对frr中的每个元素的阶乘的结果保存到一个新数组
+        var prr = frr.map(function (e) {
+            // 计算e的阶乘，并返回
+            var s = 1;
+            for (var i = 1; i <= e; i++) {
+                s *= i;
+            }
+            return s;
+        });
+
+        console.log(prr);
+
+        // 使用map来实现对frr中的每个元素的阶乘的结果保存到一个新数组
+        // 对于偶数算立方，奇数算阶乘
+        var wrr = frr.map(function (e) {
+            if (e % 2 === 0) {
+                // 算立方
+                return e * e * e;
+            } else {
+                // 算阶乘
+                var s = 1;
+                for (var i = 1; i <= e; i++) {
+                    s *= i;
+                }
+                return s;
+            }
+
+        });
+
+        console.log(wrr);
+
+    </script>
+</body>
+
+</html>

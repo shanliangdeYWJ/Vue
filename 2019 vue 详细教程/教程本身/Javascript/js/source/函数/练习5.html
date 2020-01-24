@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        5. 编写一个函数arrToString, 在打印数组中元素的字符串形式
+   输入： 
+     一个数组
+   输出：
+     数组元素的字符串形式
+   例如: [3,4,5]
+   输出："[3, 4, 5]"
+   */
+
+   function arrToString(arr) {
+       var s = "[";
+       for(var i = 0; i < arr.length - 1; i++) {
+           s += arr[i] + ", ";
+       }
+       s += arr[arr.length - 1] + "]";
+       return s;
+   }
+
+   console.log(arrToString([6, 7, 8, 9, 90, 8, 8]));
+    </script>
+</body>
+</html>

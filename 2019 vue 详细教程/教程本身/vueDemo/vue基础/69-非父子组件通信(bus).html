@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <com-a></com-a>
+        <com-b></com-b>
+    </div>
+    
+    <script src="lib/vue.js"></script>
+    <script>
+
+        var bus = new Vue({
+            data: {
+                token: "kdlfjsdlfkjsdlfjskdlfs",
+                user: "张明"
+            },
+            methods: {
+
+            }
+        });
+
+        var comC = {
+            template: `
+                <div>
+                    <h3>comC组件</h3>
+                    <p>用户名为:{{user}}, 用户token:{{token}}</p>
+                    <input type="button" @click="sendMsg" value="comC button" />
+                    <input type="button" @click="getToken" value="get token" />
+                </div>
+            `,
+            data(){
+                return {
+                    user: '',
+                    token: ''
+                }
+            },
+            methods: {
+                sendMsg() {
+                    bus.$emit("message", "来自comC的消息!");
+                },
+                getToken() {
+                    this.user = bus.user;
+                    this.token = bus.token;
+                }
+            }
+        };
+    
+
+        var comA = {
+            template: `
+                <div>
+                    <h2>comA组件</h2>
+                    <com-c></com-c>
+                </div>
+            `,
+            methods: {
+               
+            },
+            components: {
+                comC
+            }
+        };
+
+        var comB = {
+            template: `
+                <div>comB,{{data}}</div>
+            `,
+            data(){
+                return {
+                   data: ""
+                }
+            },
+            mounted() {
+                bus.$on("message", data => {
+                    console.log("comB:", data);
+                    this.data = data;
+                });
+            }
+        };
+
+        
+        new Vue({
+            el: "#app",
+            components: {
+                comA,
+                comB
+            }
+        });
+    </script>
+</body>
+</html>

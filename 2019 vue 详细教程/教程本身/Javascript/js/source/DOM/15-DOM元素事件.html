@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ddd;
+            float: left;
+            margin: 10px;
+        }
+
+        .box1 {
+            background: red;
+        }
+
+        .box2 {
+            background: green;
+        }
+
+        .box3 {
+            background: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+
+    <script>
+        /*
+            事件： 通常是用户的浏览页面时发出的一些动作。
+                   页面一般需要根据这些动作作出相应的反应。
+
+            如果页面需要对用户的动作作出响应，通常需要将此动作发生后要做的响应写成一个事件处理程序
+            绑定到相应的元素上。
+
+            第一步： 找到元素
+            第二步： 指定事件类型（单击，双击，键盘按下....)
+            第三步： 设置事件处理程序（函数）
+        */
+
+        var os = document.querySelectorAll(".box");
+        // 如果找到的是集合，而对集合中每个元素的操作是相同的，就可以循环来做这事情
+        // for (var i = 0; i < os.length; i++) {
+        //     os[i].onclick = (function (j) {
+        //         return function () {
+        //             console.log(j);
+        //             os[j].innerHTML = "hello";
+        //         };
+        //     })(i);
+        // }
+
+        // for (var i = 0; i < os.length; i++) {
+        //     os[i].onclick = function() {
+        //         this.innerHTML = "hello";
+        //     };
+        // }
+
+        // for (var i = 0; i < os.length; i++) {
+        //     os[i].onclick = (function (i) {
+        //         return function () {
+        //             console.log(this);
+        //             this.innerHTML = "hello";
+        //             this.className = "box box" + (i + 1);
+        //         };
+        //     })(i);
+        // }
+
+        for (var i = 0; i < os.length; i++) {
+            os[i]._index = i;
+            os[i].onclick = function () {
+                this.innerHTML = "hello";
+                this.className = "box box" + (this._index + 1);
+            };
+        }
+
+        // for (var i = 0; i < os.length; i++) {
+        //     os[i].dataset.index = i;
+        //     os[i].onclick = function () {
+        //         this.innerHTML = "hello";
+        //         this.className = "box box" + (+this.dataset.index + 1);
+        //     };
+        // }
+
+    </script>
+</body>
+
+</html>

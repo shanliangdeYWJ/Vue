@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <form action="" id="form1">
+        <!-- <input type="submit" value="提交" id="subBtn"> -->
+        <!-- <input type="button" value="提交" id="btn"> -->
+        <button id="mybut">button</button>
+    </form>
+
+    <script>
+        /*
+        当表单内部有submit按键时，点击它时触发的是表单的submit事件，而不是按钮的事件
+        当表单内部有button标签时，会自动当成submit按钮
+        */
+
+        document.getElementById("form1").onsubmit = function() {
+            console.log("submit");
+            return false;
+        };
+
+
+        // document.getElementById("btn").onclick = function() {
+        //     console.log("click");
+        // }
+
+
+      
+    </script>
+</body>
+</html>

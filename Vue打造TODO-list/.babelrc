@@ -1,0 +1,20 @@
+/*
+演示 vue 的 render 方法
+vue 也可以支持写 jsx 的代码
+
+安装两个包 npm i babel-preset-env babel-plugin-transform-vue-jsx
+babel-plugin-transform-vue-jsx 依赖包是 babel-helper-vue-jsx-merge-props 
+视频里面 还有一个依赖包是babel-plugin-syntax-jsx但是这里没提示暂时不安装
+后来 运行的时候报错了 没安装 babel-plugin-syntax-jsx 这个module 所以又安装了一下
+
+这里配置完毕，在 webpack 里面也要加上对应的配置
+*/
+{
+  "presets": [
+    "env"
+  ],
+  "plugins": [
+    // 转化 vue 里面的 jsx 代码
+    "transform-vue-jsx"
+  ]
+}

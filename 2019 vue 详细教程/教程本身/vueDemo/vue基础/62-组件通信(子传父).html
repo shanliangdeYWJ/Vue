@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 
+        父传子：
+            使用props、
+        子传父：
+            使用自定义事件    
+    -->
+    <div id="app">
+        <h3>hello, {{data}}</h3>
+        <com-a @transfer-data="receiveEvent"></com-a>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script>
+
+        var comA = {
+            template: `
+                <div>
+                    <input type="text" v-model="username"/>
+                    <input type="button" @click="transferData" value="向父组件传递数据"/>
+                </div>
+            `,
+            data() {
+                return {
+                    username: ""
+                }
+            },
+            methods: {
+                transferData() {
+                    // 子组件发送数据到父组件（使用自定义事件）
+                    // this.$emit("transfer-data");  // transferData是自定义的事件名
+                    // this.$emit("transfer-data", "来自子组件的问候");
+                    this.$emit("transfer-data", this.username);
+                }
+            }
+        };
+
+        new Vue({
+            el: "#app",
+            components: {
+                comA
+            },
+            data: {
+                data: ""
+            },
+            methods: {
+                receiveEvent(data) {
+                    // console.log(data);
+                    this.data = data;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

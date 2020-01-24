@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+       总价： {{totalMoney}} <br>
+       总价： {{totalMoney}} <br>
+       总价： {{totalMoney}} <br>
+    </div>
+
+    <script src="lib/vue.js"></script>
+
+    <script>
+        // el属性定义了vue实例所管理的边界
+        var app = new Vue({
+            el: '#app',
+            data: {
+                package1: [
+                    {
+                        name: "笔记本",
+                        price: 5600,
+                        num: 1
+                    },
+                    {
+                        name: "键盘",
+                        price: 300,
+                        num: 1
+                    },
+                    {
+                        name: "鼠标",
+                        price: 900,
+                        num: 1
+                    }
+                ],
+                package2: [
+                    {
+                        name: "豆浆机",
+                        price: 5000,
+                        num: 1
+                    }
+                ]
+            },
+            computed: {
+                totalMoney() {
+                    console.log('test!!');
+                    var s = 0;
+                    this.package1.forEach(e => {
+                        s += e.price * e.num;
+                    });
+
+                    this.package2.forEach(e => {
+                        s += e.price * e.num;
+                    });
+                    return s;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            background: #ffffff;
+            
+            background: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        var s = "";
+        var count = 0;
+        
+        /*
+            汉字编码区间为 4e00 - 9fa5   存储2万多个汉字
+        */
+        // 4e00   19968
+        // 9fa5   40869
+        for (var i = 19968; i <= 40869; i++) {
+            count++;
+            var c = unescape("%u" + i.toString(16));
+            s += c + "&nbsp;&nbsp;";
+            if (count % 50 == 0) {
+                s += "<br />";
+            }
+         }
+         document.getElementById("box").innerHTML = s;
+         console.log(count);
+
+         /*
+            二进制  - 十六进制
+                       
+
+                AB
+                 10101011
+
+                
+                ff
+                11111111
+
+         */
+    </script>
+</body>
+
+</html>

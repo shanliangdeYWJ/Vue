@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        /*
+            replace
+            match
+            search
+        */
+
+        // var str="hello world";
+        // var str='jaklsdfjasdfs234234sdlkfjLLjfskdfjL';
+
+
+        var str="赌博，涉毒，摇头丸、阿斯顿发发生地方大幅度的摇头丸";
+
+        // var s=str.replace('h','*');//替换指定字符
+        // var s=str.replace('o','*');//替换指定字符  只替换了第一个
+        // console.log(s);
+
+
+
+        //正则
+        // var s=str.replace(/o/g,'*');
+        // var s=str.replace(/l/gi,'');
+
+        // var arr=str.match(/l/gi);
+
+        // var s=str.replace(/赌博|摇头丸/g,'*');//过滤敏感词
+        var index=str.search('摇头丸');
+
+        //将字符串中数字替换为*
+        // console.log(s);
+
+        console.log(index);
+        // console.log(arr);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

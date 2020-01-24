@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #canvas{
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="canvas" width="600" height="600"></canvas>
+
+    <script>
+        // 找到Canvas元素
+        var canvas = document.getElementById("canvas");
+        // 找到canvas的上下文环境（绘制场景）
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "#005599";  // 画笔颜色
+
+        ctx.lineWidth = "3";   // 线宽
+        // 画矩形
+        // ctx.fillRect(20, 20, 100, 50);
+        // ctx.strokeRect(20, 20, 100, 50);
+
+        // 画线
+        ctx.moveTo(30, 40);  // 定义起点
+        ctx.lineTo(200, 300); // 定义终点
+
+        ctx.stroke();
+    </script>
+</body>
+</html>

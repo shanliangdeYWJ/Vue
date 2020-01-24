@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    
+    hello  <br>
+
+    hi
+    <!-- hello  -->
+    <script>
+       
+       // 禁止选中
+    //    document.onselectstart = function(e) {
+    //         e.preventDefault();
+    //    }
+
+     // 禁止复制
+     document.oncopy = function(e) {
+        alert("no copy!!")
+        e.preventDefault();
+     };
+
+    </script>
+</body>
+</html>

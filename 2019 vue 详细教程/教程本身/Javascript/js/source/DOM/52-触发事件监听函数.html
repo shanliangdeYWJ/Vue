@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      
+    </style>
+</head>
+
+<body>
+
+    <form action="">
+        username: <input type="text" id="username"> <span id="unMsg"></span>  <br>
+        password: <input type="password" id="password"> <span id="pwdMsg"></span><br>
+        <input type="button" id="reg" value="reg">
+    </form>
+    <script>
+        var un = document.querySelector("#username");
+        var pwd = document.querySelector("#password");
+        document.querySelector("#reg").addEventListener('click', function() {
+            if(un.value === '') {
+                document.querySelector("#unMsg").innerHTML = "用户名不能为空";
+                un.focus();
+            }else if(un.value.length < 3 || un.value.length > 6){
+                document.querySelector("#unMsg").innerHTML = "用户名长度不合法";
+                un.focus();
+                un.select();
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        3. 将第2题中的数组产生一个副本。
+var arr = [...];
+var brr = arr;  //  不是真正的复制，只复制了地址，空间仍是同一份
+        */
+
+        var scores = [56, 89, 45, 12, 96];
+
+        // var brr = scores;  // 复制的是地址
+
+        // console.log(scores);
+        // console.log(brr);
+
+        // // 修改其中一个
+        // brr[0] = 100;
+        // console.log(brr);    
+        // console.log(scores);
+
+        // 通过复制地址的方式产生的只是一个地址的副本，而不是数据（元素）本身的副本
+        // 此种复制方式数据没有隔离性，修改一个会影响另一个
+
+        // 如果实现真正的复制， 必须产生新的数据空间
+        var brr = [];
+        // 将scores中的每个元素读取出来并写入到brr中
+        for(var i = 0 , length = scores.length; i < length; i++) {
+            brr[i] = scores[i];
+        }
+
+         brr[0] = 100;
+        console.log(brr);    
+        console.log(scores);
+
+        // 基本数据类型存储的是值本身
+        var s = "hello";
+        var s2 = s;   // 就是副本
+
+
+    </script>
+</body>
+
+</html>

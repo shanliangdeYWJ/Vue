@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul id="list1">
+        <li>hello</li>
+        <li id="first">AAA</li>
+        <li>AAA</li>
+    </ul>
+
+    <ul id="list2">
+        <li>BBB</li>
+        <li>BBB</li>
+    </ul>
+
+    <a href="">ppp</a>
+
+    <script>
+        /*
+        节点与节点之间的关系：
+           父子关系
+           兄弟关系
+
+           document.getElementById()  document有，而元素没有
+           document.getElenentsByName()   document有, 而元素没有
+
+           元素有getElementsByTagName， getElementsByClassName()
+           找的是元素内部符合要求的孩子节点
+
+            document.querySelector("选择器")      单一DOM元素 （第一个匹配的）
+            document.querySelectorAll("选择器")   集合元素
+            这两个方法document有， 元素也有
+
+        */
+
+        var lis = document.getElementById("list1").getElementsByTagName("li");
+
+        // var lis2 = document.querySelector("#list2").querySelectorAll("li");
+
+        var lis2 = document.querySelectorAll("#list2 li");
+
+        // 属性的方式找孩子节点
+        var cs = document.body.children;
+
+        // 找第一个孩子节点和最后一个
+        console.log(document.body.firstElementChild);
+        console.log(document.body.lastElementChild);
+
+
+        // 找父级
+        var o = document.getElementById("first");
+        console.log(o.parentElement);
+        // <ul id=​"list1">​…​</ul>​
+        // o.parentNode
+
+        // 找兄弟
+        console.log(o.nextElementSibling);  // 只把元素(html标签)当成节点
+        console.log(o.previousElementSibling);
+
+        console.log(o.nextSibling);  // 会将空白都当成节点
+
+    </script>
+</body>
+</html>

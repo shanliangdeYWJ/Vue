@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // function an(a){
+        //     return function () {
+        //         console.log(a);
+        //     }
+        // }
+
+
+        // an(3)();
+
+        // an(5)();
+
+        var arr = [];
+        arr[0] = (function an(a) {
+            return function () {
+                console.log(a);
+            }
+        })(0);
+
+        // arr[0]();
+
+        arr[1] = (function an(a) {
+            return function () {
+                console.log(a);
+            }
+        })(1);
+
+        arr[0]();
+        arr[1]();
+
+        for (var i = 0; i < 5; i++) {
+            arr[i] = (function an(a) {
+                return function () {
+                    console.log(a);
+                }
+            })(i);
+        }
+
+        arr[0]();
+        arr[4]();
+
+
+
+
+
+    </script>
+</body>
+
+</html>

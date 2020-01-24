@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="like" autofocus> <button id="addBtn">添加爱好</button>
+    <ul class="container">
+        <li>音乐</li>
+        <li>绘画</li>
+    </ul>
+
+    <script>
+        /*
+        element.appendChild(newChild)  追加元素或移动位置
+        element.insertBefore(newChild, refChild)  
+        element.removeChild(oldChild)
+        element.replaceChild(newChild, oldChild)
+        element.remove()
+        element.cloneNode()
+
+        创建节点
+        document.createElement("tagname");
+        */
+        var ul = document.querySelector(".container");
+        var like = document.querySelector("#like");
+
+        document.querySelector("#addBtn").onclick = function () {
+            if (like.value.trim() !== "") {
+                var newLi = document.createElement("li");
+                newLi.innerHTML = like.value;
+                ul.appendChild(newLi);
+                like.value = "";
+                like.focus();
+            }
+        };
+    </script>
+</body>
+
+</html>

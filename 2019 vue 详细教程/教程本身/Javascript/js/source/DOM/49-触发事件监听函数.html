@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background: green;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="showInfo">showInfo</button> 
+    <input type="text" id="info">
+
+
+    <script>
+        var info = document.querySelector("#info");
+
+        document.querySelector("#showInfo").addEventListener("click", function() {
+            info.dispatchEvent(new Event('keyup'));
+        });
+
+        info.addEventListener("keyup", function() {
+            console.log("您按下了某个铵键");
+        });
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <com-a></com-a>
+        <com-b></com-b>
+    </div>
+    
+    <script src="lib/vue.js"></script>
+    <script>
+
+        var bus = new Vue();
+
+        var comC = {
+            template: `
+                <div>
+                    <h3>comC组件</h3>
+                    <input type="button" @click="sendMsg" value="comC button" />
+                </div>
+            `,
+            methods: {
+                sendMsg() {
+                    bus.$emit("message", "来自comC的消息!");
+                }
+            }
+        };
+    
+
+        var comA = {
+            template: `
+                <div>
+                    <h2>comA组件</h2>
+                    <com-c></com-c>
+                </div>
+            `,
+            methods: {
+               
+            },
+            components: {
+                comC
+            }
+        };
+
+        var comB = {
+            template: `
+                <div>comB,{{data}}</div>
+            `,
+            data(){
+                return {
+                   data: ""
+                }
+            },
+            mounted() {
+                bus.$on("message", data => {
+                    console.log("comB:", data);
+                    this.data = data;
+                });
+            }
+        };
+
+        
+        new Vue({
+            el: "#app",
+            components: {
+                comA,
+                comB
+            }
+        });
+    </script>
+</body>
+</html>

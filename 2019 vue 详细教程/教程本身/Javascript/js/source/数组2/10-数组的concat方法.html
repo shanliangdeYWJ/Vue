@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        arrayType arrayOject.concat()
+            数组连接或称合并操作
+            并未修改原数组，产生的是一个新的数组。
+            无参时，实现的是产生当前数组的一个副本
+            有参时  （参数任意多个，类型可以是数据或者数组）
+                返回值是一个新数组，这个数组是两个数组数据的连接
+        */
+
+        var arr = ["hello", "hi"];
+        var brr = arr.concat();  // 实现数组的复制
+        // console.log(arr, brr);
+        brr[0] = "world";
+        console.log(arr, brr);
+
+        var crr = arr.concat("aaa", "bbb");
+        console.log(crr);
+        console.log(arr);
+
+        var drr = arr.concat([12, 34, 56], [11, 22, 33], ["yyy"]);
+        console.log(drr);
+    </script>
+</body>
+</html>

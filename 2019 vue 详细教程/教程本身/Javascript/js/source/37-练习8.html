@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .green{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+        /*
+        8.某后台系统进入时需要输入用户名和密码，请模拟输入用户名和密码，进行验证。
+  假定合法的用户名和密码有两组： 
+    admin   123
+    root    456
+  当输入正确的用户名和密码时，输出登录成功，欢迎xxx!
+  否则输出用户名或密码有误！
+        */
+
+        // 1. 接受用户名和密码的输入
+        var username = prompt("请输入用户名");
+        var userpwd = prompt("请输入密码");
+
+        //2. 校验是否正确
+        var msg;
+        if((username === "admin" && userpwd === "123") || (username === "root" && userpwd === "456")) {
+            msg = "登录成功，欢迎" + username;
+        }else {
+            msg = "用户名或密码错误";
+        }
+
+        // 3. 输出结果
+        // alert(msg);
+        // 将结果输出在页面中body区域里
+        // <h2>msg</h2>  => "<h2>msg</h2>"
+        document.write("<h2 class='green'>" + msg + "</h2>");
+    </script>
+</body>
+</html>

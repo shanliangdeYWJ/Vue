@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="top">
+            <router-link tag="p" v-for="(b,index) in list" 
+            :to="{name: 'list', params: {bid:b.bid}}"
+            :key="index">{{b.bname}}</router-link>
+        </div>
+
+        <div class="main">
+            <router-view></router-view>
+        </div>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script src="lib/vue-router.js"></script>
+    <script>
+        // 1. 定义所需要的组件
+        var comA = {
+            template: `
+                <div><h2>hello, book content {{item.content}}</h2></div>
+            `,
+            data() {
+                return {
+                    list: [],
+                    item: {}
+                }
+            },
+            created() {
+                // var api = "http://192.168.1.20:8080/oa/user?id=121"
+                console.log("comA created...");
+                this.list = [
+                    { bid: 11, content: "《javascript程序设计》javascript程序设计javascript程序设计javascript程序设计" },
+                    { bid: 22, content: "《javascript设计模式》javascript设计模式javascript设计模式" },
+                    { bid: 33, content: "《java编程思想》java编程思想java编程思想" }];
+                this.item = this.list.filter(e => {
+                    return e.bid == this.$route.params.bid;
+                })[0];
+            },
+            watch: {
+                '$route.params'(to, from) {
+                    console.log(to);
+                    console.log(from);
+                    this.item = this.list.filter(e => {
+                        return e.bid == to.bid;
+                    })[0];
+                }
+            }
+        };
+
+
+        //2. 定义一个数组（定义路径和组件的映射关系）
+        var routes = [
+            {
+                path: "/list/:bid",
+                name: "list",
+                component: comA
+            }
+        ];
+        // 3. 创建路由对象，将上面的数组绑定到路由对象上
+        var router = new VueRouter({
+            routes
+        });
+
+
+        /*
+        将组件 (components) 映射到路由 (routes)，然后告诉 Vue Router 在哪里渲染它们。
+        */
+        // 4. 将路由对象注入vue实例
+        new Vue({
+            el: "#app",
+            router,
+            data: {
+                list: [
+                    { bid: 11, bname: "《javascript程序设计》" },
+                    { bid: 22, bname: "《javascript设计模式》" },
+                    { bid: 33, bname: "《java编程思想》" }
+                ]
+            }
+        });
+    </script>
+</body>
+
+</html>

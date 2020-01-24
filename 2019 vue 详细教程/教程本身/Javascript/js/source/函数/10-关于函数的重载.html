@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        在很多编程语言中，在同一个作用域中允许出现两个以上同名不同参的函数，且互不影响
+        这种现象称为重载。
+
+        但在js中虽然允许出现同名函数，但结果是后面的函数会覆盖前面的同名函数
+        */
+
+        // function add() {
+        //     console.log("hello");
+        // }
+
+        function add(name) {
+            console.log("hello!!", name);
+        }
+
+        add();
+        add("小明");
+
+    </script>
+</body>
+</html>

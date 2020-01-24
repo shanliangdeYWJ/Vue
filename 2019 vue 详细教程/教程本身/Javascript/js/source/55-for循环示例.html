@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* body{
+            color: red;
+        } */
+
+        span {
+            color: red;
+            display: inline-block;
+            width: 21px;
+            text-align: center;
+        }
+
+        .green {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <script>
+        /* 打印平形四边形
+        每行10个,共5行
+            **********
+           **********
+          **********
+         **********
+        **********
+        
+        总行数   5
+                    空格数量        星的数量
+        第一行      4               10
+        第二行      3              10
+        第三行      2             10
+        第四行      1             10
+        第五行      0               10
+
+        空格的数量  =  总行数 - 行号
+       */
+        
+        var rows = 5;  // 总行数
+        var offsetx = 10;
+        for (var n = 1; n <= rows; n++) {
+            for(var s = 1; s <= rows - n + offsetx; s++) {
+                document.write("&nbsp;");
+            }
+            // 打印每行的星星
+            for (var i = 1; i <= 10; i++) {
+                document.write("*");
+            }
+            document.write('<br />');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .red{
+            color: red;
+        }
+
+        .green{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    
+    <form action="">
+        <input type="text" id="info"> <span id="msg"></span> <br>
+        <select name="" id="city">
+            <option value="0">---请选择---</option>
+            <option value="aaa">AAA</option>
+            <option value="bbb">BBB</option>
+            <option value="ccc">CCC</option>
+        </select>
+
+        <input type="radio" name="sex"> 男
+        <input type="radio" name="sex"> 女
+
+    </form>
+
+    <script>
+        var oinfo = document.querySelector("#info");
+        var omsg = document.querySelector("#msg");
+        // change事件对输入框来说，需要输入框内容改变并且失去焦点后才会触发
+        // oinfo.onchange = function() {
+        //     console.log("change");
+        // };  
+
+        // 如果输入框在内容发生改变时想及时触发，需要用input事件
+        oinfo.oninput = function() {
+            if(this.value.length < 6) {
+                omsg.innerHTML = "长度不够";
+                omsg.className = "red";
+            }else {
+                omsg.innerHTML = "OK";
+                omsg.className = "green";
+            }
+        };
+
+
+        var ocity = document.querySelector("#city");
+        // change事件对于下拉框来说，只要重新选择与上次内容不同，就会触发。
+        ocity.onchange = function() {
+            // console.log("select change");
+            alert(this.value);
+        }
+    </script>
+</body>
+</html>

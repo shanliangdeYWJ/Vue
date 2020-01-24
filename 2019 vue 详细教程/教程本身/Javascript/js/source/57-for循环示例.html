@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span {
+            /* color: red; */
+            display: inline-block;
+            width: 21px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        /*
+
+        *
+        **
+        ***
+        ****
+        *****
+        
+        每行星号的数量与其行号相等
+        */
+
+        var rows = +prompt("请输入直角三角形的总行数");
+        var offsetx = +prompt("请输入直角三角形的x方向的偏移量");
+
+        for (var n = 1; n <= rows; n++) {
+            //打印每行前的偏移 量
+            for(var s = 1; s <= offsetx; s++) {
+                document.write("<span>&nbsp;</span>");
+            }
+            // 打印每行的星
+            for (var j = 1; j <= n; j++) {
+                document.write("<span>*</span>");
+            }
+            document.write("<br />");
+        }
+    </script>
+</body>
+
+</html>

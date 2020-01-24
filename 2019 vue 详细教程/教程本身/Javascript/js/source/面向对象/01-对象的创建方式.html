@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 1. 通过字面量方式创建一个对象
+        var o = {
+            name: "aaa",
+            age: 20,
+            say: function() {
+
+            }
+        };
+
+        console.log(o);
+
+        // 2. 通过Object构造函数
+        var b = new Object();
+        b.name = "bbb";
+        b.age = 23;
+        b.say = function() {
+            console.log(this.name);
+        };
+
+        console.log(b);
+
+        
+        var c = {
+            name: "eee",
+            age: 12,
+            say: function() {
+                console.log(this.name);
+            }
+        };
+
+        var d = {
+            name: "rrr",
+            age: 22,
+            say: function() {
+                console.log(this.name);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #canvas {
+            border: 1px solid #ddd;
+
+        }
+
+        #box {
+            width: 500px;
+            height: 400px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="color" id="mycolor"> 
+    <select name="" id="linewidth">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+
+    <input type="button" id="clear" value="清空画布">
+
+    <div id="box">
+        <canvas id="canvas" width="500" height="400"></canvas>
+    </div>
+
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        var bx = canvas.offsetLeft;
+        var by = canvas.offsetTop;
+
+        var flag = 0;   // 0代表没有按下鼠标左键
+
+        canvas.onmousedown = function (e) {
+            flag = 1;  // 1代表按下鼠标左键
+            // console.log(e.pageX - bx, e.pageY - by);
+            ctx.beginPath();   // 开始新路径，和上一次绘制无关
+            ctx.moveTo(e.pageX - bx, e.pageY - by);
+        };
+
+        canvas.onmousemove = function (e) {
+            if (flag === 1) {
+                ctx.lineTo(e.pageX - bx, e.pageY - by);
+                ctx.stroke();
+            }
+        };
+
+        canvas.onmouseup = function () {
+            flag = 0;
+        };
+
+        var mycolor = document.getElementById("mycolor");
+        mycolor.onchange = function () {
+            ctx.strokeStyle = this.value;
+        };
+
+        var linewidth = document.getElementById("linewidth");
+        linewidth.onchange = function() {
+            ctx.lineWidth = this.value;
+        };
+
+        var clearBtn = document.getElementById("clear");
+        clearBtn.onclick = function() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        };
+    </script>
+</body>
+
+</html>

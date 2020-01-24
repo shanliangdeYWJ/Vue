@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 250px;
+            height: 250px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #ddd;
+        }
+
+        .box .close {
+            position: absolute;
+            right: 6px;
+            top: 6px;
+            font-size: 20px;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 
+        父传子：
+            使用props、
+        子传父：
+            使用自定义事件    
+    -->
+    <div id="app">
+        <a href="" @click.prevent="popBox">弹出登陆窗口</a>
+        <login-box v-if="flag" @close-box="closeBox"></login-box>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script>
+
+        var loginBox = {
+            template: `
+             <div class="box">
+                <textarea>这是登陆窗口</textarea>
+                <i class="close" @click="closeBox">&times;</i>
+             </div> 
+           `,
+            methods: {
+                closeBox() {
+                    this.$emit("close-box");
+                }
+            }
+        };
+
+        new Vue({
+            el: "#app",
+            data: {
+                flag: false
+            },
+            components: {
+                loginBox
+            },
+            methods: {
+                popBox() {
+                    this.flag = true;
+                },
+                closeBox() {
+                    this.flag = false;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

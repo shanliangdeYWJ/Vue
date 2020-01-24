@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 父类型  （基类型） 超类型
+        function Employee (no, name, salary) {
+            this.no = no;
+            this.name = name;
+            this.salary = salary;
+            this.companys = ["甲骨文", "百度", "360"];
+        }
+
+        Employee.prototype.work = function() {
+            console.log(this.name + " is working...");
+        };
+
+        
+        // 子类型 （派生类型）
+        function DevEmployee (no, name, salary, dept) {
+            Employee.call(this, no, name, salary);
+            this.dept = dept;
+        }
+
+        // 使用原型模式复用父类型的功能
+        DevEmployee.prototype = new Employee();
+
+        DevEmployee.prototype.say = function() {
+            console.log(this.name + " is talking...");
+        };
+
+        var d = new DevEmployee("111", "AAA", 9000, 96);
+       
+        d.companys.push("google");
+
+
+
+        var f = new DevEmployee("444", "PPP", 8520, 98);
+
+
+        console.log(f.companys);
+
+        console.log(d.companys);
+    </script>
+</body>
+</html>

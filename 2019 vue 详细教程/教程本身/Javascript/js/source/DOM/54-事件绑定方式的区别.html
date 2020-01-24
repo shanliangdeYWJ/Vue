@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box">
+        hello
+    </div>
+
+    <script>
+        var o = document.querySelector(".box");
+        // 通过on方式多次绑定同一事件时，最后一次的有效
+        // o.onclick = function() {
+        //     console.log("click!");
+        // };
+
+        // o.onclick = function() {
+        //     console.log("hello!");
+        // };
+
+
+        // 通过addEventListener多次绑定同一事件时，会在触发时依次执行
+        o.addEventListener('click', function() {
+            console.log(this);
+            console.log("click!");
+        });
+
+        o.addEventListener('click', function() {
+            console.log("hello!");
+        });
+    </script>
+</body>
+</html>

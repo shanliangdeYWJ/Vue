@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        5. 随机产生5个[1, 30]之间的整数，要求这5个数字不能重复，输出这5个数。
+        */
+
+        var arr = [];
+        for (var i = 0; i < 10; i++) {
+            arr[i] = i + 1;
+        }
+
+        var brr = [];
+        for (var j = 0; j < 5; j++) {
+            while (true) {
+                var index = Math.floor(Math.random() * 10);
+                if (arr[index] !== -1) {  // 说明不存在，可用数据
+                    brr[j] = arr[index];
+                    arr[index] = -1;
+                    break;
+                }
+            }
+        }
+
+        console.log(brr);
+
+    </script>
+</body>
+
+</html>

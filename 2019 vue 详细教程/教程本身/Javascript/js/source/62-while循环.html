@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        while(循环条件) {
+            循环体
+        }
+
+        当遇到while时先判断 循环条件是否成立，如果成立，就执行循环体，如果不成立，跳出循环
+        */
+
+        /*
+        用户录入成绩，每录入一个后询问是否继续，根据用户的回答决定是否继续录入
+        */
+        var s = "";
+        var n = 0;
+        while (true) {
+            var score = +prompt("请录入学员成绩");
+            s += score + ",";
+            n++;
+            // console.log(s);
+            var answer = confirm("是否继续录入?");
+            // if(answer === false) {
+            //     break;
+            // }
+            if(!answer) {  // 当answer为false时条件成立，正好需要退出循环
+                break;
+            }
+        }
+
+        // 输出所有录入的成绩
+        alert("一共录入了" + n + "个学员的成绩，分别是" + s);
+    </script>
+</body>
+
+</html>

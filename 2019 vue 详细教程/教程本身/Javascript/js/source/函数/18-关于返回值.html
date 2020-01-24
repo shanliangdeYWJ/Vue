@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 大多数情况下，return语句用来返回结果
+    function add(a, b) {
+        return a + b;
+        // return "hello";  没有机会执行
+    }
+
+    function add(a, b) {
+        if(a === undefined || b === undefined) {
+            return "error";
+        }else {
+            return a + b;
+        }
+    }
+
+    function add(a, b) {
+        if(a === undefined || b === undefined) {
+            return;   // 直接返回，相当于返回undefined
+        }else{
+            return a + b;
+        }
+    }
+
+    console.log(add(5));
+
+    /*
+    return 只能返回一个值
+    */
+
+    function calc(a, b) {
+        var c = a + b;
+        var d = a - b;
+        // return c, d;
+        return [c, d];  // 通过数组包装结果达到返回多个值的目的
+    }
+    
+    var u = calc(6, 8);
+    console.log(u);
+    </script>
+</body>
+</html>

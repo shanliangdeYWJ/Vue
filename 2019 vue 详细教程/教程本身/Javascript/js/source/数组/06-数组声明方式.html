@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        1. new Array()
+        2. []
+
+        js中同一个数组中数组元素的类型可以不同，
+        但一般不推荐这样，通常一个数组中只放同一种数据类型的元素
+        */
+
+        // var arr = [];
+        // arr[0] = "hello";
+        // arr[1] = 1;
+
+        // 也可以创建数组的同时初始化元素
+        var arr = [10, 20, 30];
+        console.log(arr);
+        arr[3] = 90;
+        console.log(arr);
+
+        // length属性 ,记录的是数组长度
+        // length属性不是只读的（可写可改变的）
+        console.log(arr.length);
+        // arr.length = 1;  // 强行改变数组长度，导致数据丢失
+
+        // 利用length的可写特点也可以快速删除末尾元素
+        // 删除最后一个数组元素
+        // arr.length = arr.length - 1;
+        arr.length -= 1;
+        arr.length = arr.length - 1;
+        arr.length = arr.length - 1;
+        console.log(arr);
+
+        //arr[3] = 100;
+        //console.log(arr);
+        //console.log(arr[1], arr[2]);   // 没有赋值的数组元素值为undefined
+
+        var brr = [,12, 24, , ,56];  // 每个逗号都有有一个元素占位，但不建议放在最后面，可能会产生早期低版本浏览器解析差异
+        console.log(brr);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // window.localStorage.setItem("user", "李明");
+        // console.log(window.localStorage.getItem("user"));
+        // window.localStorage.setItem("user", "小红");
+
+        // var user = {
+        //     name: "小李",
+        //     address: "河南",
+        //     phone: "456789"
+        // };
+
+        // window.localStorage.setItem("user", JSON.stringify(user));
+
+
+        // console.log(JSON.parse(window.localStorage.getItem("user")));
+
+        var users = [{
+            name: "小李",
+            address: "河南",
+            phone: "456789"
+        }, {
+            name: "小析",
+            address: "河南",
+            phone: "45689"
+        }, {
+            name: "小美",
+            address: "河南",
+            phone: "4589"
+        }];
+
+        window.localStorage.setItem("users", JSON.stringify(users));
+
+        console.log(JSON.parse(window.localStorage.getItem("users")));
+
+        console.log(localStorage.getItem("things"));
+
+    </script>
+</body>
+</html>

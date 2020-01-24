@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        1. 弹出一个输入框，接受用户输入的第一个操作数，并保存
+        2. 再弹出一个输入框，接受用户输入的第二个操作数，并保存
+        3. 将两个数相加后输出（控制台输出或者alert）
+        */
+
+        /* 将字符型数据轩成字符型
+       方法一：  parseInt(), parseFloat()
+       */
+    //    var num1 = parseFloat(prompt("请输入第一个数:"));
+    //    var num2 = parseFloat(prompt("请输入第二个数:"));
+       var num1 = +prompt("请输入第一个数:");
+       var num2 = +prompt("请输入第二个数:");
+       var sum = num1 + num2;
+       console.log(typeof num1, typeof num2);
+       alert(sum);
+    </script>
+</body>
+</html>

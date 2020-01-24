@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .outer{
+            width: 200px;
+            height: 200px;
+            background: #ddd;
+        }
+
+        .inner{
+            width: 100px;
+            height: 100px;
+            background: blue;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- .prevent阻止浏览器默认行为 -->
+       <form action="" @submit.prevent="commitHandler">
+           <input type="text">
+           <button>提交</button>
+       </form>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+               msg: "hello"
+            },
+            methods: {
+                commitHandler() {
+                    console.log("test!!!");
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

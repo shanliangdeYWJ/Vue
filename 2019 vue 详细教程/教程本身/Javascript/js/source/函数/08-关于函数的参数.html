@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // js并不要求形参的数量和实参匹配
+
+        // function add(m, n) {
+        //     console.log(arguments);
+        //     return m + n;
+        // }
+
+        function add() {
+            var sum = 0;
+            for(var i = 0; i < arguments.length; i++) {
+                sum += arguments[i];
+            }
+            return sum;
+        }
+
+        var r = add(4, 8);
+        console.log(r);
+
+        // 实参个数大于形参
+        
+        var r1 = add(8, 9, 6, 90, 89, 78);  
+        console.log(r1);
+
+        var r2 = add();
+        console.log(r2);
+
+        var r3 = add(5);
+        console.log(r3);
+
+        /*
+        正常情况下，多余的实参会被忽略，
+        如果不想忽略，想得到多余的实参的值并参与运算
+        怎么办？
+        需要借助函数内部的特殊对象 arguments, 此对象是一个类数组对象，只能在函数内部使用
+        */
+
+       
+    </script>
+</body>
+</html>

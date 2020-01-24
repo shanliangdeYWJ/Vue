@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+           unshift()   数组前端添加任意个项
+           shift()  能够移除数组中的第一个项
+
+           这两个配合产生的是栈结构
+
+        先进先出   
+            用unshift() 和 pop() 配合能产生队列结构
+            shift()和push() 配合
+        */
+
+        var arr = [];
+        // 入队
+        arr.unshift("hello");
+        arr.unshift("world");
+        arr.unshift("hi");
+
+        console.log(arr);
+        
+        // arr.shift();
+        // console.log(arr);
+
+        
+        // 为了满足先进先出这种队列结构，可以配合pop弹出最后一个元素
+        arr.pop();
+        console.log(arr);
+
+        var brr = [];
+        brr.push("A");
+        brr.push("B");
+        brr.push("C");
+        console.log(brr);
+        // 从数组前端开始移除
+        brr.shift();
+        console.log(brr);
+
+    
+    </script>
+</body>
+</html>

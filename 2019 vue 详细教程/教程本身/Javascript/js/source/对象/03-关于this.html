@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        window对象代表整个浏览器窗口
+        confirm, prompt, alert都是属于window对象的行为
+
+        this就是一个指针，可以指向不同的对象
+        */
+        console.log(this);   // window 
+
+        // window.alert("！！！");  // 完全写法
+        // alert("!!!");  // 省略window对象，只有window对象可以省略
+
+        // window.document.write("hello");
+
+        var person = {
+            name: "小红",
+            say: function() {
+                console.log(this);  // person对象
+            }
+        };
+
+        window.person.say();
+
+
+        var username = "小阳";
+        console.log(window.username);
+        function fn() {
+            console.log(this);
+        }
+
+        window.fn();
+    
+    </script>
+</body>
+</html>

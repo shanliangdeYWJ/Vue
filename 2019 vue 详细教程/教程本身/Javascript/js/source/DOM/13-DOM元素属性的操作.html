@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .pic {
+            width: 200px;
+        }
+
+        .pic2 {
+            border: 5px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/01.jpg" alt="">
+    <a href="http://www.baidu.com">baidu</a>
+
+    <form action="">
+        <label for="username">username:</label> <input type="text" id="username">
+        <input type="text" id="username2">
+    </form>
+
+    <script>
+        // 设置元素的属性
+        //1. 元素.属性名 = 属性值; 
+        //  有两个特例，属性名是js的保留字和关键字，所以不能用 class , for
+        // className, htmlFor
+
+        var img = document.getElementsByTagName("img")[0];
+        img.src = "images/02.jpg";
+        img.className = "pic";
+
+        document.getElementsByTagName("label")[0].htmlFor = "username2";
+
+        document.getElementsByTagName("a")[0].href = "http://www.sina.com.cn";
+        document.getElementsByTagName("a")[0].innerHTML = "sina";
+
+        // 获取元素的属性
+        var h = document.getElementsByTagName("a")[0].href;
+
+        // 用方法的方式来获取或设置属性
+        img.setAttribute("src", "images/5.jpg");
+        // img.setAttribute("class", "pic2");
+
+        var r = img.getAttribute("src");
+
+        // 用方法的方式判断属性是否存在以及移除属性
+
+        // img.className = "";
+        img.removeAttribute("class");
+
+        var f = img.hasAttribute("src");
+
+        // 元素对象的attributes属性存储了该 元素身上所有的属性
+        // 遍历某个元素身上的所有属性
+        var as = img.attributes;
+        for(var i = 0; i < as.length; i++){
+            console.log(as[i].name, as[i].value);
+        }
+    </script>
+</body>
+
+</html>

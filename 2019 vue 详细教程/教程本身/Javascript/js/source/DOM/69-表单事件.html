@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="">
+        <input type="text" id="info"> <br>
+        <select name="" id="city">
+            <option value="">AAA</option>
+            <option value="">BBB</option>
+            <option value="">CCC</option>
+        </select>
+
+    </form>
+
+    <script>
+        var oinfo = document.querySelector("#info");
+
+        // change事件对输入框来说，需要输入框内容改变并且失去焦点后才会触发
+        // oinfo.onchange = function() {
+        //     console.log("change");
+        // };  
+
+        // 如果输入框在内容发生改变时想及时触发，需要用input事件
+        oinfo.oninput = function() {
+            console.log("input");
+        };
+
+
+        var ocity = document.querySelector("#city");
+        // change事件对于下拉框来说，只要重新选择与上次内容不同，就会触发。
+        ocity.onchange = function() {
+            console.log("select change");
+        }
+    </script>
+</body>
+</html>

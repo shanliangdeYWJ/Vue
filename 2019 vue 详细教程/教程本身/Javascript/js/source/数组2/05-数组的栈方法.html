@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 入栈  push()
+        // 出栈  pop()
+
+        var arr = []; 
+
+        arr.push("hello");  // 入栈  压栈
+        arr.push("world");
+        arr.push("hi");
+
+        console.log(arr);
+
+        // var e = arr.pop();  // 出栈
+        // console.log(e);
+        // arr.pop();
+        // arr.pop();
+        // console.log(arr);
+
+        // 数组复制 
+        function arrCopy(arr) {
+            var brr = [];
+            for(var i = 0; i < arr.length; i++) {
+                brr.push(arr[i]);
+            }
+            return brr;
+        }
+
+        console.log(arrCopy(arr));
+
+    </script>
+</body>
+</html>

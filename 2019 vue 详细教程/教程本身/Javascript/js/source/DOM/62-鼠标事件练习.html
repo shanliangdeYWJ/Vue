@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .pics{
+            margin-left: 200px;
+        }
+        .pics .small{
+            float: left;
+            margin: 100px;
+        }
+
+        .pics .small img{
+            width: 200px;
+        }
+
+        .pics .big{
+            position: absolute;
+            width: 500px;
+        }
+
+        .pics .big img{
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="pics">
+        <div class="small">
+            <img src="images/a.jpg" alt="">
+        </div>
+
+        <div class="small">
+            <img src="images/b.jpg" alt="">
+        </div>
+
+        <div class="big">
+            <img src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        var smalls = document.querySelectorAll(".small");
+        var big = document.querySelector(".big");
+        var bigImg = big.querySelector("img");
+
+        for(var i = 0; i < smalls.length; i++) {
+            smalls[i].addEventListener("mouseenter", function(e) {
+                var smallPic = this.querySelector("img").src;
+                var j = smallPic.lastIndexOf(".");  // 最后一个.的索引
+                var bigPicName = smallPic.substring(0, j) + "_big" + smallPic.substring(j);
+                // console.log(bigPic);
+                big.style.left = e.pageX + 10 + "px";
+                big.style.top = e.pageY + 10 + "px";
+                bigImg.src = bigPicName;
+                big.style.display = "block";
+            });
+
+            smalls[i].addEventListener("mouseleave", function() {
+                big.style.display = "none";
+            });
+
+            smalls[i].addEventListener("mousemove", function(e) {
+                // e = window.event || e;
+                big.style.left = e.pageX + 10 + "px";
+                big.style.top = e.pageY + 10 + "px";
+            });
+        }
+    </script>
+</body>
+</html>

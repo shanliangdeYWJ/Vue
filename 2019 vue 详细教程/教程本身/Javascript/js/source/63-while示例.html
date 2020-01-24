@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        var total = 0;   // 记录总次数
+        var wins = 0;    // 记录玩家赢的次数
+
+        while (true) {
+            total++;   
+            // 记录每次的结果
+            var result;
+            // 用户的选择
+            var player = +prompt("剪刀(0)石头(1)布(2)请输入数字");
+            // 计算机的选择
+            var computer = Math.floor(Math.random() * 3);
+           
+            // 记录所作出的选择的中文表达
+            var sPlayer;
+            var sComputer;
+            switch (player) {
+                case 0:
+                    sPlayer = "剪刀";
+                    break;
+                case 1:
+                    sPlayer = "石头";
+                    break;
+                case 2:
+                    sPlayer = "布";
+                    break;
+            }
+
+            switch (computer) {
+                case 0:
+                    sComputer = "剪刀";
+                    break;
+                case 1:
+                    sComputer = "石头";
+                    break;
+                case 2:
+                    sComputer = "布";
+                    break;
+            }
+
+            // 所有player赢的情况
+            if (player === 0 && computer === 2 || player === 1 && computer === 0 || player === 2 && computer === 1) {
+                result = "您赢了";
+                wins++;
+            } else if (player === computer) {
+                result = "平局";
+            } else {
+                result = "您输了";
+            }
+            
+            // 输出 本次结果
+            alert("您选择的是" + sPlayer +", 计算机选择的是" + sComputer + ", 结果是" + result);
+            // 询问是否继续玩游戏
+            var answer = prompt("是否继续? (y/n)");
+            if (answer === 'n') {
+                alert("谢谢！");
+                break;
+            }
+        }
+
+        alert("您一共玩了" + total + "次，赢了" + wins + "次");
+    </script>
+</body>
+
+</html>

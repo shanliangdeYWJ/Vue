@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+        }
+        .blank{
+            height: 1000px;
+            background: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="blank"></div>
+        <!-- .prevent阻止浏览器默认行为 -->
+       <a href="" @click.prevent="hideBox">隐藏</a>
+
+       <div class="box" v-show="status">
+
+       </div>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+               msg: "hello",
+               status: true
+            },
+            methods: {
+                hideBox() {
+                    this.status = false;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

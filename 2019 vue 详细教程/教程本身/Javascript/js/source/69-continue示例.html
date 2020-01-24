@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+            计算100+...999, 其中跳过十位数字为5的数值
+        */
+        var sum = 0;
+        for(var i = 100; i <= 999; i++) {
+            var n = Math.floor(i % 100 / 10);
+            // if(n === 5) {
+            //     continue;
+            // }
+            // sum += i;
+            if(n !== 5) {
+                sum += i;
+            }
+        }
+
+        console.log(sum);
+    </script>
+</body>
+</html>

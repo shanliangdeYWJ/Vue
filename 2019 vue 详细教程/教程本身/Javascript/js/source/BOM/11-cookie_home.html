@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3 id="username"></h3>
+
+    <script src="js/cookie.js"></script>
+    <script>
+        var s = getCookie("uname");
+        if(s === "") {
+            location.href = "10-cookie_login.html";
+        }else{
+            document.getElementById("username").innerHTML = s;
+        }
+    </script>
+</body>
+</html>

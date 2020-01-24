@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var a;
+        // var c;
+        // var b;
+
+        console.log(a);  // undefined  (表示只声明 ，未赋值)
+
+        // console.log(h);   // error   会导致程序中断，不再向下执行
+
+        var c = 20;
+        // c = 20;
+        console.log(c);
+        
+
+        // 在js中,有一种现象叫变量（声明）提升，在页面中声明的所有变量，它们的声明会被提前
+        console.log(b);   // undefined
+        var b = 30;
+        // b = 30;
+        console.log(b);
+
+        var c = "hello";  // 重复声明 在js中不报错, 但是会覆盖之前的c值，开发过程中要避免重复声明
+        console.log(c);
+
+
+    </script>
+</body>
+</html>

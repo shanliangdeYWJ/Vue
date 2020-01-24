@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+        for (初始化表达式; 条件; 递增表达式) {
+            语句(需要被重复执行的代码)
+        }
+
+        */
+
+        // 在控制台输出100次hello
+        /*
+            1. var i = 1
+            2. i <= 100 是否成立
+                如果成立，执行循环体即{}内的代码
+                如果不成立，跳出for结构
+            3. 在成立的情况下，执行完循环体后，会执行递增表达式
+                i++
+            4. 回到第2步
+
+        */
+        for(var i = 1; i <= 100; i++) {
+            // console.log('hello');
+            document.write(i + ':hello<br />');
+        }
+
+        console.log("end");       
+    </script>    
+</body>
+
+</html>

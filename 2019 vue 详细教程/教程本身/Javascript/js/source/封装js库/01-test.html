@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 600px;
+        }
+
+        .header {
+            border: 2px solid green;
+        }
+    
+        .pic {
+            width: 640px;
+            height: 320px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box">box</div>
+    <div class="container">container</div>
+    <div>hello</div>
+
+    <img src="" alt="">
+
+    <div class="pic">
+        <img src="images/005.jpg" alt="">
+    </div>
+
+    <label for="username">username:</label>
+
+    <script src="js/base.js"></script>
+    <script>
+
+        /*
+        1. 对找元素进行简化
+        2. 找到元素后对元素的操作进行简化
+            1) 简化批量元素的样式操作
+            2) 简化批量元素的属性操作
+            3）简化批量元素的事件操作
+        */
+
+        // 根据id，class， tag找元素
+        // console.log($("#box"));
+        // console.log($(".container"));
+        // console.log($("div"));
+
+        // // $("div").css("color", "red");
+
+        // $("#box").css("background", "#ddd");
+
+        // // $("div").css("fontSize", "30px");
+
+        // // $("div").css("color", "red").css("fontSize", "40px");
+
+        // $("#box").css({"color": "green",
+        //  "fontSize": "40px", 
+        //  "background": "pink"}).css("color", "#fff");
+
+        // $("div").attr();
+
+        // // 获取元素的css属性
+        // console.log($("#box").css("color"));
+        // console.log($("#box").css("width"));
+
+        // // 设置元素的innerHTML
+        // $("#box").html("你好");
+
+        // // 获取元素的innerHTML
+        // console.log($("#box").html());
+
+        // // 设置元素的某个属性
+        // $("#box").attr("title", "hello");
+
+        // $("img").attr("src", "images/a.jpg");
+
+        // $("div").attr("class", "header");
+
+        // $("label").attr("for", "password");
+
+        // // 关于事件的简化
+        // $("div").click(function() {
+        //     // console.log(this);
+        //     console.log(this.innerHTML);
+        // });
+
+        // $("img").get(0).hover(function() {
+        //     this.src = "images/003.jpg";
+        // }, function() {
+        //     this.src = "images/005.jpg";
+        // });
+
+        $(".pic").fadeIn(50);
+    </script>
+</body>
+
+</html>

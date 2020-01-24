@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        switch(变量) {
+            case 值1:
+                代码块1
+                break;
+            case 值2：
+                代码块2
+                break;
+            ....
+            default:
+                代码块n
+                break;
+        }
+
+        switch不适合比对区间，只适用于相等值的比对（比对时按全等来比）
+        break;用于跳出switch结构
+        */
+
+        var answer = prompt('1+2=?\nA. 3     B. 4    C. 5      D.6');
+
+        var r;
+        switch (answer) {
+            case 'A':
+                r = "回答正确";
+                break;
+            case 'a':
+                r = "回答正确";
+                break;
+            default:
+                r = "回答错误";
+                break;
+        }
+
+        alert(r);
+    </script>
+</body>
+
+</html>
