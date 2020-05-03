@@ -11,11 +11,21 @@
 <body>
 
     <div id="app">
-       <p v-for="(v, k, i) in user">
-            {{k}}, {{v}}, {{i+1}}
-       </p>
+        <!-- 
+            v 是值名
+            k 是键名
+            i 是索引名
+         -->
+        <p v-for="(v, k, i) in user">
+            {{v}},{{k}}, {{i+1}}
+        </p>
     </div>
-
+    <!-- 
+    渲染结果是
+        1002,id, 1
+        小明,name, 2
+        男,sex, 3
+ -->
     <script src="lib/vue.js"></script>
     <script>
         var app = new Vue({
