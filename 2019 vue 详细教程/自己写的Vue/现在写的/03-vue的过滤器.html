@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <title>03-vue的过滤器</title>
+  <style></style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- captilized 代表首字母大写的意思 -->
+    <p>{{msg | captialize}} </p>
+  </div>
+  <div id="box">
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app', // el 定义了vue实例所管理的边界
+      data: { // 声明应用内需要双向绑定的数据，建议所有会用到的数据都预先在data内声明，这样不至于将数据散落在业务逻辑中，难以维护
+        msg: 'hello vue!',
+      },
+      filters: {
+        /**
+         *  @param {String} val
+         */
+        captialize: function (val) {
+          console.time()
+          var arr = val.split(' ')
+          var msg = ''
+          arr.forEach(function (item) {
+            msg += item.charAt(0).toUpperCase() + item.slice(1) + ' '
+          })
+          console.log(msg)
+          console.timeEnd()
+          return msg
+        }
+      }
+    })
+    // vue本身代理了 data 对象里的所有属性，可以这样访问
+    console.log(app.$el);
+  </script>
+</body>
+
+</html>

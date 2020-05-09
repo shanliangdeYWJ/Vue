@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <title>02.demo</title>
+  <script src="./lib/art-template.js"></script>
+  <script src="./js/bookData.js"></script>
+  <style></style>
+</head>
+
+<body>
+  <div id="catalogs">
+    <script id="box" type="text/html">
+        {{each result as o i}}
+        <li>{{o.id}}--{{o.catalog}}</li>
+        {{/each}}
+      </script>
+  </div>
+  <script>
+    var h = template('box', data);
+    console.log(h);
+    document.getElementById('catalogs').innerHTML = h;
+  </script>
+</body>
+
+</html>

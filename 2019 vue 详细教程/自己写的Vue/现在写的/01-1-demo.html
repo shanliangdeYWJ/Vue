@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>01-demo</title>
+    <script src="./lib/art-template.js"></script>
+    <style></style>
+  </head>
+
+  <body>
+    <!-- 定义动态模板 -->
+    <!-- 循环：each，变量：list 别名关键字：as，别名：v，索引：i -->
+    <div id="container">
+      <script id="box" type="text/html">
+        <h2>{{title}}</h2>
+        <ul>
+          {{each list as v i}}
+          <li>{{v}}</li>
+          {{/each}}
+        </ul>
+      </script>
+    </div>
+    <!-- 渲染模板的数据 纯js代码 -->
+    <script>
+      var data = {
+        title: '标签',
+        list: ['文艺', '博客', '摄影', '电影', '民谣', '旅行', '吉他']
+      };
+      var h = template('box', data);
+      console.log(h);
+      document.getElementById('container').innerHTML = h;
+    </script>
+  </body>
+</html>
