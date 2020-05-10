@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <title>12-vue计算属性和方法区别示例</title>
+  <style></style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 方法 -->
+    总价：{{totalMoney}}
+    <!-- 计算属性 -->
+    总价：{{totalMoney()}}
+  </div>
+  <div id="box">
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app', // el 定义了vue实例所管理的边界
+      data: { // 声明应用内需要双向绑定的数据，建议所有会用到的数据都预先在data内声明，这样不至于将数据散落在业务逻辑中，难以维护
+        package1: [
+          { name: '笔记本', price: 500, num: 1 },
+          { name: '键盘', price: 300, num: 2 },
+          { name: '鼠标', price: 900, num: 4 }
+        ],
+        package2: [
+          { name: '豆浆机', price: 5000, num: 2 }
+        ]
+      },
+      // 当同一个方法名在计算属性和方法中出现时，优先使用 methods 里的那个方法
+      methods: {
+        // 方法每调用一次就运行一次
+        totalMoney() {
+          console.log('totalMoney from methods');
+          var s = 0
+          this.package1.forEach((e) => { s += e.price * e.num })
+          this.package2.forEach((e) => { s += e.price * e.num })
+          return s
+        }
+      },
+      computed: {
+        // 第一次计算后将结果缓存，后续计算先检查你的参数是否变化，没变化的将缓存取出使用
+        totalMoney() {
+          console.log('totalMoney from computed');
+          var s = 0
+          this.package1.forEach((e) => { s += e.price * e.num })
+          this.package2.forEach((e) => { s += e.price * e.num })
+          return s
+        }
+      }
+
+    })
+    // vue本身代理了 data 对象里的所有属性，可以这样访问
+    console.log(app.$el);
+  </script>
+</body>
+
+</html>

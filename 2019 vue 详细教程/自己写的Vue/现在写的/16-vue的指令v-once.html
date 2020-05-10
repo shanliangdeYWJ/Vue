@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <title>16-vue的指令v-once</title>
+  <style></style>
+</head>
+
+<body>
+  <div id="app">
+    <input type="button" value="测试v-once" @click="msg = msg === 'v-once' ? '这个没被v-once修饰' : 'v-once'">
+    <h2>{{msg}}</h2>
+    <!-- v-once  -->
+    <h3 v-once>{{msg}}</h3>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        msg: 'v-once'
+      },
+      methods: {
+        change() { this.msg = this.msg === 'v-once' ? '换掉了' : 'v-once' }
+      }
+    })
+  </script>
+</body>
+
+</html>

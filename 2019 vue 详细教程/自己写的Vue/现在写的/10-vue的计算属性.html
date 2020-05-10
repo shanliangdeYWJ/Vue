@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <title>10-vue的计算属性</title>
+  <style></style>
+</head>
+
+<body>
+  <div id="app">
+    <h3>{{msg}}</h3>
+    <!-- 逆序 -->
+    <h3>{{ reverseMsg }}</h3>
+  </div>
+  <div id="box">
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app', // el 定义了vue实例所管理的边界
+      data: { // 声明应用内需要双向绑定的数据，建议所有会用到的数据都预先在data内声明，这样不至于将数据散落在业务逻辑中，难以维护
+        msg: 'Hello vue!'
+      },
+      // 计算属性基于他的依赖的数据进行缓存，一个计算属性以来的数据发生变动，他才会重新获取值
+      computed: {
+        reverseMsg() {
+          return this.msg.split('').reverse().join('')
+        }
+      }
+    })
+    // vue本身代理了 data 对象里的所有属性，可以这样访问
+    console.log(app.$el);
+  </script>
+</body>
+
+</html>

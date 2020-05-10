@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <title>14-vue的v-bind和class</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: lightblue;
+    }
+
+    .redFont {
+      color: red;
+    }
+
+    .greenFont {
+      color: green;
+    }
+
+    .border {
+      border: 2px solid #aaa;
+    }
+
+    .shadow {
+      box-shadow: 2px 2px 2px #aaa;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <input type="button" value="删除样式" @click="flag1 = !flag1">
+    <input type="button" value="删除样式" @click="flag2 = !flag2">
+    <input type="button" value="删除样式" @click="changeStyle">
+    <!-- 类名绑定
+          绑定的类名对象中可以传入多个属性
+          :class 可以和普通class共存
+    -->
+    <div class="shadow" :class="{'box':flag1,'redFont':flag2}"> {{msg}} </div>
+    <hr>
+    <!-- 数组：当需要应用class时，可以使用数组语法，给 :class 绑定一个数组，应用一个class列表 -->
+    <div class="shadow" v-bind:class="[box,border]"> {{msg}} </div>
+    <!-- class 有多个条件值的时候，可以在数组语法中使用对象语法 -->
+    <div class="shadow" v-bind:class="[{'box':flag1,'redFont':flag2},border]"> {{msg}} </div>
+    <!-- 多数情况下，直接写一长串的样式不便于阅读和维护，所以一般写在 data 和 computed 里
+        此时的变量名称对应为样式名称连字符改成驼峰命名
+    -->
+    <div :style="styles">文本</div>
+
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue',
+        flag1: true,
+        flag2: true,
+        box: 'box',
+        border: 'border',
+        styles: {
+          color: '#ffff00',
+          fontSize: 14 + 'px'
+        }
+      },
+      methods: {
+        changeStyle() {
+          this.flag1 = !this.flag1
+          this.flag2 = !this.flag2
+          this.box = this.box == 'box' ? '' : 'box'
+          this.border = this.border == 'border' ? '' : 'border'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <title>15-vue的v-cloak</title>
+  <style>
+    /* 此时虽然已经加了指令v-cloak，但是其实并没有起到作用，当网速慢的时候还是会出现 {{message}} 插值表达式的字样，
+    Vue 创建实例，编译模板时，DOM 才会被替换，所以这个过程屏幕是山东的。只要加一句 css 就可以解决了
+    [v-cloak]{ display:none }
+
+    注意：v-cloak 是一个解决初始化慢导致页面闪动的最佳实践，对于简单项目很实用，但是在具有工程化的项目里，比如 webpack 和 vue-router 时，项目的 HTML 结构只有一个空的 div 元素，剩余的内容都是由路由去挂载，不同的组件完成的，所以不再需要 v-cloak
+    
+    v-cloak 不需要表达式，它会在 Vue 实例编译结束时从绑定的 HTML 元素上移除，经常和 css 的 display: none; 配合使用
+    */
+    [v-cloak] {
+      display: none;
+    }
+
+    input[type='text'] {
+      background: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="text" name="" id="">
+  <input type="button" value="按钮">
+
+  <div id="app" v-cloak>
+
+    <div> {{msg}} </div>
+
+  </div>
+  <script src="./js/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      }
+    })
+  </script>
+</body>
+
+</html>

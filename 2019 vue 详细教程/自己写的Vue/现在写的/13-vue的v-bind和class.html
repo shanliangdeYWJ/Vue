@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <title>13-vue的v-bind和class</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: lightblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <input type="button" value="删除样式" @click="flag = !flag">
+    <input type="button" value="删除样式" @click="flag = !flag">
+    <input type="button" value="删除样式" @click="changeStyle">
+    <div v-bind:class="{'box':flag}"> {{msg}} </div>
+    <div :class="{'box':flag}"> {{msg}} </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue',
+        flag: true
+      },
+      methods: {
+        changeStyle() {
+          this.flag = !this.flag
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

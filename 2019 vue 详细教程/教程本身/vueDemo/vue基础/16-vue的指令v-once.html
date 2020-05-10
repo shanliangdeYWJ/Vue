@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    
+
     <div id="app">
+        <input type="button" value="测试v-once" @click="msg = msg === 'v-once' ? '这个没被v-once修饰' : 'v-once'">
         <h2>{{msg}}</h2>
+        <!-- v-once 也是一个不需要表达式的指令，作用是定义它的元素或组件只渲染一次，包括元素或组件的所有子节点
+        首次渲染后，不再随数据的变化重新渲染，将被视为静态内容 -->
         <h3 v-once>{{msg}}</h3>
     </div>
 
@@ -18,9 +23,10 @@
         var app = new Vue({
             el: "#app",
             data: {
-                msg: "hello"
+                msg: "v-once"
             }
         });
     </script>
 </body>
+
 </html>

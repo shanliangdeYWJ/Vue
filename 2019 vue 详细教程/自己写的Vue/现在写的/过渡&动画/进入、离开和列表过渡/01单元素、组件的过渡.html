@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <title>单元素、组件的过渡</title>
+  <style>
+    .fade-enter-active,
+    .fade-leave-active {
+      transition: opacity .5s;
+    }
+
+    .fade-enter,
+    .fade-leave-to {
+      /* .fade-leave-active below version 2.1.8 */
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    当插入或删除包含在 transition 组件中的元素时，Vue 将会做以下处理：
+    自动嗅探目标元素是否应用了 CSS 过渡或动画，如果是，在恰当的时机添加/删除 CSS 类名。 
+      默认内置的 过渡类名
+      
+      自己定义的类型最后渲染形式
+      
+  -->
+  <div id="demo">
+    <button v-on:click="show = !show">
+      Toggle
+    </button>
+    <transition name="fade">
+      <p v-if="show">hello</p>
+    </transition>
+    <p>查看下面的</p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#demo',
+      data: {
+        show: true
+      }
+    })
+  </script>
+</body>
+
+</html>

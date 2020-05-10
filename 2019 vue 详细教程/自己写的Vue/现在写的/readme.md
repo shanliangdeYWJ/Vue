@@ -114,5 +114,9 @@ note right of Model : Plain JavaScript Objects
 ### vue 引入
 **1. vue.js在head里面引入程序自上而下执行， 如果将，他会先去执行这段代码，这样渲染dom元素会延迟**
 
-属性：用v-bind:属性名 或者 :属性名
+{{ }}
+属性：用**v-bind**:属性名 或者 :属性名
 文本用插值表达式
+
+**v-if**   
+**v-on**   v-on:click="show = !show"

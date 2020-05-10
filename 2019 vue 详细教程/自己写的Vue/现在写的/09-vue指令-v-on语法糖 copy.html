@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <title>08-vue指令-v-on语法糖</title>
+</head>
+
+
+<body>
+  <div id="app">
+    <img :src="picUrl" alt="" @mouseover="changeHandler" @mouseout="backHandler">
+    <input type="button" value="事件测试">
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app', // el 定义了vue实例所管理的边界
+      data: { // 声明应用内需要双向绑定的数据，建议所有会用到的数据都预先在data内声明，这样不至于将数据散落在业务逻辑中，难以维护
+        picUrl: './images/face3.jpeg'
+      },
+      methods: {
+        changeHandler() {
+          this.picUrl = './images/face4.jpeg'
+        },
+        backHandler() {
+          this.picUrl = './images/face3.jpeg'
+        }
+      }
+    })
+    // vue本身代理了 data 对象里的所有属性，可以这样访问
+    console.log(app.$el);
+  </script>
+</body>
+
+</html>

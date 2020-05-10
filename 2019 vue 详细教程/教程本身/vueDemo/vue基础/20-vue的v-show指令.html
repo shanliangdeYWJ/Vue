@@ -9,7 +9,18 @@
 </head>
 
 <body>
-
+    <!-- 
+        v-show 改变元素的 css 属性 display
+        
+        v-if 和 v-show 的选择
+        v-if 是条件渲染 : 
+            根据表达式适当地销毁或重建元素及绑定的事件或子组件。若表达式初值为 false ，则一开始元素/组件并不会渲染，只有当条件第一次变为真值时才开始编译。
+        v-show 是更改元素 css 样式: 
+            无论条件真与否，都会被编译。
+        总结: 
+            v-if 开销大 更适合条件不常改变的场景
+            v-show 开销小 适用于频繁切换场景
+     -->
     <div id="app">
         <h3 v-show="score==100">{{msg}}</h3>
         <input type="button" @click="hideHandler" value="修改">
