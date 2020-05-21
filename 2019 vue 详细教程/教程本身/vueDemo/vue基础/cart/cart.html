@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/cart.css">
 </head>
+
 <body>
-    
+
     <div id="app">
-        <table v-if="results.data.length>0">
+        <table v-if="results.data.length>0" border=3 cellpadding="10" cellspacing="10">
             <thead>
                 <tr>
                     <th width="10%">&nbsp;</th>
@@ -42,4 +44,5 @@
     <script src="../lib/vue.js"></script>
     <script src="js/cart.js"></script>
 </body>
+
 </html>

@@ -21,14 +21,14 @@
 
 <body>
     <div id="app">
-       <h3>1+1=?</h3>
-       <p>
-           <input type="radio" v-model="option" value="A"> A.3
-           <input type="radio" v-model="option" value="B"> B.2
-           <input type="radio" v-model="option" value="C"> C.9
-           <input type="radio" v-model="option" value="D"> D.1
-       </p>
-       <p>您选择了{{option}}</p>
+        <h3>1+1=?</h3>
+        <p>
+            <input type="radio" v-model="option" value="A" id="A"> <label for="A">A.3</label>
+            <input type="radio" v-model="option" value="B" id="B"> <label for="B">B.2</label>
+            <input type="radio" v-model="option" value="C" id="C"> <label for="C">C.9</label>
+            <input type="radio" v-model="option" value="D" id="D"> <label for="D">D.1</label>
+        </p>
+        <p>您选择了{{option}}</p>
     </div>
 
     <script src="lib/vue.js"></script>

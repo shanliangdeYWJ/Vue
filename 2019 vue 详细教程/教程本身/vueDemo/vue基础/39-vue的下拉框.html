@@ -21,7 +21,14 @@
 </head>
 
 <body>
-
+    <!-- 
+        匹配值：
+            如果含有 value 属性，v-model 就会优先匹配 value 的值
+            如果没有，就会直接匹配<option>的 text，
+        例子：
+            比如选中第二项时，select的值是 beijing ，而不是 北京 在业务中，
+            <option> 经常用 v-for 动态输出， value 和text 也是 用v-bind 来动态输出
+     -->
     <div id="app">
         您来自：
         <select v-model="city">
@@ -38,7 +45,7 @@
         var app = new Vue({
             el: "#app",
             data: {
-               city: 'shanghai'
+                city: 'shanghai'
             }
         });
     </script>

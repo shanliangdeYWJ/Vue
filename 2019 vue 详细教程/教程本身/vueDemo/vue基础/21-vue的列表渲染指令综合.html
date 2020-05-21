@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- ========   对象遍历渲染  ======== -->
+        <!-- 
+            v 是值名
+            k 是键名
+            i 是索引名
+         -->
+        <h3>遍历对象</h3>
+        <p v-for="(v, k, i) in 对象">
+            {{对象}}
+            【值：{{v}}】 【键：{{k}}】 【加了1的索引：{{i+1}}】
+        </p>
+        <!-- 
+        渲染结果是
+            1002,id, 1
+            小明,name, 2
+            男,sex, 3
+        -->
+        <hr>
+        <!-- ========   数组遍历渲染  ======== -->
+        <h3>遍历数组</h3>
+        <p v-for="(v, i) in 数组">
+            {{数组}}
+            【值：{{v}}】【加了1的索引：{{i+1}}】
+        </p>
+        <hr>
+        <!-- ========   对象数组遍历渲染  ======== -->
+        <h3>遍历对象数组</h3>
+        <p v-for="(item,i) in 对象数组">
+            {{对象数组}} <br>
+            <!-- {{i}}
+            {{item.eno}}
+            {{item.ename}}
+            {{item.salary}} -->
+            <span v-for="(v,k,i) in item"> 【值：{{v}}】 【键：{{k}}】 【加了1的索引：{{i+1}}】 </span> <br>
+        </p>
+        <hr>
+        <!-- ========   数组对象遍历渲染  ======== -->
+        <h3>遍历数组对象</h3>
+        <p v-for="(v,k,i) in 数组对象">
+            <!-- {{数组对象}} <br> -->
+            <!-- {{v}}--{{k}}-{{i}}<br><br> -->
+            <span v-for="(v1,i1) in v">
+                {{v1}}--{{i1}}<br>
+                <span v-for="(v3,k3,i3) in v1">{{v3}}--{{k3}}--{{i3}}</span> <br>
+            </span>
+        </p>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                "对象": { id: 1002, name: "小明", sex: "男" },
+                "数组": ["AAA", "BBB", "CCC"],
+                "对象数组": [
+                    { eno: 1006, ename: "李明", salary: 15000 },
+                    { eno: 1009, ename: "李丽", salary: 12000 },
+                    { eno: 1003, ename: "杨明", salary: 19000 }
+                ],
+                "数组对象": {
+                    "one": [{ xtwh: "xtwhVal" }, { msgj: "msgjVal" }],
+                    "two": [{ xtwh: "xtwhVal" }, { msgj: "msgjVal" }],
+                    "three": [{ xtwh: "xtwhVal" }, { msgj: "msgjVal" }]
+                }
+
+            }
+        });
+    </script>
+</body>
+
+</html>

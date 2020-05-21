@@ -24,12 +24,12 @@
 
     <div id="app">
         您来自：
-        <select v-model="city" multiple>
+        <select v-model="city">
             <option value="zhengzhou">郑州</option>
             <option value="beijing">北京</option>
             <option value="shanghai">上海</option>
         </select>
-        
+
         {{city}}
     </div>
 
@@ -38,7 +38,7 @@
         var app = new Vue({
             el: "#app",
             data: {
-               city: ["zhengzhou","beijing"]
+                city: ["zhengzhou", "beijing"]
             }
         });
     </script>

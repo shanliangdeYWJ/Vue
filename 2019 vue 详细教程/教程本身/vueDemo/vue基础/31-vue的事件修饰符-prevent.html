@@ -7,13 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        .outer{
+        .outer {
             width: 200px;
             height: 200px;
             background: #ddd;
         }
 
-        .inner{
+        .inner {
             width: 100px;
             height: 100px;
             background: blue;
@@ -26,10 +26,10 @@
 
     <div id="app">
         <!-- .prevent阻止浏览器默认行为 -->
-       <form action="" @submit.prevent="commitHandler">
-           <input type="text">
-           <button>提交</button>
-       </form>
+        <form action="" @submit.prevent="commitHandler">
+            <input type="text">
+            <button>提交</button>
+        </form>
     </div>
 
     <script src="lib/vue.js"></script>
@@ -37,7 +37,7 @@
         var app = new Vue({
             el: "#app",
             data: {
-               msg: "hello"
+                msg: "hello"
             },
             methods: {
                 commitHandler() {

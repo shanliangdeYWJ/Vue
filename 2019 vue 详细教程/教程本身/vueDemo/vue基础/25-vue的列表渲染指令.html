@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        table{
+        table {
             border-collapse: collapse;
             width: 50%;
             line-height: 30px;
@@ -15,14 +15,16 @@
             color: #666;
         }
 
-        th{
+        th {
             background: yellowgreen;
             color: #fff;
         }
-        table, th, td{
+
+        table,
+        th,
+        td {
             border: 1px solid #ddd;
         }
-
     </style>
 </head>
 
@@ -39,13 +41,14 @@
                 </tr>
             </thead>
             <tbody>
+                <!-- template 是 vue 提供的标签 起到区块控制的作用 不会展示任何 HTML 标记 -->
                 <!-- <template v-if="emps.length>0"> -->
-                    <tr v-for="(e, i) in emps" v-if="emps.length>0">
-                        <td>{{e.eno}}</td>
-                        <td>{{e.ename}}</td>
-                        <td>{{e.salary}}</td>
-                        <td><button @click="removeHandler(i)">删除</button></td>
-                    </tr>
+                <tr v-for="(e, i) in emps" v-if="emps.length>0">
+                    <td>{{e.eno}}</td>
+                    <td>{{e.ename}}</td>
+                    <td>{{e.salary}}</td>
+                    <td><button @click="removeHandler(i)">删除</button></td>
+                </tr>
                 <!-- </template> -->
                 <tr v-if="emps.length==0">
                     <td colspan="4">暂无员工信息</td>

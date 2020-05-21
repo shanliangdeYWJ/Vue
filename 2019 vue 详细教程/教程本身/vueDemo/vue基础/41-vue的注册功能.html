@@ -26,20 +26,20 @@
         <form action="" @submit.prevent="regHandler">
             username: <input type="text" v-model="username"> <br>
             password: <input type="password" v-model="userpwd"> <br>
-            sex: <input type="radio" v-model="usersex" value="男"> 男
-            <input type="radio" v-model="usersex" value="女"> 女 <br>
+            sex: <input type="radio" v-model="usersex" value="男" id="male"> <label for="male">男</label>
+            <input type="radio" v-model="usersex" value="女" id="female"> <label for="female">女</label><br>
             likes:
             <p>
-                <input type="checkbox" v-model="like" value="music"> 音乐
+                <input type="checkbox" v-model="like" value="music" id="music"> <label for="music">音乐</label>
             </p>
             <p>
-                <input type="checkbox" v-model="like" value="reading"> 阅读
+                <input type="checkbox" v-model="like" value="reading" id="reading"> <label for="reading">阅读</label>
             </p>
             <p>
-                <input type="checkbox" v-model="like" value="sport"> 运动
+                <input type="checkbox" v-model="like" value="sport" id="sport"> <label for="sport">运动</label>
             </p>
             <p>
-                <input type="checkbox" v-model="like" value="travel"> 旅游
+                <input type="checkbox" v-model="like" value="travel" id="travel"> <label for="travel">旅游</label>
             </p>
             from:
             <select v-model="city">
@@ -48,11 +48,11 @@
                 <option value="shanghai">上海</option>
             </select>
             <br>
-            desc: 
-            <textarea cols="30" rows="10" v-model="userdesc"></textarea> 
+            desc:
+            <textarea cols="30" rows="10" v-model="userdesc"></textarea>
             <br>
-            <input type="submit" value="注册"> 
-            <input type="reset" value="重置"> 
+            <input type="submit" value="注册"><!-- 注册事件是form表单的所以点击事件绑定在form表单上 -->
+            <input type="reset" value="重置">
         </form>
     </div>
 

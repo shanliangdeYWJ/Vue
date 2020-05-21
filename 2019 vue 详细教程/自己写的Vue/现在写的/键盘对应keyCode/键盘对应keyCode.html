@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>键盘ui </title>
+</head>
+<style type="text/css">
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: "comic sans ms";
+  }
+
+  body {
+    text-align: center;
+  }
+
+  button {
+    width: 62px;
+    height: 59px;
+    background-color: white;
+    font-size: 14px;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 4px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+  }
+
+  button:hover {
+    box-shadow: 0px 4px 4px 4px rgba(79, 239, 239, 61), 2px 4px 4px 0px rgba(0, 255, 255, 61);
+    border: 1px solid black;
+  }
+
+  .f_div {
+    position: relative;
+    background-color: #cccccc;
+    width: 1165px;
+    height: 400px;
+    margin: 100px 10%;
+    border-radius: 10px;
+    display: flex;
+  }
+
+  .first {
+    margin: 2px;
+    height: 35px;
+  }
+
+  #s_div {
+    position: absolute;
+    top: 10px;
+  }
+
+  /* 上下左右 */
+  i {
+    border: solid black;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+
+  .up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+
+  /* 
+  <p>Right arrow: <i class="right"></i></p>
+  <p>Left arrow: <i class="left"></i></p>
+  <p>Up arrow: <i class="up"></i></p>
+  <p>Down arrow: <i class="down"></i></p>
+   */
+</style>
+
+<body>
+  <div class="f_div">
+    <div id="s_div">
+      <!-- 顶排 -->
+      <button class="first">esc</button>
+      <button class="first">f1</button>
+      <button class="first">f2</button>
+      <button class="first">f3</button>
+      <button class="first">f4</button>
+      <button class="first">f5</button>
+      <button class="first">f6</button>
+      <button class="first">f7</button>
+      <button class="first">f8</button>
+      <button class="first">f9</button>
+      <button class="first">f10</button>
+      <button class="first">f11</button>
+      <button class="first">f12</button>
+      <button class="first">pause</button>
+      <button class="first">prt sc</button>
+      <button class="first">Delete</button>
+      <!-- 第一排 -->
+      <button>~</button>
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button>0</button>
+      <button>-</button>
+      <button>+</button>
+      <button style="width: 134px;">Delete</button>
+      <!-- 第二排 -->
+      <button style="width: 98px;">Tab</button>
+      <button>Q</button>
+      <button>W</button>
+      <button>E</button>
+      <button>R</button>
+      <button>T</button>
+      <button>Y</button>
+      <button>U</button>
+      <button>I</button>
+      <button>O</button>
+      <button>P</button>
+      <button>[</button>
+      <button>]</button>
+      <button style="width:98px;">\</button>
+      <!-- 第三排 -->
+      <button style="width: 134px;">CapsLk</button>
+      <button>A</button>
+      <button>S</button>
+      <button>D</button>
+      <button>F</button>
+      <button>G</button>
+      <button>H</button>
+      <button>J</button>
+      <button>K</button>
+      <button>L</button>
+      <button>;</button>
+      <button>'</button>
+      <button style="width:134px;">Enter</button>
+      <!-- 第四排 -->
+      <button style="width: 170px;">Shift</button>
+      <button>Z</button>
+      <button>X</button>
+      <button>C</button>
+      <button>V</button>
+      <button>B</button>
+      <button>N</button>
+      <button>M</button>
+      <button>,</button>
+      <button>.</button>
+      <button>/</button>
+      <button style="width:99px;">Shift</button>
+      <button> <i class="up"></i></button>
+      <!-- 第五排 -->
+      <button style="width: 98px;">Ctrl</button>
+      <button>Fn</button>
+      <button>Window</button>
+      <button>Alt</button>
+      <button style="width: 391px;">span</button>
+      <button>Alt</button>
+      <button>--</button>
+      <button>ctrl</button>
+      <button><i class="left"></i></button>
+      <button><i class="down"></i></button>
+    </div>
+  </div>
+</body>
+
+</html>
